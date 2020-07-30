@@ -1,26 +1,27 @@
 import React from 'react';
-import { Switch, Route, BrowserRouter, Router } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from './context';
 import './App.css';
+import Login from './pages/Login';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <Provider>
         <Switch>
-          <Router exact path='/' />
-          <Router exact path='/comidas' />
-          <Router exact path='/bebidas' />
-          <Router exact path='/comidas/:id' />
-          <Router exact path='/bebidas/:id' />
-          <Router exact path='/bebidas/:id/in-progress' />
-          <Router />
-          <Router />
-          <Router />
-          <Router />
+          <Route exact path='/' component={Login} />
+          <Route exact path='/comidas' />
+          <Route exact path='/bebidas' />
+          <Route exact path='/comidas/:id' />
+          <Route exact path='/bebidas/:id' />
+          <Route exact path='/bebidas/:id/in-progress' />
+          <Route />
+          <Route />
+          <Route />
+          <Route />
         </Switch>
       </Provider>
-    </BrowserRouter>
+    </Router>
   );
 };
 
