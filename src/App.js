@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route, BrowserRouter, Router } from 'react-router-dom';
 import { Provider } from './context';
+import * as pages from './pages';
 import './App.css';
 
 const App = () => {
@@ -8,16 +9,22 @@ const App = () => {
     <BrowserRouter>
       <Provider>
         <Switch>
-          <Router exact path='/' />
+          <Router exact path='/' component={pages.Login} />
           <Router exact path='/comidas' />
           <Router exact path='/bebidas' />
           <Router exact path='/comidas/:id' />
           <Router exact path='/bebidas/:id' />
-          <Router exact path='/bebidas/:id/in-progress' />
-          <Router />
-          <Router />
-          <Router />
-          <Router />
+          <Router path='/comidas/:id/in-progress' />
+          <Router path='/bebidas/:id/in-progress' />
+          <Router exact path='/explorar' />
+          <Router exact path='/explorar/comidas' />
+          <Router exact path='/explorar/bebidas' />
+          <Router path='/explorar/comidas/ingredientes' />
+          <Router path='/explorar/bebidas/ingredientes' />
+          <Router path='/explorar/comidas/area' />
+          <Router path='/perfil' />
+          <Router path='/receitas-feitas' />
+          <Router path='/receitas-favoritas' />
         </Switch>
       </Provider>
     </BrowserRouter>
@@ -25,23 +32,3 @@ const App = () => {
 };
 
 export default App;
-
-
-/*
-Tela de login: /;
-Tela principal de receitas de comidas: /comidas;
-Tela principal de receitas de bebidas: /bebidas;
-Tela de detalhes de uma receita de comida: /comidas/{id-da-receita};
-Tela de detalhes de uma receita de bebida: /bebidas/{id-da-receita};
-Tela de receita em processo de comida: /comidas/{id-da-receita}/in-progress;
-Tela de receita em processo de bebida: /bebidas/{id-da-receita}/in-progress;
-Tela de explorar: /explorar;
-Tela de explorar comidas: /explorar/comidas;
-Tela de explorar bebidas: /explorar/bebidas;
-Tela de explorar comidas por ingrediente: /explorar/comidas/ingredientes;
-Tela de explorar bebidas por ingrediente: /explorar/bebidas/ingredientes;
-Tela de explorar comidas por local de origem: /explorar/comidas/area;
-Tela de perfil: /perfil;
-Tela de receitas feitas: /receitas-feitas;
-Tela de receitas favoritas: /receitas-favoritas.
-*/
