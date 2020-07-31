@@ -1,7 +1,5 @@
-import React, { /* Component */ } from 'react';
+import React /* Component */ from 'react';
 
-const MainPageFoods = () => {
-  return <div>Main Page</div>;
-};
+const MainPageFoods = () => <div>Main Page</div>;
 
 export default MainPageFoods;
