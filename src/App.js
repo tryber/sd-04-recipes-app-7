@@ -5,7 +5,7 @@ import * as pages from './pages';
 import './App.css';
 
 const App = () => {
-  return (
+  (
     <Router>
       <Provider>
         <Switch>
