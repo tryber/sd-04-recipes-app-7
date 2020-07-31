@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const validEmail = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/;
+const validEmail = /^([a-zd.-]+)@([a-zd-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
 const defaultData = { email: '', pass: '', valid: false };
 
 const Login = () => {
