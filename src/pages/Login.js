@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { checkEmail } from '../services';
 
 // const validEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
@@ -26,19 +26,20 @@ const Login = () => {
         onChange={handleInputs}
         data-testid="password-input"
       />
-      <button
-        type="button"
-        data-testid="login-submit-btn"
-        disabled={!(checkEmail(userData.email) && checkPass(userData.pass))}
-        onClick={() => {
-          localStorage.setItem('mealsToken', 1);
-          localStorage.setItem('cocktailsToken', 1);
-          localStorage.setItem('user', JSON.stringify({ email: userData.email }));
-          // <Redirect to="/comidas" />
-        }}
-      >
-        Entrar
-      </button>
+      <Link to="/comidas">
+        <button
+          type="button"
+          data-testid="login-submit-btn"
+          disabled={!(checkEmail(userData.email) && checkPass(userData.pass))}
+          onClick={() => {
+            localStorage.setItem('mealsToken', 1);
+            localStorage.setItem('cocktailsToken', 1);
+            localStorage.setItem('user', JSON.stringify({ email: userData.email }));
+          }}
+        >
+          Entrar
+        </button>
+      </Link>
     </div>
   );
 };
