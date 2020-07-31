@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { checkEmail } from '../services';
 
-const validEmail = /^([a-zd.-]+)@([a-zd-]+).([a-z]{2,8})(.[a-z]{2,8})?$/;
-const checkEmail = (email) => validEmail.test(email);
+// const validEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
+// const checkEmail = (email) => validEmail.test(email);
 const checkPass = (password) => password.length > 6;
 const defaultData = { email: '', pass: '' };
 
