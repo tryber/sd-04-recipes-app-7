@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { checkEmail } from '../services';
 
 // const validEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
@@ -8,8 +9,7 @@ const defaultData = { email: '', pass: '' };
 
 const Login = () => {
   const [userData, setUserData] = useState(defaultData);
-  const handleInputs = ({ target: { name, value } }) =>
-    setUserData({ ...userData, [name]: value });
+  const handleInputs = ({ target: { name, value } }) => setUserData({ ...userData, [name]: value });
   return (
     <div>
       <input
@@ -30,6 +30,12 @@ const Login = () => {
         type="button"
         data-testid="login-submit-btn"
         disabled={!(checkEmail(userData.email) && checkPass(userData.pass))}
+        onClick={() => {
+          localStorage.setItem('mealsToken', 1);
+          localStorage.setItem('cocktailsToken', 1);
+          localStorage.setItem('user', JSON.stringify({ email: userData.email }));
+          // <Redirect to="/comidas" />
+        }}
       >
         Entrar
       </button>

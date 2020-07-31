@@ -1,7 +1,7 @@
 import React, { /* Component */ } from 'react';
 
-const MainPage = () => {
+const MainPageFoods = () => {
   return <div>Main Page</div>;
 };
 
-export default MainPage;
+export default MainPageFoods;
