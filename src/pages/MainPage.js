@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { /* Component */ } from 'react';
 
 const MainPage = () => {
-  return <div></div>;
+  return <div>Main Page</div>;
 };
 
 export default MainPage;
