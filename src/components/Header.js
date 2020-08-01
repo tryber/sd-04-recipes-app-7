@@ -38,13 +38,13 @@ const Header = () => {
 
   const onClick = () => {
     if (selection === null) {
-      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.')
-      return
+      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+      return;
     }
     if (selection.length === 1) {
-      alert('one')
+      alert('one');
     } else {
-      alert('a lot')
+      alert('a lot');
     }
   };
   return (
