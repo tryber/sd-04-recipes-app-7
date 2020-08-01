@@ -17,7 +17,7 @@ const Header = () => {
       switch (value) {
         case 'ingredient':
           getFilterByIngredient(selection).then((data) =>
-            setSelection(data.meals)
+            setSelection(data.meals),
           );
           break;
         case 'name':
@@ -25,7 +25,7 @@ const Header = () => {
           break;
         case value:
           getFilterByFirstLetter(selection).then((data) =>
-            setSelection(data.meals)
+            setSelection(data.meals),
           );
           break;
         default:

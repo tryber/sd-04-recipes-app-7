@@ -16,8 +16,8 @@ export const getFilterByIngredient = async (ingrediente) => {
   return ingredient.json();
 };
 
-export const getFilterByFirstLetter = async (primeira_letra) => {
-  const URL = `https://www.themealdb.com/api/json/v1/1/search.php?f=${primeira_letra}`;
+export const getFilterByFirstLetter = async (primeiraLetra) => {
+  const URL = `https://www.themealdb.com/api/json/v1/1/search.php?f=${primeiraLetra}`;
   const firstLetter = await fetch(URL);
   return firstLetter.json();
 };
