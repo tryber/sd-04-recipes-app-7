@@ -3,9 +3,11 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from './context';
 import * as pages from './pages';
 import './App.css';
+import Header from './components/Header';
 
 const App = () => (
   <Router>
+    <Header />
     <Provider>
       <Switch>
         <Route exact path="/" component={pages.Login} />
