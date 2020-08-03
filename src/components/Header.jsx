@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg'
 
-const Header = ({ title }) => {
+const Header = ({ type, title }) => {
   const [searchbar, setSearchbar] = useState(false);
 
   return (
@@ -22,7 +22,7 @@ const Header = ({ title }) => {
           alt="img-search"
         />
       </header>
-      {searchbar && <h1>Searchbar</h1>}
+      {searchbar && <h1 type={type}>Searchbar</h1>}
     </div>
   );
 };
