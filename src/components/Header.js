@@ -9,16 +9,14 @@ const radioOption = (value, selection, setSelection) => {
   if (selection.length >= 1) {
     switch (value) {
       case 'ingredient':
-        getFilterByIngredient(selection).then((data) =>
-          setSelection(data.meals),
+        getFilterByIngredient(selection).then((data) => setSelection(data.meals),
         );
         break;
       case 'name':
         getMealByNameAPI(selection).then((data) => setSelection(data.meals));
         break;
       case value:
-        getFilterByFirstLetter(selection).then((data) =>
-          setSelection(data.meals),
+        getFilterByFirstLetter(selection).then((data) => setSelection(data.meals),
         );
         break;
       default:
