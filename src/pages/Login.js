@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { checkEmail } from '../services';
 
-const validEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
-const checkEmail = (email) => validEmail.test(email);
+// const validEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
+// const checkEmail = (email) => validEmail.test(email);
 const checkPass = (password) => password.length > 6;
 const defaultData = { email: '', pass: '' };
 
 const Login = () => {
   const [userData, setUserData] = useState(defaultData);
-  const handleInputs = ({ target: { name, value } }) =>
-    setUserData({ ...userData, [name]: value });
+  const handleInputs = ({ target: { name, value } }) => setUserData({ ...userData, [name]: value });
   return (
     <div>
       <input
@@ -25,13 +26,20 @@ const Login = () => {
         onChange={handleInputs}
         data-testid="password-input"
       />
-      <button
-        type="button"
-        data-testid="login-submit-btn"
-        disabled={!(checkEmail(userData.email) && checkPass(userData.pass))}
-      >
-        Entrar
-      </button>
+      <Link to="/comidas">
+        <button
+          type="button"
+          data-testid="login-submit-btn"
+          disabled={!(checkEmail(userData.email) && checkPass(userData.pass))}
+          onClick={() => {
+            localStorage.setItem('mealsToken', 1);
+            localStorage.setItem('cocktailsToken', 1);
+            localStorage.setItem('user', JSON.stringify({ email: userData.email }));
+          }}
+        >
+          Entrar
+        </button>
+      </Link>
     </div>
   );
 };

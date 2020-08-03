@@ -3,15 +3,13 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from './context';
 import * as pages from './pages';
 import './App.css';
-import Header from './components/Header';
 
 const App = () => (
   <Router>
-    <Header />
     <Provider>
       <Switch>
         <Route exact path="/" component={pages.Login} />
-        <Route exact path="/comidas" />
+        <Route exact path="/comidas" component={pages.MainPageFoods} />
         <Route exact path="/bebidas" />
         <Route exact path="/comidas/:id" />
         <Route exact path="/bebidas/:id" />
