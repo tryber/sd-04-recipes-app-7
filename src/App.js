@@ -15,7 +15,7 @@ const App = () => (
         <Route exact path="/bebidas/:id" />
         <Route path="/comidas/:id/in-progress" />
         <Route path="/bebidas/:id/in-progress" />
-        <Route exact path="/explorar" />
+        <Route exact path="/explorar" component={pages.Explorar} />
         <Route exact path="/explorar/comidas" />
         <Route exact path="/explorar/bebidas" />
         <Route path="/explorar/comidas/ingredientes" />
