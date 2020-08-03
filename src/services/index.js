@@ -9,3 +9,16 @@ export const getCocktailByNameAPI = async (name) => {
   const cocktails = await fetch(URL);
   return cocktails.json();
 };
+
+export const checkEmail = (email) => {
+  // const divid = email.split('@');
+  // const chars = email.includes('@') && email.includes('.');
+  // const posArroba = email.indexOf('@');
+  // const posDot = email.indexOf('.');
+  // if (email.indexOf('@') < email.indexOf('.')) return false;
+  if (!email.includes('@') || !email.includes('.')) return false;
+  const atpos = email.indexOf('@');
+  const dotpos = email.lastIndexOf('.');
+  if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) return false;
+  return true;
+};
