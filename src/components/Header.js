@@ -44,12 +44,14 @@ const Header = () => {
   return (
     <div>
       <input
+        data-testid="search-input"
+        placeholder="Buscar Receita"
         id="searchBar"
         type="text"
         onChange={(event) => setText(event.target.value)}
       />
-      <label htmlFor="searchBar" />
       <input
+        data-testid="ingredient-search-radio"
         id="ingredient"
         type="radio"
         name="filter"
@@ -57,6 +59,7 @@ const Header = () => {
       />
       <label htmlFor="ingredient">Ingrediente</label>
       <input
+        data-testid="name-search-radio"
         id="name"
         type="radio"
         name="filter"
@@ -64,13 +67,14 @@ const Header = () => {
       />
       <label htmlFor="name">Nome</label>
       <input
+        data-testid="first-letter-search-radio"
         id="firstLetter"
         type="radio"
         name="filter"
         onChange={() => radioOption('firstLetter', selection, setSelection)}
       />
       <label htmlFor="firstLetter">Primeira letra</label>
-      <button type="button" onClick={onClick}>
+      <button data-testid="exec-search-btn" type="button" onClick={onClick}>
         Buscar
       </button>
     </div>
