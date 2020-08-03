@@ -5,35 +5,35 @@ import {
   getFilterByFirstLetter,
 } from '../services';
 
+const radioOption = (value, selection, setSelection) => {
+  if (selection.length >= 1) {
+    switch (value) {
+      case 'ingredient':
+        getFilterByIngredient(selection).then((data) =>
+          setSelection(data.meals),
+        );
+        break;
+      case 'name':
+        getMealByNameAPI(selection).then((data) => setSelection(data.meals));
+        break;
+      case value:
+        getFilterByFirstLetter(selection).then((data) =>
+          setSelection(data.meals),
+        );
+        break;
+      default:
+        alert('');
+    }
+  } else {
+    alert('Escolha um ingrediente');
+  }
+};
+
 const Header = () => {
   const [selection, setSelection] = useState('');
 
   const setText = (event) => {
     setSelection(event);
-  };
-
-  const radioOption = (value) => {
-    if (selection.length >= 1) {
-      switch (value) {
-        case 'ingredient':
-          getFilterByIngredient(selection).then((data) =>
-            setSelection(data.meals),
-          );
-          break;
-        case 'name':
-          getMealByNameAPI(selection).then((data) => setSelection(data.meals));
-          break;
-        case value:
-          getFilterByFirstLetter(selection).then((data) =>
-            setSelection(data.meals),
-          );
-          break;
-        default:
-          alert('');
-      }
-    } else {
-      alert('Escolha um ingrediente');
-    }
   };
 
   const onClick = () => {
@@ -59,21 +59,21 @@ const Header = () => {
         id="ingredient"
         type="radio"
         name="filter"
-        onChange={() => radioOption('ingredient')}
+        onChange={() => radioOption('ingredient', selection, setSelection)}
       />
       <label htmlFor="ingredient">Ingrediente</label>
       <input
         id="name"
         type="radio"
         name="filter"
-        onChange={() => radioOption('name')}
+        onChange={() => radioOption('name', selection, setSelection)}
       />
       <label htmlFor="name">Nome</label>
       <input
         id="firstLetter"
         type="radio"
         name="filter"
-        onChange={() => radioOption('firstLetter')}
+        onChange={() => radioOption('firstLetter', selection, setSelection)}
       />
       <label htmlFor="firstLetter">Primeira letra</label>
       <button type="button" onClick={onClick}>
