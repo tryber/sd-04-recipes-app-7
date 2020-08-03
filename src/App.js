@@ -9,7 +9,7 @@ const App = () => (
     <Provider>
       <Switch>
         <Route exact path="/" component={pages.Login} />
-        <Route exact path="/comidas" />
+        <Route exact path="/comidas" component={pages.MainPageFoods} />
         <Route exact path="/bebidas" />
         <Route exact path="/comidas/:id" />
         <Route exact path="/bebidas/:id" />
