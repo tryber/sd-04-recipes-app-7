@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import profileIcon from '../images/profileIcon';
-import searchIcon from '../images/searchIcon'
+import profileIcon from '../images/profileIcon.svg';
+import searchIcon from '../images/searchIcon.svg'
 
-const Header = ({ type, title }) => {
-  const [seeSearchbar, setSeeSearchbar] = useState(false);
+const Header = ({ title }) => {
+  const [searchbar, setSearchbar] = useState(false);
 
   return (
     <div>
@@ -18,11 +18,11 @@ const Header = ({ type, title }) => {
           src={searchIcon}
           type="image"
           data-testid="search-top-btn"
-          onClick={() => setSeeSearchbar(!seeSearchbar)}
+          onClick={() => setSearchbar(!searchbar)}
           alt="img-search"
         />
       </header>
-      {/* {seeSearchbar && <Searchbar type={type} />} */}
+      {searchbar && <h1>Searchbar</h1>}
     </div>
   );
 };
