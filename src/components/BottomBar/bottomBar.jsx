@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import './bottomBar.css';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { defaultsDeep } from 'lodash';
+import './bottomBar.css';
 import drink from '../../images/drinkIcon.svg';
 import explorer from '../../images/exploreIcon.svg';
 import fork from '../../images/mealIcon.svg';
@@ -24,6 +23,6 @@ const BottomBar = () => (
       </Link>
     </div>
   </footer>
-)
+);
 
 export default BottomBar;
