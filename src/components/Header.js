@@ -61,8 +61,10 @@ const Header = () => {
         onChange={() => radioOption('name', selection, setSelection)}
       />
       <label htmlFor="name">Nome</label>
-      <input data-testid="first-letter-search-radio" id="firstLetter" type="radio"
-        name="filter" onChange={() => radioOption('firstLetter', selection, setSelection)}
+      <input
+        data-testid="first-letter-search-radio" id="firstLetter"
+        type="radio" name="filter"
+        onChange={() => radioOption('firstLetter', selection, setSelection)}
       />
       <label htmlFor="firstLetter">Primeira letra</label>
       <button data-testid="exec-search-btn" type="button" onClick={onClick}>
