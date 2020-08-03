@@ -37,15 +37,9 @@ const Header = () => {
   };
 
   const onClick = () => {
-    if (selection === null) {
-      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
-      return;
-    }
-    if (selection.length === 1) {
-      alert('one');
-    } else {
-      alert('a lot');
-    }
+    if (selection === null) alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+    if (selection.length === 1) alert('one');
+    else alert('a lot');
   };
   return (
     <div>
