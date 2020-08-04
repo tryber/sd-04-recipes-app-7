@@ -28,16 +28,16 @@ const onClick = (selection) => {
   if (selection === null) alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
   if (selection.length === 1) {
     const mainPage = document.querySelector('#root');
+    const list = document.createElement('UL');
     selection.map((item) => {
-      const list = document.createElement('UL');
       list.setAttribute('key', `${item.strMeal}`);
       mainPage.appendChild(list);
       const mealList = document.createElement('LI');
       const meal = document.createTextNode(`${item.strMeal}`);
       mealList.appendChild(meal);
-      list.appendChild(mealList);
-    })
-  };
+      return list.appendChild(mealList);
+    });
+  }
   console.log('a lot');
 };
 
