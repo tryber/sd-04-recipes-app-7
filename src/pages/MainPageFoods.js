@@ -1,9 +1,10 @@
 import React /* Component */ from 'react';
 import BottomBar from '../components/BottomBar/bottomBar';
+import Header from '../components/Header';
 
 const MainPageFoods = () => (
   <div>
-    Main Page
+    <Header />
     <BottomBar />
   </div>
 );
