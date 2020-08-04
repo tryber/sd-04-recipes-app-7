@@ -1,8 +1,9 @@
 import React from 'react';
+import Header from '../components/Header';
 
 const MadeRecipes = () => (
   <div>
-    <div>Made Recipes</div>
+    <Header title="Receitas Feitas" />
   </div>
 );
 
