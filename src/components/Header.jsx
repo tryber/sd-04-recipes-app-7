@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
+import SearchBar from './SearchBar';
 
 const Header = ({ title }) => {
   const [searchbar, setSearchbar] = useState(false);
@@ -22,7 +23,7 @@ const Header = ({ title }) => {
           alt="img-search"
         />
       </header>
-      {searchbar && <h1>Searchbar</h1>}
+      {searchbar && <SearchBar />}
     </div>
   );
 };
