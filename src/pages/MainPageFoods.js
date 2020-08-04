@@ -4,7 +4,7 @@ import Header from '../components/Header';
 
 const MainPageFoods = () => (
   <div>
-    <Header title="Comidas" searchble/>
+    <Header title="Comidas" searchble />
     <BottomBar />
   </div>
 );
