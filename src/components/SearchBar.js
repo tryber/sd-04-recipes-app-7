@@ -41,7 +41,7 @@ const SearchBar = () => {
     const list = document.createElement('UL');
     if (selection === null || selection.length === 0)
     alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
-    if (selection.length === 1 && <Redirect to="/" />);
+    if (selection.length === 1 && <Redirect to="/comidas" />);
     if (selection.length > 1) {
       selection.map((item) => {
         list.setAttribute('key', `${item.strMeal}`);
