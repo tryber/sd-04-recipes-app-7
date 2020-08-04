@@ -7,19 +7,19 @@ import fork from '../../images/mealIcon.svg';
 
 const BottomBar = () => (
   <footer data-testid="footer" className="master-container">
-    <div data-testid="drinks-bottom-btn">
+    <div>
       <Link to="/bebidas">
-        <img src={drink} alt="cup" />
+        <img data-testid="drinks-bottom-btn" src={drink} alt="cup" />
       </Link>
     </div>
-    <div data-testid="explore-bottom-btn">
+    <div>
       <Link to="/explorar">
-        <img src={explorer} alt="explorer" />
+        <img data-testid="explore-bottom-btn" src={explorer} alt="explorer" />
       </Link>
     </div>
-    <div data-testid="food-bottom-btn">
+    <div >
       <Link to="/comidas">
-        <img src={fork} alt="fork" />
+        <img data-testid="food-bottom-btn" src={fork} alt="fork" />
       </Link>
     </div>
   </footer>
