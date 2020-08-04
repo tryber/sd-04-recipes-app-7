@@ -1,10 +1,14 @@
-import React, { createContext /*  useState  */ } from 'react';
+import React, { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const RecipesContext = createContext();
 
 const RecipesProvider = ({ children }) => {
-  const contextValue = {};
+  const [filterFoods, setFilterFoods] = useState([]);
+  const contextValue = {
+    filterFoods,
+    setFilterFoods,
+  };
   return <RecipesContext.Provider value={contextValue}>{children}</RecipesContext.Provider>;
 };
 
