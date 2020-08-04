@@ -17,14 +17,14 @@ const radioOption = (value, selection, setSelection) => {
         getFilterByFirstLetter(selection).then((data) => setSelection(data.meals),
         ); break;
       default:
-        alert('');
+        console.log('');
     }
   } else {
-    alert('Escolha um ingrediente');
+    console.log('Escolha um ingrediente');
   }
 };
 
-const Header = () => {
+const SearchBar = () => {
   const [selection, setSelection] = useState('');
 
   const setText = (event) => {
@@ -33,8 +33,19 @@ const Header = () => {
 
   const onClick = () => {
     if (selection === null) alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
-    if (selection.length === 1) alert('one');
-    else alert('a lot');
+    if (selection.length === 1) {
+      let mainPage = document.querySelector('#root');
+      selection.map((item) => {
+      let list = document.createElement('UL');
+      list.setAttribute('key', `${item.strMeal}`);
+      mainPage.appendChild(list)
+      let mealList = document.createElement('LI');
+      let meal = document.createTextNode(`${item.strMeal}`);
+      mealList.appendChild(meal);
+      list.appendChild(mealList);
+    });
+    };
+    console.log('a lot');
   };
   return (
     <div>
@@ -74,4 +85,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default SearchBar;
