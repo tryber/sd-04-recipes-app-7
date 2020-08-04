@@ -1,10 +1,11 @@
 import React /* Component */ from 'react';
+import BottomBar from '../components/BottomBar/bottomBar';
 import Header from '../components/Header';
 
 const MainPageFoods = () => (
   <div>
     <Header />
-    <h1 data-testis="page-title">Comidas</h1>
+    <BottomBar />
   </div>
 );
 
