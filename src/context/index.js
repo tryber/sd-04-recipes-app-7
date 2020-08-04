@@ -10,10 +10,10 @@ import {
 const RecipesContext = createContext();
 
 const RecipesProvider = ({ children }) => {
-  const [filterFoods, setFilterFoods] = useState([]);
-  const [foodRecipes, setFoodRecipes] = useState([]);
-  const [filterDrinks, setFilterDrinks] = useState([]);
-  const [drinkRecipes, setDrinkRecipes] = useState([]);
+  const [filterFoods, setFilterFoods] = useState([]); // filtros.
+  const [foodRecipes, setFoodRecipes] = useState([]); // cards.
+  const [filterDrinks, setFilterDrinks] = useState([]); // filtros.
+  const [drinkRecipes, setDrinkRecipes] = useState([]); // cards.
 
   const contextValue = {
     filterFoods,

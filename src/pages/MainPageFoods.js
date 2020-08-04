@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { RecipesContext } from '../context';
 import BottomBar from '../components/BottomBar/bottomBar';
 import Header from '../components/Header';
+import Card from '../components/Card';
 
 const MainPageFoods = () => {
-  const { filterFoods } = useContext(RecipesContext);
+  const { filterFoods, foodRecipes } = useContext(RecipesContext);
   return (
     <div>
       <Header />
@@ -16,6 +17,12 @@ const MainPageFoods = () => {
             </button>
           ) : null,
         )}
+      {/* {foodRecipes.length !== 0 &&
+        foodRecipes.map(({ strMealThumb, strMeal }) =>
+          index < 5 ? (
+            <Card />
+          ) : null,
+      )} */}
       <BottomBar />
     </div>
   );
