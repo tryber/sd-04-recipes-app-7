@@ -31,7 +31,7 @@ const Header = ({ title, searchble }) => {
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
-  serachble: PropTypes.bool.isRequired,
+  searchble: PropTypes.bool.isRequired,
 };
 
 export default Header;

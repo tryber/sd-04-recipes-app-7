@@ -8,7 +8,7 @@ const RecipesProvider = ({ children }) => {
 
   const context = {
     title,
-    setTitle,    
+    setTitle,
   };
   return <RecipesContext.Provider value={context}>{children}</RecipesContext.Provider>;
 };
