@@ -1,6 +1,12 @@
 import React /* Component */ from 'react';
-import SearchBar from '../components/SearchBar';
+import BottomBar from '../components/BottomBar/bottomBar';
+import Header from '../components/Header';
 
-const MainPageFoods = () => <div>Main Page<SearchBar /></div>;
+const MainPageFoods = () => (
+  <div>
+    <Header />
+    <BottomBar />
+  </div>
+);
 
 export default MainPageFoods;
