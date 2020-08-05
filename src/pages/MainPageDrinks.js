@@ -5,14 +5,21 @@ import Header from '../components/Header';
 import Card from '../components/Card';
 
 const MainPageDrinks = () => {
-  const { filterDrinks, drinkRecipes } = useContext(RecipesContext);
+  const { filterDrinks, drinkRecipes, toggleDrinks, setToggleDrinks, } = useContext(RecipesContext);
   return (
     <div>
       <Header />
       {filterDrinks.length !== 0 &&
         filterDrinks.map(({ strCategory }, index) =>
           index < 5 ? (
-            <button key={strCategory} type="button" data-testid={`${strCategory}-category-filter`}>
+            <button
+              key={strCategory}
+              type="button"
+              data-testid={`${strCategory}-category-filter`}
+              onClick={() =>
+                setToggleDrinks({ ...toggleDrinks, [strCategory]: !toggleDrinks[strCategory] })
+              }
+            >
               {strCategory}
             </button>
           ) : null,

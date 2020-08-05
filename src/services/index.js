@@ -51,3 +51,21 @@ export const checkEmail = (email) => {
   if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) return false;
   return true;
 };
+
+export const foodsObj = {
+  'All': false,
+  'Beef': false,
+  'Goat': false,
+  'Chicken': false,
+  'Breakfast': false,
+  'Dessert': false,
+};
+
+export const drinksObj = {
+  'All': false,
+  'Ordinary Drink': false,
+  'Cocktail': false,
+  'Milk / Float / Shake': false,
+  'Other/Unknown': false,
+  'Cocoa': false,
+};
