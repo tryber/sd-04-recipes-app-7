@@ -21,10 +21,10 @@ export const getFilterByFirstLetter = async (primeiraLetra) => {
   const firstLetter = await fetch(URL);
   return firstLetter.json();
 };
-export const checkEmail = (email) => {
-  if (!email.includes('@') || !email.includes('.')) return false;
-  const atpos = email.indexOf('@');
-  const dotpos = email.lastIndexOf('.');
-  if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) return false;
-  return true;
-};
+// export const checkEmail = (email) => {
+//   if (!email.includes('@') || !email.includes('.')) return false;
+//   const atpos = email.indexOf('@');
+//   const dotpos = email.lastIndexOf('.');
+//   if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) return false;
+//   return true;
+// };

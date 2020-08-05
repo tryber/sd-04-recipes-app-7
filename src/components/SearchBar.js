@@ -1,63 +1,41 @@
-import React, { useState } from 'react';
-import {
-  getFilterByIngredient,
-  getMealByNameAPI,
-  getFilterByFirstLetter,
-} from '../services';
-
-const radioOption = (value, selection, setSelection) => {
-  if (selection.length >= 1) {
-    switch (value) {
-      case 'ingredient':
-        getFilterByIngredient(selection).then((data) => setSelection(data.meals),
-        ); break;
-      case 'name':
-        getMealByNameAPI(selection).then((data) => setSelection(data.meals)); break;
-      case value:
-        getFilterByFirstLetter(selection).then((data) => setSelection(data.meals),
-        ); break;
-      default:
-        console.log('');
-    }
-  } else {
-    console.log('Escolha um ingrediente');
-  }
-};
+import React, { useContext } from 'react';
+import { RecipesContext } from '../context';
 
 const SearchBar = () => {
-  const [selection, setSelection] = useState('');
+  const { SearchBar } = useContext(RecipesContext)
 
-  const setText = (event) => {
-    setSelection(event);
-  };
+  if (SearchBar) {
 
-  return (
-    <div>
-      <input
-        data-testid="search-input" placeholder="Buscar Receita" id="searchBar"
-        type="text" onChange={(event) => setText(event.target.value)}
-      />
-      <input
-        data-testid="ingredient-search-radio" id="ingredient" type="radio"
-        name="filter" onChange={() => radioOption('ingredient', selection, setSelection)}
-      />
-      <label htmlFor="ingredient">Ingrediente</label>
-      <input
-        data-testid="name-search-radio" id="name" type="radio"
-        name="filter" onChange={() => radioOption('name', selection, setSelection)}
-      />
-      <label htmlFor="name">Nome</label>
-      <input
-        data-testid="first-letter-search-radio" id="firstLetter"
-        type="radio" name="filter"
-        onChange={() => radioOption('firstLetter', selection, setSelection)}
-      />
-      <label htmlFor="firstLetter">Primeira letra</label>
-      <button data-testid="exec-search-btn" type="button">
-        Buscar
-      </button>
-    </div>
-  );
+    return (
+      <div>
+        <input data-testid="search-input" type="text" />
+        <input
+          data-testid="ingredient-search-radio" 
+          type="radio"
+          value="Ingrediente"
+          name="Ingrediente"
+          />
+        <label htmlFor="ingredient">Ingrediente</label>
+        <input
+          data-testid="name-search-radio"
+          type="radio"
+          value="Nome"
+          name="Nome"
+          />
+        <label htmlFor="name">Nome</label>
+        <input
+          data-testid="name-search-radio"
+          type="radio"
+          value="Primeira-Letra"
+          name="filter"
+          />
+        <label htmlFor="firstLetter">Primeira letra</label>
+        <button data-testid="exec-search-btn">
+          Buscar
+        </button>
+      </div>
+    );
+  }
 };
 
 export default SearchBar;

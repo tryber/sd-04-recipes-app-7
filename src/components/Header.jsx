@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
+import { RecipesContext } from '../context';
 
 const Header = ({ title, searchble }) => {
-  const [searchbar, setSearchbar] = useState(false);
+  const { searchbar, setSearchbar } = useContext(RecipesContext)
 
   return (
     <div>
