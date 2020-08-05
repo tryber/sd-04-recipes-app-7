@@ -38,12 +38,12 @@ const SearchBar = () => {
 
   const onClick = () => {
     document.querySelector('#searchBar').value = '';
-    (document.querySelector('ul') && document.querySelector('ul').remove());
+    if (document.querySelector('ul')) document.querySelector('ul').remove();
     const mainPage = document.querySelector('#root');
     const list = document.createElement('UL');
     if (selection === null || selection.length === 0) {
       alert('Sinto muito, não encontramos nenhuma receita para esses filtros.'); return setSelection('');
-    };
+    }
     if (selection.length === 1 && <Redirect to="/comidas/{id-da-receita}" />);
     if (selection.length > 1) {
       selection.slice(0, 12).map((item) => {
