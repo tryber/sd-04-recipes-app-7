@@ -12,11 +12,11 @@ const Profile = () => {
 
       <p data-testid="profile-email">{userEmail}</p>
 
-      <Link to="/receitas-feitas">
-        <button type="button" data-testid="profile-favorite-btn">Receitas Feitas</button>
-      </Link>
       <Link to="/receitas-favoritas">
-        <button data-testid="profile-done-btn">Receitas favoritas</button>
+        <button type="button" data-testid="profile-favorite-btn">Receitas Favoritas</button>
+      </Link>
+      <Link to="/receitas-feitas">
+        <button data-testid="profile-done-btn">Receitas Feitas</button>
       </Link>
       <Link to="/">
         <button
