@@ -10,7 +10,7 @@ const radioOption = (value, selection, setSelection) => {
   if (selection.length >= 1) {
     switch (value) {
       case !('ingredient' || 'name' || 'firstLetter'):
-        selection = null; break;
+        setSelection = null; break;
       case 'ingredient':
         getFilterByIngredient(selection).then((data) => setSelection(data.meals),
         ); break;
@@ -18,10 +18,11 @@ const radioOption = (value, selection, setSelection) => {
         getMealByNameAPI(selection).then((data) => setSelection(data.meals),
         ); break;
       case 'firstLetter':
+        (selection.length > 1 && alert('Sua busca deve conter somente 1 (um) caracter'))
         getFilterByFirstLetter(selection[0]).then((data) => setSelection(data.meals),
         ); break;
       default:
-        selection = null;
+        setSelection = null;
     }
   } else {
     alert('Escolha um ingrediente');
@@ -37,16 +38,16 @@ const SearchBar = () => {
 
   const onClick = () => {
     document.querySelector('#searchBar').value = '';
-    (document.querySelector('ul') && document.querySelector('ul').remove())
+    (document.querySelector('ul') && document.querySelector('ul').remove());
     const mainPage = document.querySelector('#root');
     const list = document.createElement('UL');
-    if (selection === null || selection.length === 0)
-      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
-    if (selection.length === 1 && <Redirect to="/comidas" />);
+    if (selection === null || selection.length === 0) {
+      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.'); return setSelection('') };
+    if (selection.length === 1 && <Redirect to="/comidas/{id-da-receita}" />);
     if (selection.length > 1) {
-      selection.map((item) => {
+      selection.slice(0, 12).map((item) => {
         list.setAttribute('key', `${item.strMeal}`);
-        mainPage.appendChild(list)
+        mainPage.appendChild(list);
         const mealList = document.createElement('LI');
         const meal = document.createTextNode(`${item.strMeal}`);
         mealList.appendChild(meal);
