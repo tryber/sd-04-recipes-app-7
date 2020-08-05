@@ -13,7 +13,7 @@ const setToLocalStorage = (email) => {
 }
 
 const Login = () => {
-  const { userEmail, setUserEmail, userPassword, setUserPassword, } = useContext(RecipesContext);
+  const { userEmail, setUserEmail, userPassword, setUserPassword } = useContext(RecipesContext);
   return (
     <div>
       <input

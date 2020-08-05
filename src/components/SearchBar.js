@@ -2,35 +2,34 @@ import React, { useContext } from 'react';
 import { RecipesContext } from '../context';
 
 const SearchBar = () => {
-  const { SearchBar } = useContext(RecipesContext)
+  const { searcbar } = useContext(RecipesContext);
 
-  if (SearchBar) {
-
+  if (searcbar) {
     return (
       <div>
         <input data-testid="search-input" type="text" />
         <input
-          data-testid="ingredient-search-radio" 
+          data-testid="ingredient-search-radio"
           type="radio"
           value="Ingrediente"
-          name="Ingrediente"
-          />
+          name="filter"
+        />
         <label htmlFor="ingredient">Ingrediente</label>
         <input
           data-testid="name-search-radio"
           type="radio"
           value="Nome"
-          name="Nome"
-          />
+          name="filter"
+        />
         <label htmlFor="name">Nome</label>
         <input
           data-testid="name-search-radio"
           type="radio"
-          value="Primeira-Letra"
+          value="Nome"
           name="filter"
-          />
+        />
         <label htmlFor="firstLetter">Primeira letra</label>
-        <button data-testid="exec-search-btn">
+        <button data-testid="exec-search-btn" type="button">
           Buscar
         </button>
       </div>

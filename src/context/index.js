@@ -7,7 +7,7 @@ const RecipesProvider = ({ children }) => {
   const [title, setTitle] = useState('');
   const [searchbar, setSearchbar] = useState(false);
   const [userEmail, setUserEmail] = useState('');
-  const [userPassword, setUserPassword] =useState('');
+  const [userPassword, setUserPassword] = useState('');
 
   const context = {
     title,
