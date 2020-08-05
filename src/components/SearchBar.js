@@ -8,25 +8,19 @@ import {
 
 const radioOption = (value, selection, setSelection) => {
   if (selection.length >= 1) {
-    switch (value) {
-      case !('ingredient' || 'name' || 'firstLetter'):
-        setSelection(null); break;
-      case 'ingredient':
-        getFilterByIngredient(selection).then((data) => setSelection(data.meals),
-        ); break;
-      case 'name':
-        getMealByNameAPI(selection).then((data) => setSelection(data.meals),
-        ); break;
-      case 'firstLetter':
-        if (selection.length > 1) alert('Sua busca deve conter somente 1 (um) caracter');
-        getFilterByFirstLetter(selection[0]).then((data) => setSelection(data.meals),
-        ); break;
-      default:
-        setSelection(null);
+    if (!value.includes('ingredient' || 'name' || 'firstLetter'))
+      setSelection(null);
+    else if (value.includes('ingredient'))
+      getFilterByIngredient(selection).then((data) => setSelection(data.meals));
+    else if (value.includes('name'))
+      getMealByNameAPI(selection).then((data) => setSelection(data.meals));
+    else if (value.includes('firstLetter')) {
+      if (selection.length > 1) {
+        alert('Sua busca deve conter somente 1 (um) caracter');
+      getFilterByFirstLetter(selection[0]).then((data) => setSelection(data.meals));
     }
-  } else {
-    alert('Escolha um ingrediente');
-  }
+    } else setSelection(null);
+  } else alert('Escolha um ingrediente');
 };
 
 const SearchBar = () => {
@@ -42,7 +36,8 @@ const SearchBar = () => {
     const mainPage = document.querySelector('#root');
     const list = document.createElement('UL');
     if (selection === null || selection.length === 0) {
-      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.'); return setSelection('');
+      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+      return setSelection('');
     }
     if (selection.length === 1 && <Redirect to="/comidas/{id-da-receita}" />);
     if (selection.length > 1) {
@@ -60,21 +55,33 @@ const SearchBar = () => {
   return (
     <div>
       <input
-        data-testid="search-input" placeholder="Buscar Receita" id="searchBar" type="text"
+        data-testid="search-input"
+        placeholder="Buscar Receita"
+        id="searchBar"
+        type="text"
         onChange={(event) => setText(event.target.value)}
       />
       <input
-        data-testid="ingredient-search-radio" id="ingredient" type="radio" name="filter"
+        data-testid="ingredient-search-radio"
+        id="ingredient"
+        type="radio"
+        name="filter"
         onChange={() => radioOption('ingredient', selection, setSelection)}
       />
       <label htmlFor="ingredient">Ingrediente</label>
       <input
-        data-testid="name-search-radio" id="name" type="radio" name="filter"
+        data-testid="name-search-radio"
+        id="name"
+        type="radio"
+        name="filter"
         onChange={() => radioOption('name', selection, setSelection)}
       />
       <label htmlFor="name">Nome</label>
       <input
-        data-testid="first-letter-search-radio" id="firstLetter" type="radio" name="filter"
+        data-testid="first-letter-search-radio"
+        id="firstLetter"
+        type="radio"
+        name="filter"
         onChange={() => radioOption('firstLetter', selection, setSelection)}
       />
       <label htmlFor="firstLetter">Primeira letra</label>
