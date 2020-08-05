@@ -10,8 +10,8 @@ const MainPageDrinks = () => {
     <div>
       <Header />
       {filterDrinks.length !== 0 &&
-        filterDrinks.map(({ strCategory }, index) => {
-          return (
+        filterDrinks.map(
+          ({ strCategory }, index) =>
             index < 5 && (
               <button
                 key={strCategory}
@@ -23,9 +23,8 @@ const MainPageDrinks = () => {
               >
                 {strCategory}
               </button>
-            )
-          );
-        })}
+            ),
+        )}
       {drinkRecipes.map(
         ({ strDrinkThumb, strDrink }, index) =>
           index < 12 && <Card key={strDrink} index={index} url={strDrinkThumb} name={strDrink} />,

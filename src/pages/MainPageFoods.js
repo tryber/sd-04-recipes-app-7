@@ -12,8 +12,8 @@ const MainPageFoods = () => {
     <div>
       <Header />
       {filterFoods.length !== 0 &&
-        filterFoods.map(({ strCategory }, index) => {
-          return (
+        filterFoods.map(
+          ({ strCategory }, index) =>
             index < 5 && (
               <button
                 key={strCategory}
@@ -25,9 +25,8 @@ const MainPageFoods = () => {
               >
                 {strCategory}
               </button>
-            )
-          );
-        })}
+            ),
+        )}
       <div className="recipes-container">
         {foodRecipes.map(
           ({ strMealThumb, strMeal }, index) =>
