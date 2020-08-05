@@ -35,6 +35,8 @@ const SearchBar = () => {
       </div>
     );
   }
+
+  return null;
 };
 
 export default SearchBar;

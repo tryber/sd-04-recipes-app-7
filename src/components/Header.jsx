@@ -7,7 +7,7 @@ import SearchBar from './SearchBar';
 import { RecipesContext } from '../context';
 
 const Header = ({ title, searchble }) => {
-  const { searchbar, setSearchbar } = useContext(RecipesContext)
+  const { searchbar, setSearchbar } = useContext(RecipesContext);
 
   return (
     <div>
