@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BottomBar from '../components/BottomBar/bottomBar';
 import Header from '../components/Header';
-import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const userEmail = window.localStorage.getItem('user');
@@ -19,7 +19,7 @@ const Profile = () => {
         <button data-testid="profile-done-btn">Receitas favoritas</button>
       </Link>
       <Link to="/">
-        <button 
+        <button
           data-testid="profile-logout-btn"
           onClick={() => window.localStorage.clear()}
         >
