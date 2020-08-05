@@ -17,12 +17,10 @@ const MainPageFoods = () => {
             </button>
           ) : null,
         )}
-      {/* {foodRecipes.length !== 0 &&
-        foodRecipes.map(({ strMealThumb, strMeal }) =>
-          index < 5 ? (
-            <Card />
-          ) : null,
-      )} */}
+      {foodRecipes.map(
+        ({ strMealThumb, strMeal }, index) =>
+          index < 12 && <Card key={strMeal} index={index} url={strMealThumb} name={strMeal} />,
+      )}
       <BottomBar />
     </div>
   );
