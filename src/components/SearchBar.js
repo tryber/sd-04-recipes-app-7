@@ -10,7 +10,7 @@ const radioOption = (value, selection, setSelection) => {
   if (selection.length >= 1) {
     switch (value) {
       case !('ingredient' || 'name' || 'firstLetter'):
-        setSelection = null; break;
+        setSelection(null); break;
       case 'ingredient':
         getFilterByIngredient(selection).then((data) => setSelection(data.meals),
         ); break;
@@ -18,11 +18,11 @@ const radioOption = (value, selection, setSelection) => {
         getMealByNameAPI(selection).then((data) => setSelection(data.meals),
         ); break;
       case 'firstLetter':
-        (selection.length > 1 && alert('Sua busca deve conter somente 1 (um) caracter'))
+        if (selection.length > 1) alert('Sua busca deve conter somente 1 (um) caracter');
         getFilterByFirstLetter(selection[0]).then((data) => setSelection(data.meals),
         ); break;
       default:
-        setSelection = null;
+        setSelection(null);
     }
   } else {
     alert('Escolha um ingrediente');
@@ -42,7 +42,8 @@ const SearchBar = () => {
     const mainPage = document.querySelector('#root');
     const list = document.createElement('UL');
     if (selection === null || selection.length === 0) {
-      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.'); return setSelection('') };
+      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.'); return setSelection('');
+    };
     if (selection.length === 1 && <Redirect to="/comidas/{id-da-receita}" />);
     if (selection.length > 1) {
       selection.slice(0, 12).map((item) => {
@@ -51,10 +52,10 @@ const SearchBar = () => {
         const mealList = document.createElement('LI');
         const meal = document.createTextNode(`${item.strMeal}`);
         mealList.appendChild(meal);
-        list.appendChild(mealList);
-        return setSelection('');
+        return list.appendChild(mealList);
       });
     }
+    return setSelection('');
   };
   return (
     <div>
