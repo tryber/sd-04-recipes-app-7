@@ -4,7 +4,7 @@ import Header from '../components/Header';
 
 const ExploreFoodsOrigin = () => (
   <div>
-    <Header title="Explorar Origem" searchble />
+    <Header title="Explorar Origem" visible />
     <BottomBar />
   </div>
 );

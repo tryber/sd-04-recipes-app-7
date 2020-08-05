@@ -6,7 +6,7 @@ import searchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
 import { RecipesContext } from '../context';
 
-const Header = ({ title, searchble }) => {
+const Header = ({ title, visible }) => {
   const { searchbar, setSearchbar } = useContext(RecipesContext);
 
   return (
@@ -16,7 +16,7 @@ const Header = ({ title, searchble }) => {
           <img src={profileIcon} alt="profil Icon" data-testid="profile-top-btn" />
         </Link>
         <h1 data-testid="page-title">{title}</h1>
-        {searchble && (
+        {visible && (
           <input
             src={searchIcon}
             type="image"

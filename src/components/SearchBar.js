@@ -2,9 +2,8 @@ import React, { useContext } from 'react';
 import { RecipesContext } from '../context';
 
 const SearchBar = () => {
-  const { searcbar } = useContext(RecipesContext);
+  // const { searcbar } = useContext(RecipesContext);
 
-  if (searcbar) {
     return (
       <div>
         <input data-testid="search-input" type="text" />
@@ -23,7 +22,7 @@ const SearchBar = () => {
         />
         <label htmlFor="name">Nome</label>
         <input
-          data-testid="name-search-radio"
+          data-testid="first-letter-search-radio"
           type="radio"
           value="Nome"
           name="filter"
@@ -34,9 +33,6 @@ const SearchBar = () => {
         </button>
       </div>
     );
-  }
-
-  return null;
 };
 
 export default SearchBar;
