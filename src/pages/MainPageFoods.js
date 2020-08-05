@@ -4,7 +4,7 @@ import BottomBar from '../components/BottomBar/bottomBar';
 import Header from '../components/Header';
 import Card from '../components/Card';
 
-const aux = (values) => values.reduce((res, nxt) => res + nxt);
+// const aux = (values) => values.reduce((res, nxt) => res + nxt);
 
 const MainPageFoods = () => {
   const { filterFoods, foodRecipes, toggleFoods, setToggleFoods } = useContext(RecipesContext);
@@ -12,18 +12,22 @@ const MainPageFoods = () => {
     <div>
       <Header />
       {filterFoods.length !== 0 &&
-        filterFoods.map(({ strCategory }, index) =>
-          index < 5 ? (
-            <button
-              key={strCategory}
-              type="button"
-              data-testid={`${strCategory}-category-filter`}
-              onClick={() => setToggleFoods({ ...toggleFoods, [strCategory]: !toggleFoods[strCategory] })}
-            >
-              {strCategory}
-            </button>
-          ) : null,
-        )}
+        filterFoods.map(({ strCategory }, index) => {
+          return (
+            index < 5 && (
+              <button
+                key={strCategory}
+                type="button"
+                data-testid={`${strCategory}-category-filter`}
+                onClick={() =>
+                  setToggleFoods({ ...toggleFoods, [strCategory]: !toggleFoods[strCategory] })
+                }
+              >
+                {strCategory}
+              </button>
+            )
+          );
+        })}
       <div className="recipes-container">
         {foodRecipes.map(
           ({ strMealThumb, strMeal }, index) =>

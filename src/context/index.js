@@ -14,7 +14,7 @@ const RecipesContext = createContext();
 const RecipesProvider = ({ children }) => {
   const [filterFoods, setFilterFoods] = useState([]); // filtros.
   const [foodRecipes, setFoodRecipes] = useState([]); // cards.
-  
+
   const [filterDrinks, setFilterDrinks] = useState([]); // filtros.
   const [drinkRecipes, setDrinkRecipes] = useState([]); // cards.
 

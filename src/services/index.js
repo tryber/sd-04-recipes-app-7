@@ -53,19 +53,19 @@ export const checkEmail = (email) => {
 };
 
 export const foodsObj = {
-  'All': false,
-  'Beef': false,
-  'Goat': false,
-  'Chicken': false,
-  'Breakfast': false,
-  'Dessert': false,
+  All: false,
+  Beef: false,
+  Goat: false,
+  Chicken: false,
+  Breakfast: false,
+  Dessert: false,
 };
 
 export const drinksObj = {
-  'All': false,
+  All: false,
   'Ordinary Drink': false,
-  'Cocktail': false,
+  Cocktail: false,
   'Milk / Float / Shake': false,
   'Other/Unknown': false,
-  'Cocoa': false,
+  Cocoa: false,
 };
