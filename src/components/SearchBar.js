@@ -15,10 +15,10 @@ const radioOption = (value, selection, setSelection) => {
         getFilterByIngredient(selection).then((data) => setSelection(data.meals),
         ); break;
       case 'name':
-        getMealByNameAPI(selection).then((data) => setSelection(data.meals)); break;
+        getMealByNameAPI(selection).then((data) => setSelection(data.meals),
+        ); break;
       case 'firstLetter':
-        if (selection.length > 1) alert('Digite apenas uma letra')
-        getFilterByFirstLetter(selection).then((data) => setSelection(data.meals),
+        getFilterByFirstLetter(selection[0]).then((data) => setSelection(data.meals),
         ); break;
       default:
         selection = null;
@@ -26,7 +26,6 @@ const radioOption = (value, selection, setSelection) => {
   } else {
     alert('Escolha um ingrediente');
   }
-  return value = '';
 };
 
 const SearchBar = () => {
@@ -37,10 +36,12 @@ const SearchBar = () => {
   };
 
   const onClick = () => {
+    document.querySelector('#searchBar').value = '';
+    (document.querySelector('ul') && document.querySelector('ul').remove())
     const mainPage = document.querySelector('#root');
     const list = document.createElement('UL');
     if (selection === null || selection.length === 0)
-    alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
     if (selection.length === 1 && <Redirect to="/comidas" />);
     if (selection.length > 1) {
       selection.map((item) => {
@@ -49,9 +50,10 @@ const SearchBar = () => {
         const mealList = document.createElement('LI');
         const meal = document.createTextNode(`${item.strMeal}`);
         mealList.appendChild(meal);
-        return list.appendChild(mealList);
+        list.appendChild(mealList);
+        return setSelection('');
       });
-    };
+    }
   };
   return (
     <div>
@@ -69,7 +71,8 @@ const SearchBar = () => {
         onChange={() => radioOption('name', selection, setSelection)}
       />
       <label htmlFor="name">Nome</label>
-      <input data-testid="first-letter-search-radio" id="firstLetter" type="radio" name="filter"
+      <input
+        data-testid="first-letter-search-radio" id="firstLetter" type="radio" name="filter"
         onChange={() => radioOption('firstLetter', selection, setSelection)}
       />
       <label htmlFor="firstLetter">Primeira letra</label>
