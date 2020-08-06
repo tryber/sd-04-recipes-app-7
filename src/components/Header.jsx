@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import './header.css';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
