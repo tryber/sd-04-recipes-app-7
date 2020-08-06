@@ -9,7 +9,7 @@ const Header = ({ title }) => {
   const [searchbar, setSearchbar] = useState(false);
 
   return (
-    <div>
+    <div id="header">
       <header>
         <Link to="/perfil">
           <img src={profileIcon} alt="profilIcon" data-testid="profile-top-btn" />

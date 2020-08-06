@@ -3,6 +3,9 @@
 const fetchMock = require('../mocks/fetch');
 const soupMeals = require('../mocks/soupMeals');
 const ginDrinks = require('../mocks/ginDrinks');
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false;
+});
 
 describe('Todos os elementos devem respeitar os atributos descritos no protótipo para a barra de busca', () => {
   it('Tem os data-testids tanto da barra de busca quanto de todos os radio-buttons', () => {
