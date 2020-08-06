@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BottomBar from '../components/BottomBar/BottomBar';
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem('user'));
