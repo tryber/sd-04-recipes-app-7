@@ -1,0 +1,22 @@
+.recipes-container {
+  display: flex;
+}
+
+.card-body {
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 5px 13px black;
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0;
+  overflow: hidden;
+  width: 40%;
+}
+
+.card-body img {
+  width: 100%;
+}
+
+.card-body span {
+  padding: 3px;
+}

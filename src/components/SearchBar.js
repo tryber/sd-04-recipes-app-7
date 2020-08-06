@@ -15,8 +15,8 @@ const radioOption = (option, choice) => {
 
 const onClick = () => {
     const headerDiv = document.querySelector("#header");
-    const div = document.createElement('div');
     filter.slice(0, 12).map((cards, index) => {
+        const div = document.createElement('div');
         div.setAttribute('key', `${cards.strMeal}`);
         div.setAttribute('data-testid', `${index}-card-img`)
         headerDiv.appendChild(div);
