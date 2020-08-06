@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { RecipesContext } from '../context';
 import BottomBar from '../components/BottomBar/bottomBar';
 import Header from '../components/Header';
 import Card from '../components/Card';
 
 import { getMealsByCategoryAPI } from '../services';
-import { useState } from 'react';
 
 const MainPageFoods = () => {
   const { filterFoods, foodRecipes } = useContext(RecipesContext);

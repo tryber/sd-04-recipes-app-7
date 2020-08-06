@@ -23,6 +23,13 @@ export const getMealsByCategoryAPI = async (name) => {
   return cocktails.json();
 };
 
+// Filtra bebidas por categoria.
+export const getCocktailByCategoryAPI = async (name) => {
+  const URL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${name}`;
+  const cocktails = await fetch(URL);
+  return cocktails.json();
+};
+
 // Pega os filtros de comidas.
 export const getFoodFiltersAPI = async () => {
   const URL = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
