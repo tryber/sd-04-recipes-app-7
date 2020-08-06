@@ -4,10 +4,12 @@ import BottomBar from '../components/BottomBar/bottomBar';
 import Header from '../components/Header';
 import Card from '../components/Card';
 
-// const aux = (values) => values.reduce((res, nxt) => res + nxt);
+import { getMealsByCategoryAPI } from '../services';
+import { useState } from 'react';
 
 const MainPageFoods = () => {
-  const { filterFoods, foodRecipes, toggleFoods, setToggleFoods } = useContext(RecipesContext);
+  const { filterFoods, foodRecipes } = useContext(RecipesContext);
+  const [foodsCategory, setFoodsCategory] = useState([]);
   return (
     <div>
       <Header />
@@ -19,20 +21,34 @@ const MainPageFoods = () => {
                 key={strCategory}
                 type="button"
                 data-testid={`${strCategory}-category-filter`}
+                className="category-filter"
                 onClick={() =>
-                  setToggleFoods({ ...toggleFoods, [strCategory]: !toggleFoods[strCategory] })
+                  getMealsByCategoryAPI(strCategory).then((resp) => {
+                    if (foodsCategory.length) setFoodsCategory([]);
+                    else setFoodsCategory([...resp.meals]);
+                  })
                 }
               >
                 {strCategory}
               </button>
             ),
         )}
-      <div className="recipes-container">
-        {foodRecipes.map(
-          ({ strMealThumb, strMeal }, index) =>
-            index < 12 && <Card key={strMeal} index={index} url={strMealThumb} name={strMeal} />,
-        )}
-      </div>
+      {!foodsCategory.length && (
+        <div className="recipes-container">
+          {foodRecipes.map(
+            ({ strMealThumb, strMeal }, index) =>
+              index < 12 && <Card key={strMeal} index={index} url={strMealThumb} name={strMeal} />,
+          )}
+        </div>
+      )}
+      {foodsCategory.length && (
+        <div className="recipes-container">
+          {foodsCategory.map(
+            ({ strMealThumb, strMeal }, index) =>
+              index < 12 && <Card key={strMeal} index={index} url={strMealThumb} name={strMeal} />,
+          )}
+        </div>
+      )}
       <BottomBar />
     </div>
   );

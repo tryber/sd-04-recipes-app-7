@@ -5,8 +5,6 @@ import {
   getDrinkFiltersAPI,
   getMealByNameAPI,
   getCocktailByNameAPI,
-  foodsObj,
-  drinksObj,
 } from '../services';
 
 const RecipesContext = createContext();
@@ -18,10 +16,6 @@ const RecipesProvider = ({ children }) => {
   const [filterDrinks, setFilterDrinks] = useState([]); // filtros.
   const [drinkRecipes, setDrinkRecipes] = useState([]); // cards.
 
-  // Toggles de comidas e bebidas.
-  const [toggleFoods, setToggleFoods] = useState(foodsObj);
-  const [toggleDrinks, setToggleDrinks] = useState(drinksObj);
-
   const contextValue = {
     filterFoods,
     setFilterFoods,
@@ -31,10 +25,6 @@ const RecipesProvider = ({ children }) => {
     setFilterDrinks,
     drinkRecipes,
     setDrinkRecipes,
-    toggleFoods,
-    setToggleFoods,
-    toggleDrinks,
-    setToggleDrinks,
   };
 
   useEffect(() => {

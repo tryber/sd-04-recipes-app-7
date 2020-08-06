@@ -1,16 +1,35 @@
 .recipes-container {
+  height: 100vh;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.category-filter {
+  align-self: center;
+  background-color: lightgrey;
+  border: 0;
+  justify-self: center;
+  margin: 0.2rem 0.3rem;
+  outline: none;
+  padding: 0.25rem;
+  width: 30%;
+}
+
+.category-filter:active {
+  background-color: gray;
+  color: white;
 }
 
 .card-body {
   align-items: center;
   border-radius: 10px;
-  box-shadow: 0 5px 13px black;
+  box-shadow: 0 5px 7px gray;
   display: flex;
   flex-direction: column;
-  margin: 1.5rem 0;
+  margin: 1.2rem 0;
   overflow: hidden;
-  width: 40%;
+  width: 43%;
 }
 
 .card-body img {
