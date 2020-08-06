@@ -1,41 +1,42 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { checkEmail } from '../services';
+import { RecipesContext } from '../context';
 
-// const validEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
-// const checkEmail = (email) => validEmail.test(email);
+const checkEmail = (email) => /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/.test(email);
 const checkPass = (password) => password.length > 6;
-const defaultData = { email: '', pass: '' };
+// const defaultData = { email: '', pass: '' };
+
+const setToLocalStorage = (email) => {
+  localStorage.setItem('mealsToken', 1);
+  localStorage.setItem('cocktailsToken', 1);
+  localStorage.setItem('user', JSON.stringify({ email }));
+};
 
 const Login = () => {
-  const [userData, setUserData] = useState(defaultData);
-  const handleInputs = ({ target: { name, value } }) => setUserData({ ...userData, [name]: value });
+  const { userEmail, setUserEmail, userPassword, setUserPassword } = useContext(RecipesContext);
   return (
     <div>
       <input
-        type="text"
+        required
+        type="email"
         name="email"
-        value={userData.email}
-        onChange={handleInputs}
+        value={userEmail}
+        onChange={(e) => setUserEmail(e.target.value)}
         data-testid="email-input"
       />
       <input
         type="password"
         name="pass"
-        value={userData.pass}
-        onChange={handleInputs}
+        value={userPassword}
+        onChange={(e) => setUserPassword(e.target.value)}
         data-testid="password-input"
       />
       <Link to="/comidas">
         <button
-          type="button"
+          type="submit"
           data-testid="login-submit-btn"
-          disabled={!(checkEmail(userData.email) && checkPass(userData.pass))}
-          onClick={() => {
-            localStorage.setItem('mealsToken', 1);
-            localStorage.setItem('cocktailsToken', 1);
-            localStorage.setItem('user', JSON.stringify({ email: userData.email }));
-          }}
+          disabled={!(checkEmail(userEmail) && checkPass(userPassword))}
+          onClick={() => setToLocalStorage(userEmail)}
         >
           Entrar
         </button>

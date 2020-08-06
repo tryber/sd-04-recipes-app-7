@@ -1,10 +1,10 @@
 import React /* Component */ from 'react';
-import BottomBar from '../components/BottomBar/bottomBar';
+import BottomBar from '../components/BottomBar/BottomBar';
 import Header from '../components/Header';
 
 const MainPageFoods = () => (
   <div>
-    <Header />
+    <Header title="Comidas" visible />
     <BottomBar />
   </div>
 );

@@ -1,9 +1,10 @@
 import React from 'react';
-import BottomBar from '../components/BottomBar/bottomBar';
+import BottomBar from '../components/BottomBar/BottomBar';
+import Header from '../components/Header';
 
 const ExploreDrinks = () => (
   <div>
-    Explore Drinks
+    <Header title="Explorar Bebidas" />
     <BottomBar />
   </div>
 );
