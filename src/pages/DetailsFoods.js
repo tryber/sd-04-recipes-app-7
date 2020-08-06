@@ -3,7 +3,7 @@ import React from 'react';
 
 const TestChamada = {
   meals:[
-    {
+    /*  {
       'idMeal':'52882',
       'strMeal':'Three Fish Pie',
       'strDrinkAlternate':null,
@@ -55,7 +55,7 @@ const TestChamada = {
       'strMeasure20':'',
       'strSource':'https://www.bbc.co.uk/food/recipes/three_fish_pie_58875',
       'dateModified':null
-    }
+    }  */
   ]
 };
 
