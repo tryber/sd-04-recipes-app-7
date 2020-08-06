@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import './header.css';
+import PropTypes from 'prop-types';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
@@ -11,7 +12,7 @@ const Header = ({ title, visible }) => {
 
   return (
     <div>
-      <header>
+      <header className="main-header">
         <Link to="/perfil">
           <img src={profileIcon} alt="profil Icon" data-testid="profile-top-btn" />
         </Link>
