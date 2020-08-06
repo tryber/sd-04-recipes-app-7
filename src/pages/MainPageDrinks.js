@@ -21,11 +21,11 @@ const MainPageDrinks = () => {
                 type="button"
                 data-testid={`${strCategory}-category-filter`}
                 onClick={() =>
-                  getCocktailByCategoryAPI(strCategory).then((resp) =>
-                    drinksCategory.length
+                  getCocktailByCategoryAPI(strCategory).then((resp) => {
+                    return drinksCategory.length
                       ? setDrinksCategory([])
-                      : setDrinksCategory([...resp.drinks]),
-                  )
+                      : setDrinksCategory([...resp.drinks]);
+                  })
                 }
               >
                 {strCategory}
