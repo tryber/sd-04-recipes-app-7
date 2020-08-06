@@ -1,0 +1,23 @@
+.main-container {
+  background-color: rgb(196, 196, 196);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.profile-container {
+  margin-top: 0.67em;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.45em;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.glass-container {
+  margin-top: 0.67em;
+}
