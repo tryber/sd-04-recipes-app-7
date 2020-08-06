@@ -1,6 +1,6 @@
 import React from 'react';
-import BottomBar from '../components/BottomBar/bottomBar';
-import Header from '../components/Header/Header';
+import BottomBar from '../components/BottomBar/BottomBar';
+import Header from '../components/Header';
 
 const ExploreFoods = () => (
   <div>
