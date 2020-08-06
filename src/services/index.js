@@ -45,11 +45,6 @@ export const getDrinkFiltersAPI = async () => {
 };
 
 export const checkEmail = (email) => {
-  // const divid = email.split('@');
-  // const chars = email.includes('@') && email.includes('.');
-  // const posArroba = email.indexOf('@');
-  // const posDot = email.indexOf('.');
-  // if (email.indexOf('@') < email.indexOf('.')) return false;
   if (!email.includes('@') || !email.includes('.')) return false;
   const atpos = email.indexOf('@');
   const dotpos = email.lastIndexOf('.');
