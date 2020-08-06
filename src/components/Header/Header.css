@@ -12,10 +12,10 @@
 .title-container {
   display: flex;
   justify-content: center;
-  margin-top: 0.45em;
   margin-bottom: 0;
   margin-left: 0;
   margin-right: 0;
+  margin-top: 0.45em;
 }
 
 .glass-container {
