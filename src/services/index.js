@@ -2,7 +2,7 @@
 export const getMealByNameAPI = async (name = null) => {
   const urlWithParam = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`;
   const urlWithoutParam = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
-  const URL = name ? urlWithParam : urlWithoutParam ;
+  const URL = name ? urlWithParam : urlWithoutParam;
   const meals = await fetch(URL);
   return meals.json();
 };
@@ -11,7 +11,7 @@ export const getMealByNameAPI = async (name = null) => {
 export const getCocktailByNameAPI = async (name = null) => {
   const urlWithParam = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`;
   const urlWithoutParam = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
-  const URL = name ? urlWithParam : urlWithoutParam ;
+  const URL = name ? urlWithParam : urlWithoutParam;
   const cocktails = await fetch(URL);
   return cocktails.json();
 };

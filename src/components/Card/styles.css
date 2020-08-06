@@ -1,7 +1,7 @@
 .recipes-container {
-  height: 100vh;
   display: flex;
   flex-wrap: wrap;
+  height: 100vh;
   justify-content: space-around;
 }
 
@@ -9,16 +9,15 @@
   align-self: center;
   background-color: lightgrey;
   border: 0;
-  justify-self: center;
   margin: 0.2rem 0.3rem;
-  outline: none;
   padding: 0.25rem;
   width: 30%;
 }
 
-.category-filter:active {
+.category-filter:focus {
   background-color: gray;
   color: white;
+  outline: none;
 }
 
 .card-body {
