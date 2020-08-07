@@ -103,38 +103,39 @@ const path = (text) => {
     default:
       return 'oi';
   }
+  return '';
 };
 
-let retur = (history) => {
-  switch (location) {
-    case '/comidas':
-      return data.then(async (meal) => {
-        if (meal.meals === null) {
-          alert(
-            'Sinto muito, não encontramos nenhuma receita para esses filtros.'
-          );
-        }
-        if (meal.meals.length === 1) {
-          return history.push(`/comidas/${meal.meals[0].idMeal}`);
-        }
-        return mFilters(await meal.meals);
-      });
+const meal = (history) => {
+  data.then(async (meal) => {
+    if (meal.meals === null) {
+      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+    }
+    if (meal.meals.length === 1) {
+      return history.push(`/comidas/${meal.meals[0].idMeal}`);
+    }
+    return mFilters(await meal.meals);
+  });
+};
 
-    case '/bebidas':
-      return data.then(async (drink) => {
-        if (drink.drinks === null) {
-          alert(
-            'Sinto muito, não encontramos nenhuma receita para esses filtros.'
-          );
-        }
-        if (drink.drinks.length === 1) {
-          return history.push(`/bebidas/${drink.drinks[0].idDrink}`);
-        }
-        return dFilters(await drink.drinks);
-      });
+const drink = (history) => {
+  return data.then(async (drink) => {
+    if (drink.drinks === null) {
+      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+    }
+    if (drink.drinks.length === 1) {
+      return history.push(`/bebidas/${drink.drinks[0].idDrink}`);
+    }
+    return dFilters(await drink.drinks);
+  });
+};
 
-    default:
-      return 'oi';
+const retur = (history) => {
+  if (location === '/comidas') {
+    meal(history);
+  }
+  if (location === '/bebidas') {
+    drink(history);
   }
 };
 
