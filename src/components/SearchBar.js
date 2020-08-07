@@ -8,22 +8,17 @@ import {
 import Input from './Input';
 
 let option = '';
-let choice = '';
 const aler = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
 
-const radioOption = (opt, joy) => {
-  if (opt === 'firstLetter' && joy.length > 1) {
-    alert('Sua busca deve conter somente 1 (um) caracter');
-  }
+const radioOption = (opt) => {
   option = opt;
-  choice = joy;
 };
 
 const filters = (filter) =>
   filter.map((cards, index) => {
     const headerDiv = document.querySelector('#header');
     const div = document.createElement('div');
-    div.setAttribute('class', 'teste');
+    div.setAttribute('class', 'meals');
     div.setAttribute('key', `${cards.strMeal}`);
     div.setAttribute('data-testid', `${index}-card-img`);
     headerDiv.appendChild(div);
@@ -37,15 +32,15 @@ const filters = (filter) =>
     return div.appendChild(p);
   });
 
-const onClick = () => {
-  if (choice === null || choice.length === 0) {
+const onClick = (text) => {
+  if (text === null || text.length === 0) {
     alert(aler);
   }
-  if (document.querySelectorAll('.teste')) {
-    document.querySelectorAll('.teste').forEach((item) => item.remove());
+  if (document.querySelectorAll('.meals')) {
+    document.querySelectorAll('.meals').forEach((item) => item.remove());
   }
   if (option === 'ingredient') {
-    getFilterByIngredient(choice).then(async (meal) => {
+    getFilterByIngredient(text).then(async (meal) => {
       if (meal.meals === null || meal.meals.length === 0) alert(aler);
       if (meal.meals.length === 1) {
         const id = `/comidas/${meal.meals.idMeal}`;
@@ -55,7 +50,7 @@ const onClick = () => {
     });
   }
   if (option === 'name') {
-    getMealByNameAPI(choice).then(async (meal) => {
+    getMealByNameAPI(text).then(async (meal) => {
       if (meal.meals === null || meal.meals.length === 0) alert(aler);
       if (meal.meals.length === 1) {
         const id = `/comidas/${meal.meals.idMeal}`;
@@ -65,7 +60,10 @@ const onClick = () => {
     });
   }
   if (option === 'firstLetter') {
-    getFilterByFirstLetter(choice[0]).then(async (meal) => {
+    if (text.length > 1) {
+      alert('Sua busca deve conter somente 1 (um) caracter');
+    }
+    getFilterByFirstLetter(text[0]).then(async (meal) => {
       if (meal.meals === null || meal.meals.length === 0) alert(aler);
       if (meal.meals.length === 1) {
         const id = `/comidas/${meal.meals.idMeal}`;
@@ -74,17 +72,15 @@ const onClick = () => {
       return filters(await meal.meals);
     });
   }
-  option = '';
-  choice = '';
 };
 
 export default function SearchBar() {
   const [text, setText] = useState('');
   return (
     <Input
-      onClick={onClick}
+      onClick={() => onClick(text)}
       setText={(e) => setText(e.target.value)}
-      radioOption={(e) => radioOption(e.target.id, text)}
+      radioOption={(e) => radioOption(e.target.id)}
     />
   );
 }
