@@ -8,6 +8,8 @@ import {
 import Input from './Input';
 
 let option = '';
+let data = '';
+let div = document.querySelectorAll('.meals');
 const aler = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
 
 const radioOption = (opt) => {
@@ -36,23 +38,22 @@ const filters = (filter) =>
   });
 
 const onClick = (text) => {
-  let teste = '';
-  if (document.querySelectorAll('.meals')) {
-    document.querySelectorAll('.meals').forEach((item) => item.remove());
+  if (div) {
+    div.forEach((item) => item.remove());
   }
   if (option === 'ingredient') {
-    teste = getFilterByIngredient(text);
+    data = getFilterByIngredient(text);
   }
   if (option === 'name') {
-    teste = getMealByNameAPI(text);
+    data = getMealByNameAPI(text);
   }
   if (option === 'firstLetter') {
     if (text.length > 1) {
       alert('Sua busca deve conter somente 1 (um) caracter');
     }
-    teste = getFilterByFirstLetter(text[0]);
+    data = getFilterByFirstLetter(text[0]);
   }
-  return teste.then(async (meal) => {
+  return data.then(async (meal) => {
     if (meal.meals === null || meal.meals.length === 0) alert(aler);
     if (meal.meals.length === 1) {
       return <Redirect to={`/comidas/${meal.meals[0].idMeal}`} />;
