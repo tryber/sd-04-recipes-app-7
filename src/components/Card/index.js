@@ -20,6 +20,8 @@ const Card = ({ id, flag, index, url, name }) => (
 );
 
 Card.propTypes = {
+  id: PropTypes.string.isRequired,
+  flag: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   url: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
