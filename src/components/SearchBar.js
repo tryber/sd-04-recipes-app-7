@@ -36,10 +36,7 @@ const filters = (filter) =>
     return div.appendChild(p);
   });
 
-const onClick = (text, history) => {
-  if (divs) {
-    divs.forEach((item) => item.remove());
-  }
+let condicionals = (text) => {
   if (option === 'ingredient') {
     data = getFilterByIngredient(text);
   }
@@ -52,6 +49,13 @@ const onClick = (text, history) => {
     }
     data = getFilterByFirstLetter(text[0]);
   }
+};
+
+const onClick = (text, history) => {
+  if (divs) {
+    divs.forEach((item) => item.remove());
+  }
+  condicionals(text);
   return data.then(async (meal) => {
     if (meal.meals === null) {
       alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
