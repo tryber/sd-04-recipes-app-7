@@ -9,6 +9,7 @@ import Input from "./Input";
 
 let option = "";
 let choice = "";
+const aler = "Sinto muito, não encontramos nenhuma receita para esses filtros.";
 
 const radioOption = (opt, joy) => {
   opt === "firstLetter" && joy.length > 1
@@ -36,8 +37,6 @@ const filters = (filter) =>
   });
 
 const onClick = () => {
-  const aler =
-    "Sinto muito, não encontramos nenhuma receita para esses filtros.";
   if (choice === null || choice.length === 0) alert(aler);
   if (document.querySelectorAll(".teste"))
     document.querySelectorAll(".teste").forEach((item) => item.remove());
