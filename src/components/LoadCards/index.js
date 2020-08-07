@@ -50,7 +50,9 @@ const drinksCharge = (category, recipes) => {
   );
 };
 
-const LoadCards = ({ flag, category, recipes }) => 
-  flag === 'foods' ? foodsCharge(category, recipes) : drinksCharge(category, recipes);
+const LoadCards = ({ flag, category, recipes }) => {
+  if (flag === 'foods') return foodsCharge(category, recipes);
+  return drinksCharge(category, recipes);
+};
 
 export default LoadCards;

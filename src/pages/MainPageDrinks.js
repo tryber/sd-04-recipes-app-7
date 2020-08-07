@@ -24,11 +24,11 @@ const MainPageDrinks = () => {
                   data-testid={`${strCategory}-category-filter`}
                   className="category-filter"
                   onClick={() =>
-                    getCocktailByCategoryAPI(strCategory).then((resp) =>
+                    getCocktailByCategoryAPI(strCategory).then((resp) => (
                       drinksCategory.length
                         ? setDrinksCategory([])
-                        : setDrinksCategory([...resp.drinks]),
-                    )
+                        : setDrinksCategory([...resp.drinks])
+                    ))
                   }
                 >
                   {strCategory}
