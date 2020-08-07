@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import {
   getFilterByIngredient,
   getMealByNameAPI,
@@ -38,7 +38,7 @@ const filters = (filter) =>
     return div.appendChild(p);
   });
 
-const onClick = (text) => {
+const onClick = (text, history) => {
   if (divs) {
     divs.forEach((item) => item.remove());
   }
@@ -55,19 +55,20 @@ const onClick = (text) => {
     data = getFilterByFirstLetter(text[0]);
   }
   return data.then(async (meal) => {
-    if (meal.meals === null || meal.meals.length === 0) alert(aler);
+    if (meal.meals === null) alert(aler);
     if (meal.meals.length === 1) {
-      return <Redirect to={`/comidas/${meal.meals[0].idMeal}`} />;
+      return history.push(`/comidas/${meal.meals[0].idMeal}`);
     }
     return filters(await meal.meals);
   });
 };
 
 export default function SearchBar() {
+  const history = useHistory();
   const [text, setText] = useState('');
   return (
     <Input
-      onClick={() => onClick(text)}
+      onClick={() => onClick(text, history)}
       setText={(e) => setText(e.target.value)}
       radioOption={(e) => radioOption(e.target.id)}
     />
