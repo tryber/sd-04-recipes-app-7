@@ -36,39 +36,29 @@ const filters = (filter) =>
   });
 
 const onClick = (text) => {
+  let teste = '';
   if (document.querySelectorAll('.meals')) {
     document.querySelectorAll('.meals').forEach((item) => item.remove());
   }
   if (option === 'ingredient') {
-    getFilterByIngredient(text).then(async (meal) => {
-      if (meal.meals === null || meal.meals.length === 0) alert(aler);
-      if (meal.meals.length === 1) {
-        return <Redirect to={`/comidas/${meal.meals[0].idMeal}`} />;
-      }
-      return filters(await meal.meals);
-    });
+    teste = getFilterByIngredient(text);
   }
   if (option === 'name') {
-    getMealByNameAPI(text).then(async (meal) => {
-      if (meal.meals === null || meal.meals.length === 0) alert(aler);
-      if (meal.meals.length === 1) {
-        return <Redirect to={`/comidas/${meal.meals[0].idMeal}`} />;
-      }
-      return filters(await meal.meals);
-    });
+    teste = getMealByNameAPI(text);
   }
   if (option === 'firstLetter') {
     if (text.length > 1) {
       alert('Sua busca deve conter somente 1 (um) caracter');
     }
-    getFilterByFirstLetter(text[0]).then(async (meal) => {
-      if (meal.meals === null || meal.meals.length === 0) alert(aler);
-      if (meal.meals.length === 1) {
-        return <Redirect to={`/comidas/${meal.meals[0].idMeal}`} />;
-      }
-      return filters(await meal.meals);
-    });
+    teste = getFilterByFirstLetter(text[0]);
   }
+  return teste.then(async (meal) => {
+    if (meal.meals === null || meal.meals.length === 0) alert(aler);
+    if (meal.meals.length === 1) {
+      return <Redirect to={`/comidas/${meal.meals[0].idMeal}`} />;
+    }
+    return filters(await meal.meals);
+  });
 };
 
 export default function SearchBar() {
