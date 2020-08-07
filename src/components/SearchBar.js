@@ -44,7 +44,7 @@ const onClick = () => {
     getFilterByIngredient(choice).then(async (meal) => {
       if (meal.meals === null || meal.meals.length === 0) alert(aler);
       if (meal.meals.length === 1) {
-        let id = `/comidas/${meal.meals.idMeal}`;
+        const id = `/comidas/${meal.meals.idMeal}`;
         return <Redirect to={id} />;
       }
       filters(await meal.meals);
@@ -53,7 +53,7 @@ const onClick = () => {
     getMealByNameAPI(choice).then(async (meal) => {
       if (meal.meals === null || meal.meals.length === 0) alert(aler);
       if (meal.meals.length === 1) {
-        let id = `/comidas/${meal.meals.idMeal}`;
+        const id = `/comidas/${meal.meals.idMeal}`;
         return <Redirect to={id} />;
       }
       filters(await meal.meals);
@@ -62,7 +62,7 @@ const onClick = () => {
     getFilterByFirstLetter(choice[0]).then(async (meal) => {
       if (meal.meals === null || meal.meals.length === 0) alert(aler);
       if (meal.meals.length === 1) {
-        let id = `/comidas/${meal.meals.idMeal}`;
+        const id = `/comidas/${meal.meals.idMeal}`;
         return <Redirect to={id} />;
       }
       filters(await meal.meals);
