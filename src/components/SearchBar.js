@@ -9,8 +9,9 @@ import Input from './Input';
 
 let option = '';
 let data = '';
-let div = document.querySelectorAll('.meals');
+const divs = document.querySelectorAll('.meals');
 const aler = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
+const ale = 'Sua busca deve conter somente 1 (um) caracter';
 
 const radioOption = (opt) => {
   option = opt;
@@ -38,8 +39,8 @@ const filters = (filter) =>
   });
 
 const onClick = (text) => {
-  if (div) {
-    div.forEach((item) => item.remove());
+  if (divs) {
+    divs.forEach((item) => item.remove());
   }
   if (option === 'ingredient') {
     data = getFilterByIngredient(text);
@@ -49,7 +50,7 @@ const onClick = (text) => {
   }
   if (option === 'firstLetter') {
     if (text.length > 1) {
-      alert('Sua busca deve conter somente 1 (um) caracter');
+      alert(ale);
     }
     data = getFilterByFirstLetter(text[0]);
   }
