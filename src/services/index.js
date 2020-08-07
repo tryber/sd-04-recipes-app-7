@@ -26,7 +26,8 @@ export const checkEmail = (email) => {
   if (!email.includes('@') || !email.includes('.')) return false;
   const atpos = email.indexOf('@');
   const dotpos = email.lastIndexOf('.');
-  if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length)
+  if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) {
     return false;
+  }
   return true;
 };

@@ -41,8 +41,9 @@ const onClick = () => {
   if (choice === null || choice.length === 0) {
     alert(aler);
   }
-  if (document.querySelectorAll('.teste'))
+  if (document.querySelectorAll('.teste')) {
     document.querySelectorAll('.teste').forEach((item) => item.remove());
+  }
   if (option === 'ingredient') {
     getFilterByIngredient(choice).then(async (meal) => {
       if (meal.meals === null || meal.meals.length === 0) alert(aler);
