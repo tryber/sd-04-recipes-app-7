@@ -10,8 +10,6 @@ import Input from './Input';
 let option = '';
 let data = '';
 const divs = document.querySelectorAll('.meals');
-const aler = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
-const ale = 'Sua busca deve conter somente 1 (um) caracter';
 
 const radioOption = (opt) => {
   option = opt;
@@ -50,12 +48,14 @@ const onClick = (text, history) => {
   }
   if (option === 'firstLetter') {
     if (text.length > 1) {
-      alert(ale);
+      alert('Sua busca deve conter somente 1 (um) caracter');
     }
     data = getFilterByFirstLetter(text[0]);
   }
   return data.then(async (meal) => {
-    if (meal.meals === null) alert(aler);
+    if (meal.meals === null) {
+      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+    }
     if (meal.meals.length === 1) {
       return history.push(`/comidas/${meal.meals[0].idMeal}`);
     }
