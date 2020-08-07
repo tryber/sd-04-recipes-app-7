@@ -4,7 +4,7 @@ import Card from '../Card';
 
 // Opções específicas de comidas
 const foodsCharge = (category, recipes) => {
-  if (!category.length)
+  if (!category.length) {
     return (
       <div className="recipes-container">
         {recipes.map(
@@ -13,6 +13,7 @@ const foodsCharge = (category, recipes) => {
         )}
       </div>
     );
+  }
   return (
     category.length && (
       <div className="recipes-container">
@@ -27,7 +28,7 @@ const foodsCharge = (category, recipes) => {
 
 // Opções específicas de bebidas.
 const drinksCharge = (category, recipes) => {
-  if (!category.length)
+  if (!category.length) {
     return (
       <div className="recipes-container">
         {recipes.map(
@@ -36,6 +37,7 @@ const drinksCharge = (category, recipes) => {
         )}
       </div>
     );
+  }
   return (
     category.length && (
       <div className="recipes-container">
@@ -48,9 +50,7 @@ const drinksCharge = (category, recipes) => {
   );
 };
 
-const LoadCards = ({ flag, category, recipes }) => {
-  if (flag === 'foods') return foodsCharge(category, recipes);
-  else return drinksCharge(category, recipes);
-};
+const LoadCards = ({ flag, category, recipes }) => 
+  flag === 'foods' ? foodsCharge(category, recipes) : drinksCharge(category, recipes);
 
 export default LoadCards;

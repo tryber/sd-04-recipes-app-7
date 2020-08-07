@@ -5,12 +5,15 @@
   justify-content: space-around;
 }
 
+.category-filter-container {
+}
+
 .category-filter {
-  align-self: center;
   background-color: lightgrey;
   border: 0;
+  font-size: 0.73rem;
   margin: 0.2rem 0.3rem;
-  padding: 0.25rem;
+  padding: 0.5rem;
   width: 30%;
 }
 
