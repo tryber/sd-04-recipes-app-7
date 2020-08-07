@@ -12,9 +12,10 @@ let choice = '';
 const aler = 'Sinto muito, não encontramos nenhuma receita para esses filtros.';
 
 const radioOption = (opt, joy) => {
-  opt === 'firstLetter' && joy.length > 1
-    ? alert('Sua busca deve conter somente 1 (um) caracter')
-    : (option = opt);
+  if (opt === 'firstLetter' && joy.length > 1) {
+    alert('Sua busca deve conter somente 1 (um) caracter');
+  }
+  option = opt;
   choice = joy;
 };
 
@@ -37,36 +38,41 @@ const filters = (filter) =>
   });
 
 const onClick = () => {
-  if (choice === null || choice.length === 0) alert(aler);
+  if (choice === null || choice.length === 0) {
+    alert(aler);
+  }
   if (document.querySelectorAll('.teste'))
     document.querySelectorAll('.teste').forEach((item) => item.remove());
-  if (option === 'ingredient')
+  if (option === 'ingredient') {
     getFilterByIngredient(choice).then(async (meal) => {
       if (meal.meals === null || meal.meals.length === 0) alert(aler);
       if (meal.meals.length === 1) {
         const id = `/comidas/${meal.meals.idMeal}`;
         return <Redirect to={id} />;
       }
-      filters(await meal.meals);
+      return filters(await meal.meals);
     });
-  if (option === 'name')
+  }
+  if (option === 'name') {
     getMealByNameAPI(choice).then(async (meal) => {
       if (meal.meals === null || meal.meals.length === 0) alert(aler);
       if (meal.meals.length === 1) {
         const id = `/comidas/${meal.meals.idMeal}`;
         return <Redirect to={id} />;
       }
-      filters(await meal.meals);
+      return filters(await meal.meals);
     });
-  if (option === 'firstLetter')
+  }
+  if (option === 'firstLetter') {
     getFilterByFirstLetter(choice[0]).then(async (meal) => {
       if (meal.meals === null || meal.meals.length === 0) alert(aler);
       if (meal.meals.length === 1) {
         const id = `/comidas/${meal.meals.idMeal}`;
         return <Redirect to={id} />;
       }
-      filters(await meal.meals);
+      return filters(await meal.meals);
     });
+  }
   option = '';
   choice = '';
 };
