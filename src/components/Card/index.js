@@ -1,13 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-const Card = ({ index, url, name }) => (
-  <div data-testid={`${index}-recipe-card`} className="card-body">
-    <img data-testid={`${index}-card-img`} src={url} alt="Food/Drink" />
-    <span data-testid={`${index}-card-name`}>{name}</span>
-  </div>
+const Card = ({ id, flag, index, url, name }) => (
+  <Link
+    to={`/${flag === 'comidas' ? 'comidas' : 'bebidas'}/${id}`}
+    data-testid={`${index}-recipe-card`}
+    className="card-body"
+  >
+    <div className="link-details">
+      <img data-testid={`${index}-card-img`} src={url} alt="Food/Drink" />
+      <span className="card-desc" data-testid={`${index}-card-name`}>
+        {name}
+      </span>
+    </div>
+  </Link>
 );
 
 Card.propTypes = {

@@ -3,13 +3,13 @@ import React from 'react';
 
 const TestChamada = {
   meals: [
-    /*  {
+    {
       'idMeal':'52882',
       'strMeal':'Three Fish Pie',
       'strDrinkAlternate':null,
       'strCategory':'Seafood',
       'strArea':'British',
-      'strInstructions':
+      'strInstructions': '',
       'strMealThumb':'https://www.themealdb.com/images/media/meals/spswqs1511558697.jpg',
       'strTags':'Fish,Seafood,Dairy,Pie',
       'strYoutube':'https://www.youtube.com/watch?v=Ds1Jb8H5Sg8',
@@ -55,7 +55,7 @@ const TestChamada = {
       'strMeasure20':'',
       'strSource':'https://www.bbc.co.uk/food/recipes/three_fish_pie_58875',
       'dateModified':null
-    }  */
+    }
   ],
 };
 

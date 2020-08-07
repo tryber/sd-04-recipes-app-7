@@ -10,6 +10,7 @@ import { getCocktailByCategoryAPI } from '../services';
 const MainPageDrinks = () => {
   const { filterDrinks, drinkRecipes } = useContext(RecipesContext);
   const [drinksCategory, setDrinksCategory] = useState([]);
+  const [drinkKey, setDrinkKey] = useState('');
   return (
     <div>
       <Header title="Bebidas" visible />
@@ -23,13 +24,19 @@ const MainPageDrinks = () => {
                   type="button"
                   data-testid={`${strCategory}-category-filter`}
                   className="category-filter"
-                  onClick={() =>
-                    getCocktailByCategoryAPI(strCategory).then((resp) => (
-                      drinksCategory.length
-                        ? setDrinksCategory([])
-                        : setDrinksCategory([...resp.drinks])
-                    ))
-                  }
+                  onClick={() => {
+                    if (drinkKey !== strCategory) {
+                      setDrinkKey(strCategory);
+                      getCocktailByCategoryAPI(strCategory).then((resp) =>
+                        setDrinksCategory([...resp.drinks]),
+                      );
+                    } else {
+                      getCocktailByCategoryAPI(strCategory).then((resp) => {
+                        if (drinksCategory.length) setDrinksCategory([]);
+                        else setDrinksCategory([...resp.drinks]);
+                      });
+                    }
+                  }}
                 >
                   {strCategory}
                 </button>

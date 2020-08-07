@@ -8,8 +8,17 @@ const foodsCharge = (category, recipes) => {
     return (
       <div className="recipes-container">
         {recipes.map(
-          ({ strMealThumb, strMeal }, index) =>
-            index < 12 && <Card key={strMeal} index={index} url={strMealThumb} name={strMeal} />,
+          ({ strMealThumb, strMeal, idMeal }, index) =>
+            index < 12 && (
+              <Card
+                id={idMeal}
+                flag="comidas"
+                key={strMeal}
+                index={index}
+                url={strMealThumb}
+                name={strMeal}
+              />
+            ),
         )}
       </div>
     );
@@ -18,8 +27,17 @@ const foodsCharge = (category, recipes) => {
     category.length && (
       <div className="recipes-container">
         {category.map(
-          ({ strMealThumb, strMeal }, index) =>
-            index < 12 && <Card key={strMeal} index={index} url={strMealThumb} name={strMeal} />,
+          ({ strMealThumb, strMeal, idMeal }, index) =>
+            index < 12 && (
+              <Card
+                id={idMeal}
+                flag="comidas"
+                key={strMeal}
+                index={index}
+                url={strMealThumb}
+                name={strMeal}
+              />
+            ),
         )}
       </div>
     )
@@ -32,8 +50,17 @@ const drinksCharge = (category, recipes) => {
     return (
       <div className="recipes-container">
         {recipes.map(
-          ({ strDrinkThumb, strDrink }, index) =>
-            index < 12 && <Card key={strDrink} index={index} url={strDrinkThumb} name={strDrink} />,
+          ({ strDrinkThumb, strDrink, idDrink }, index) =>
+            index < 12 && (
+              <Card
+                id={idDrink}
+                flag="bebidas"
+                key={strDrink}
+                index={index}
+                url={strDrinkThumb}
+                name={strDrink}
+              />
+            ),
         )}
       </div>
     );
@@ -42,8 +69,17 @@ const drinksCharge = (category, recipes) => {
     category.length && (
       <div className="recipes-container">
         {category.map(
-          ({ strDrinkThumb, strDrink }, index) =>
-            index < 12 && <Card key={strDrink} index={index} url={strDrinkThumb} name={strDrink} />,
+          ({ strDrinkThumb, strDrink, idDrink }, index) =>
+            index < 12 && (
+              <Card
+                id={idDrink}
+                flag="bebidas"
+                key={strDrink}
+                index={index}
+                url={strDrinkThumb}
+                name={strDrink}
+              />
+            ),
         )}
       </div>
     )

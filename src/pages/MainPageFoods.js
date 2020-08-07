@@ -10,6 +10,7 @@ import { getMealsByCategoryAPI } from '../services';
 const MainPageFoods = () => {
   const { filterFoods, foodRecipes } = useContext(RecipesContext);
   const [foodsCategory, setFoodsCategory] = useState([]);
+  const [foodKey, setFoodKey] = useState('');
   return (
     <div>
       <Header title="Comidas" visible />
@@ -23,12 +24,19 @@ const MainPageFoods = () => {
                   type="button"
                   data-testid={`${strCategory}-category-filter`}
                   className="category-filter"
-                  onClick={() =>
-                    getMealsByCategoryAPI(strCategory).then((resp) => {
-                      if (foodsCategory.length) setFoodsCategory([]);
-                      else setFoodsCategory([...resp.meals]);
-                    })
-                  }
+                  onClick={() => {
+                    if (foodKey !== strCategory) {
+                      setFoodKey(strCategory);
+                      getMealsByCategoryAPI(strCategory).then((resp) =>
+                        setFoodsCategory([...resp.meals]),
+                      );
+                    } else {
+                      getMealsByCategoryAPI(strCategory).then((resp) => {
+                        if (foodsCategory.length) setFoodsCategory([]);
+                        else setFoodsCategory([...resp.meals]);
+                      });
+                    }
+                  }}
                 >
                   {strCategory}
                 </button>
