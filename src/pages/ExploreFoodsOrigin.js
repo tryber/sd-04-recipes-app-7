@@ -1,9 +1,10 @@
 import React from 'react';
-import BottomBar from '../components/BottomBar/bottomBar';
+import BottomBar from '../components/BottomBar/BottomBar';
+import Header from '../components/Header/Header';
 
 const ExploreFoodsOrigin = () => (
   <div>
-    Explore Foods Local Origin
+    <Header title="Explorar Origem" visible />
     <BottomBar />
   </div>
 );

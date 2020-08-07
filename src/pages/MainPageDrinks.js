@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { RecipesContext } from '../context';
 
-import BottomBar from '../components/BottomBar/bottomBar';
+import BottomBar from '../components/BottomBar/BottomBar';
 import Header from '../components/Header';
 import LoadCards from '../components/LoadCards';
 
@@ -12,7 +12,7 @@ const MainPageDrinks = () => {
   const [drinksCategory, setDrinksCategory] = useState([]);
   return (
     <div>
-      <Header />
+      <Header title="Bebidas" visible />
       <div className="category-filter-container">
         {filterDrinks.length !== 0 &&
           filterDrinks.map(

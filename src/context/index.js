@@ -16,7 +16,12 @@ const RecipesProvider = ({ children }) => {
   const [filterDrinks, setFilterDrinks] = useState([]); // filtros.
   const [drinkRecipes, setDrinkRecipes] = useState([]); // cards.
 
-  const contextValue = {
+  const [title, setTitle] = useState('');
+  const [searchbar, setSearchbar] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+
+  const context = {
     filterFoods,
     setFilterFoods,
     foodRecipes,
@@ -25,6 +30,14 @@ const RecipesProvider = ({ children }) => {
     setFilterDrinks,
     drinkRecipes,
     setDrinkRecipes,
+    title,
+    searchbar,
+    userEmail,
+    userPassword,
+    setTitle,
+    setSearchbar,
+    setUserEmail,
+    setUserPassword,
   };
 
   useEffect(() => {
@@ -34,7 +47,7 @@ const RecipesProvider = ({ children }) => {
     getCocktailByNameAPI().then((resp) => setDrinkRecipes([...resp.drinks]));
   }, []);
 
-  return <RecipesContext.Provider value={contextValue}>{children}</RecipesContext.Provider>;
+  return <RecipesContext.Provider value={context}>{children}</RecipesContext.Provider>;
 };
 
 RecipesContext.propTypes = {
