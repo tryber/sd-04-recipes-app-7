@@ -36,7 +36,7 @@ const filters = (filter) =>
     return div.appendChild(p);
   });
 
-let condicionals = (text) => {
+const condicionals = (text) => {
   if (option === 'ingredient') {
     data = getFilterByIngredient(text);
   }
