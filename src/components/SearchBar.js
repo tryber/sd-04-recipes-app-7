@@ -1,25 +1,29 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
-  getFilterByIngredient,
+  getMealByIngredient,
   getMealByNameAPI,
-  getFilterByFirstLetter,
+  getMealByFirstLetter,
+  getCocktailByIngredient,
+  getCocktailByNameAPI,
+  getCocktailByFirstLetter,
 } from '../services';
 import Input from './Input';
 
+const location = window.location.pathname;
 let option = '';
 let data = '';
-const divs = document.querySelectorAll('.meals');
+const divs = document.querySelectorAll('.recipes');
 
 const radioOption = (opt) => {
   option = opt;
 };
 
-const filters = (filter) =>
+const mFilters = (filter) =>
   filter.slice(0, 12).map((cards, index) => {
     const headerDiv = document.querySelector('#header');
     const div = document.createElement('div');
-    div.setAttribute('class', 'meals');
+    div.setAttribute('class', 'recipes');
     div.setAttribute('key', `${cards.strMeal}`);
     div.setAttribute('data-testid', `${index}-recipe-card`);
     headerDiv.appendChild(div);
@@ -36,9 +40,31 @@ const filters = (filter) =>
     return div.appendChild(p);
   });
 
-const condicionals = (text) => {
+const dFilters = (filter) =>
+  filter.slice(0, 12).map((cards, index) => {
+    const headerDiv = document.querySelector('#header');
+    const div = document.createElement('div');
+    div.setAttribute('class', 'recipes');
+    div.setAttribute('key', `${cards.strDrink}`);
+    div.setAttribute('data-testid', `${index}-recipe-card`);
+    headerDiv.appendChild(div);
+    const img = document.createElement('IMG');
+    img.setAttribute('style', 'width: 100px;');
+    img.setAttribute('data-testid', `${index}-card-img`);
+    img.src = `${cards.strDrinkThumb}`;
+    img.alt = `${cards.strDrink}`;
+    const p = document.createElement('P');
+    p.setAttribute('data-testid', `${index}-card-name`);
+    const drinksName = document.createTextNode(`${cards.strDrink}`);
+    p.appendChild(drinksName);
+    div.appendChild(img);
+    return div.appendChild(p);
+  });
+
+const condicionalsMeal = (text) => {
+  console.log(text);
   if (option === 'ingredient') {
-    data = getFilterByIngredient(text);
+    data = getMealByIngredient(text);
   }
   if (option === 'name') {
     data = getMealByNameAPI(text);
@@ -47,7 +73,68 @@ const condicionals = (text) => {
     if (text.length > 1) {
       alert('Sua busca deve conter somente 1 (um) caracter');
     }
-    data = getFilterByFirstLetter(text[0]);
+    data = getMealByFirstLetter(text[0]);
+  }
+};
+
+const condicionalsCocktail = (text) => {
+  if (option === 'ingredient') {
+    data = getCocktailByIngredient(text);
+  }
+  if (option === 'name') {
+    data = getCocktailByNameAPI(text);
+  }
+  if (option === 'firstLetter') {
+    if (text.length > 1) {
+      alert('Sua busca deve conter somente 1 (um) caracter');
+    }
+    data = getCocktailByFirstLetter(text[0]);
+  }
+};
+
+const path = (text) => {
+  switch (location) {
+    case '/comidas':
+      condicionalsMeal(text);
+      break;
+    case '/bebidas':
+      condicionalsCocktail(text);
+      break;
+    default:
+      return 'oi';
+  }
+};
+
+let retur = (history) => {
+  switch (location) {
+    case '/comidas':
+      return data.then(async (meal) => {
+        if (meal.meals === null) {
+          alert(
+            'Sinto muito, não encontramos nenhuma receita para esses filtros.'
+          );
+        }
+        if (meal.meals.length === 1) {
+          return history.push(`/comidas/${meal.meals[0].idMeal}`);
+        }
+        return mFilters(await meal.meals);
+      });
+
+    case '/bebidas':
+      return data.then(async (drink) => {
+        if (drink.drinks === null) {
+          alert(
+            'Sinto muito, não encontramos nenhuma receita para esses filtros.'
+          );
+        }
+        if (drink.drinks.length === 1) {
+          return history.push(`/bebidas/${drink.drinks[0].idDrink}`);
+        }
+        return dFilters(await drink.drinks);
+      });
+
+    default:
+      return 'oi';
   }
 };
 
@@ -55,16 +142,8 @@ const onClick = (text, history) => {
   if (divs) {
     divs.forEach((item) => item.remove());
   }
-  condicionals(text);
-  return data.then(async (meal) => {
-    if (meal.meals === null) {
-      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
-    }
-    if (meal.meals.length === 1) {
-      return history.push(`/comidas/${meal.meals[0].idMeal}`);
-    }
-    return filters(await meal.meals);
-  });
+  path(text);
+  retur(history);
 };
 
 export default function SearchBar() {
