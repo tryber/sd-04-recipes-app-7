@@ -15,17 +15,20 @@ const radioOption = (opt) => {
 };
 
 const filters = (filter) =>
-  filter.map((cards, index) => {
+  filter.slice(0, 12).map((cards, index) => {
     const headerDiv = document.querySelector('#header');
     const div = document.createElement('div');
     div.setAttribute('class', 'meals');
     div.setAttribute('key', `${cards.strMeal}`);
-    div.setAttribute('data-testid', `${index}-card-img`);
+    div.setAttribute('data-testid', `${index}-recipe-card`);
     headerDiv.appendChild(div);
     const img = document.createElement('IMG');
+    img.setAttribute('style', 'width: 100px;');
+    img.setAttribute('data-testid', `${index}-card-img`);
     img.src = `${cards.strMealThumb}`;
     img.alt = `${cards.strMeal}`;
     const p = document.createElement('P');
+    p.setAttribute('data-testid', `${index}-card-name`);
     const mealsName = document.createTextNode(`${cards.strMeal}`);
     p.appendChild(mealsName);
     div.appendChild(img);
@@ -33,9 +36,6 @@ const filters = (filter) =>
   });
 
 const onClick = (text) => {
-  if (text === null || text.length === 0) {
-    alert(aler);
-  }
   if (document.querySelectorAll('.meals')) {
     document.querySelectorAll('.meals').forEach((item) => item.remove());
   }
@@ -43,8 +43,7 @@ const onClick = (text) => {
     getFilterByIngredient(text).then(async (meal) => {
       if (meal.meals === null || meal.meals.length === 0) alert(aler);
       if (meal.meals.length === 1) {
-        const id = `/comidas/${meal.meals.idMeal}`;
-        return <Redirect to={id} />;
+        return <Redirect to={`/comidas/${meal.meals[0].idMeal}`} />;
       }
       return filters(await meal.meals);
     });
@@ -53,8 +52,7 @@ const onClick = (text) => {
     getMealByNameAPI(text).then(async (meal) => {
       if (meal.meals === null || meal.meals.length === 0) alert(aler);
       if (meal.meals.length === 1) {
-        const id = `/comidas/${meal.meals.idMeal}`;
-        return <Redirect to={id} />;
+        return <Redirect to={`/comidas/${meal.meals[0].idMeal}`} />;
       }
       return filters(await meal.meals);
     });
@@ -66,8 +64,7 @@ const onClick = (text) => {
     getFilterByFirstLetter(text[0]).then(async (meal) => {
       if (meal.meals === null || meal.meals.length === 0) alert(aler);
       if (meal.meals.length === 1) {
-        const id = `/comidas/${meal.meals.idMeal}`;
-        return <Redirect to={id} />;
+        return <Redirect to={`/comidas/${meal.meals[0].idMeal}`} />;
       }
       return filters(await meal.meals);
     });
