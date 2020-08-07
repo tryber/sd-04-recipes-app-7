@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { RecipesContext } from '../context';
+
 import BottomBar from '../components/BottomBar/bottomBar';
 import Header from '../components/Header';
-import Card from '../components/Card';
+// import Card from '../components/Card';
+import LoadCards from '../components/LoadCards';
 
 import { getCocktailByCategoryAPI } from '../services';
 
@@ -20,6 +22,7 @@ const MainPageDrinks = () => {
                 key={strCategory}
                 type="button"
                 data-testid={`${strCategory}-category-filter`}
+                className="category-filter"
                 onClick={() =>
                   getCocktailByCategoryAPI(strCategory).then((resp) => {
                     return drinksCategory.length
@@ -32,26 +35,16 @@ const MainPageDrinks = () => {
               </button>
             ),
         )}
-      {!drinksCategory.length && (
-        <div className="recipes-container">
-          {drinkRecipes.map(
-            ({ strDrinkThumb, strDrink }, index) =>
-              index < 12 && (
-                <Card key={strDrink} index={index} url={strDrinkThumb} name={strDrink} />
-              ),
-          )}
-        </div>
-      )}
-      {drinksCategory.length && (
-        <div className="recipes-container">
-          {drinksCategory.map(
-            ({ strDrinkThumb, strDrink }, index) =>
-              index < 12 && (
-                <Card key={strDrink} index={index} url={strDrinkThumb} name={strDrink} />
-              ),
-          )}
-        </div>
-      )}
+      <LoadCards
+        flag="drinks"
+        category={drinksCategory}
+        recipes={drinkRecipes}
+      />
+      <LoadCards
+        flag="drinks"
+        category={drinksCategory}
+        recipes={drinkRecipes}
+      />
       <BottomBar />
     </div>
   );

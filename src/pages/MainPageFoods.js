@@ -2,7 +2,8 @@ import React, { useContext, useState } from 'react';
 import { RecipesContext } from '../context';
 import BottomBar from '../components/BottomBar/bottomBar';
 import Header from '../components/Header';
-import Card from '../components/Card';
+// import Card from '../components/Card';
+import LoadCards from '../components/LoadCards';
 
 import { getMealsByCategoryAPI } from '../services';
 
@@ -32,22 +33,16 @@ const MainPageFoods = () => {
               </button>
             ),
         )}
-      {!foodsCategory.length && (
-        <div className="recipes-container">
-          {foodRecipes.map(
-            ({ strMealThumb, strMeal }, index) =>
-              index < 12 && <Card key={strMeal} index={index} url={strMealThumb} name={strMeal} />,
-          )}
-        </div>
-      )}
-      {foodsCategory.length && (
-        <div className="recipes-container">
-          {foodsCategory.map(
-            ({ strMealThumb, strMeal }, index) =>
-              index < 12 && <Card key={strMeal} index={index} url={strMealThumb} name={strMeal} />,
-          )}
-        </div>
-      )}
+      <LoadCards
+        flag="foods"
+        category={foodsCategory}
+        recipes={foodRecipes}
+      />
+      <LoadCards
+        flag="foods"
+        category={foodsCategory}
+        recipes={foodRecipes}
+      />
       <BottomBar />
     </div>
   );
