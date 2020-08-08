@@ -106,7 +106,7 @@ const path = (text) => {
   return '';
 };
 
-const meal = (history) => {
+const mealReturn = (history) => {
   data.then(async (meal) => {
     if (meal.meals === null) {
       alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
@@ -118,8 +118,8 @@ const meal = (history) => {
   });
 };
 
-const drink = (history) => {
-  return data.then(async (drink) => {
+const drinkReturn = (history) => {
+  data.then(async (drink) => {
     if (drink.drinks === null) {
       alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
     }
@@ -132,10 +132,10 @@ const drink = (history) => {
 
 const retur = (history) => {
   if (location === '/comidas') {
-    meal(history);
+    mealReturn(history);
   }
   if (location === '/bebidas') {
-    drink(history);
+    drinkReturn(history);
   }
 };
 
