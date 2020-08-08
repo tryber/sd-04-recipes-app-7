@@ -14,10 +14,9 @@ const meals = (strCategory, idKey, setIdKey, category, setCategory) => (
         setIdKey(strCategory);
         getMealsByCategoryAPI(strCategory).then((resp) => setCategory([...resp.meals]));
       } else {
-        getMealsByCategoryAPI(strCategory).then((resp) => {
-          if (category.length) setCategory([]);
-          else setCategory([...resp.meals]);
-        });
+        getMealsByCategoryAPI(strCategory).then((resp) =>
+          category.length ? setCategory([]) : setCategory([...resp.meals]),
+        );
       }
     }}
   >
@@ -35,10 +34,9 @@ const cockTails = (strCategory, idKey, setIdKey, category, setCategory) => (
         setIdKey(strCategory);
         getCocktailByCategoryAPI(strCategory).then((resp) => setCategory([...resp.drinks]));
       } else {
-        getCocktailByCategoryAPI(strCategory).then((resp) => {
-          if (category.length) setCategory([]);
-          else setCategory([...resp.drinks]);
-        });
+        getCocktailByCategoryAPI(strCategory).then((resp) =>
+          category.length ? setCategory([]) : setCategory([...resp.drinks]),
+        );
       }
     }}
   >
