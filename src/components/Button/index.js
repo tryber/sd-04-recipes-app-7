@@ -1,0 +1,54 @@
+import React from 'react';
+
+import { getMealsByCategoryAPI, getCocktailByCategoryAPI } from '../../services';
+
+import './styles.css';
+
+const meals = (strCategory, idKey, setIdKey, category, setCategory) => (
+  <button
+    type="button"
+    data-testid={`${strCategory}-category-filter`}
+    className="category-filter"
+    onClick={() => {
+      if (idKey !== strCategory) {
+        setIdKey(strCategory);
+        getMealsByCategoryAPI(strCategory).then((resp) => setCategory([...resp.meals]));
+      } else {
+        getMealsByCategoryAPI(strCategory).then((resp) => {
+          if (category.length) setCategory([]);
+          else setCategory([...resp.meals]);
+        });
+      }
+    }}
+  >
+    {strCategory}
+  </button>
+);
+
+const cockTails = (strCategory, idKey, setIdKey, category, setCategory) => (
+  <button
+    type="button"
+    data-testid={`${strCategory}-category-filter`}
+    className="category-filter"
+    onClick={() => {
+      if (idKey !== strCategory) {
+        setIdKey(strCategory);
+        getCocktailByCategoryAPI(strCategory).then((resp) => setCategory([...resp.drinks]));
+      } else {
+        getCocktailByCategoryAPI(strCategory).then((resp) => {
+          if (category.length) setCategory([]);
+          else setCategory([...resp.drinks]);
+        });
+      }
+    }}
+  >
+    {strCategory}
+  </button>
+);
+
+const Button = ({ strCategory, idKey, setIdKey, category, setCategory, flag }) => {
+  if (flag === 'meals') return meals(strCategory, idKey, setIdKey, category, setCategory);
+  return cockTails(strCategory, idKey, setIdKey, category, setCategory);
+};
+
+export default Button;

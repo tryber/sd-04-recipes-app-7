@@ -4,8 +4,7 @@ import { RecipesContext } from '../context';
 import BottomBar from '../components/BottomBar/BottomBar';
 import Header from '../components/Header';
 import LoadCards from '../components/LoadCards';
-
-import { getMealsByCategoryAPI } from '../services';
+import Button from '../components/Button';
 
 const MainPageFoods = () => {
   const { filterFoods, foodRecipes } = useContext(RecipesContext);
@@ -19,27 +18,15 @@ const MainPageFoods = () => {
           filterFoods.map(
             ({ strCategory }, index) =>
               index < 5 && (
-                <button
+                <Button
                   key={strCategory}
-                  type="button"
-                  data-testid={`${strCategory}-category-filter`}
-                  className="category-filter"
-                  onClick={() => {
-                    if (foodKey !== strCategory) {
-                      setFoodKey(strCategory);
-                      getMealsByCategoryAPI(strCategory).then((resp) =>
-                        setFoodsCategory([...resp.meals]),
-                      );
-                    } else {
-                      getMealsByCategoryAPI(strCategory).then((resp) => {
-                        if (foodsCategory.length) setFoodsCategory([]);
-                        else setFoodsCategory([...resp.meals]);
-                      });
-                    }
-                  }}
-                >
-                  {strCategory}
-                </button>
+                  strCategory={strCategory}
+                  idKey={foodKey}
+                  setIdKey={setFoodKey}
+                  category={foodsCategory}
+                  setCategory={setFoodsCategory}
+                  flag="meals"
+                />
               ),
           )}
       </div>

@@ -4,8 +4,7 @@ import { RecipesContext } from '../context';
 import BottomBar from '../components/BottomBar/BottomBar';
 import Header from '../components/Header';
 import LoadCards from '../components/LoadCards';
-
-import { getCocktailByCategoryAPI } from '../services';
+import Button from '../components/Button';
 
 const MainPageDrinks = () => {
   const { filterDrinks, drinkRecipes } = useContext(RecipesContext);
@@ -19,27 +18,15 @@ const MainPageDrinks = () => {
           filterDrinks.map(
             ({ strCategory }, index) =>
               index < 5 && (
-                <button
+                <Button
                   key={strCategory}
-                  type="button"
-                  data-testid={`${strCategory}-category-filter`}
-                  className="category-filter"
-                  onClick={() => {
-                    if (drinkKey !== strCategory) {
-                      setDrinkKey(strCategory);
-                      getCocktailByCategoryAPI(strCategory).then((resp) =>
-                        setDrinksCategory([...resp.drinks]),
-                      );
-                    } else {
-                      getCocktailByCategoryAPI(strCategory).then((resp) => {
-                        if (drinksCategory.length) setDrinksCategory([]);
-                        else setDrinksCategory([...resp.drinks]);
-                      });
-                    }
-                  }}
-                >
-                  {strCategory}
-                </button>
+                  strCategory={strCategory}
+                  idKey={drinkKey}
+                  setIdKey={setDrinkKey}
+                  category={drinksCategory}
+                  setCategory={setDrinksCategory}
+                  flag="cocktails"
+                />
               ),
           )}
       </div>
