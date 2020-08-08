@@ -14,6 +14,14 @@ const MainPageFoods = () => {
     <div>
       <Header title="Comidas" visible />
       <div className="category-filter-container">
+        <button
+          type="button"
+          data-testid="All-category-filter"
+          className="category-filter"
+          onClick={() => setFoodsCategory([])}
+        >
+          All
+        </button>
         {filterFoods.length !== 0 &&
           filterFoods.map(
             ({ strCategory }, index) =>

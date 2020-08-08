@@ -14,6 +14,14 @@ const MainPageDrinks = () => {
     <div>
       <Header title="Bebidas" visible />
       <div className="category-filter-container">
+        <button
+          type="button"
+          data-testid="All-category-filter"
+          className="category-filter"
+          onClick={() => setDrinksCategory([])}
+        >
+          All
+        </button>
         {filterDrinks.length !== 0 &&
           filterDrinks.map(
             ({ strCategory }, index) =>
