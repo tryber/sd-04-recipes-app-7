@@ -20,7 +20,7 @@ export const getMealByIngredient = async (ingrediente) => {
   const URL = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingrediente}`;
   const meals = await fetch(URL);
   return meals.json();
-}
+};
 // Filtra comidas por categoria.
 export const getMealsByCategoryAPI = async (name) => {
   const URL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`;
