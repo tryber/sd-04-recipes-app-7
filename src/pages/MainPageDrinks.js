@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { RecipesContext } from '../context';
 
 import BottomBar from '../components/BottomBar/BottomBar';
@@ -7,9 +7,14 @@ import LoadCards from '../components/LoadCards';
 import Button from '../components/Button';
 
 const MainPageDrinks = () => {
-  const { filterDrinks, drinkRecipes } = useContext(RecipesContext);
-  const [drinksCategory, setDrinksCategory] = useState([]);
-  const [drinkKey, setDrinkKey] = useState('');
+  const {
+    filterDrinks,
+    drinkRecipes,
+    drinksCategory,
+    setDrinksCategory,
+    drinkKey,
+    setDrinkKey,
+  } = useContext(RecipesContext);
   return (
     <div>
       <Header title="Bebidas" visible />

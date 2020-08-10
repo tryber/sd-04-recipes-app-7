@@ -10,11 +10,18 @@ import {
 const RecipesContext = createContext();
 
 const RecipesProvider = ({ children }) => {
+  // Sessão referente a comidas
   const [filterFoods, setFilterFoods] = useState([]); // filtros.
   const [foodRecipes, setFoodRecipes] = useState([]); // cards.
+  
+  const [foodsCategory, setFoodsCategory] = useState([]); // Estado de Comidas
+  const [foodKey, setFoodKey] = useState(''); // Estado de Comidas
 
+  // Sessão referente a bebidas
   const [filterDrinks, setFilterDrinks] = useState([]); // filtros.
   const [drinkRecipes, setDrinkRecipes] = useState([]); // cards.
+  const [drinksCategory, setDrinksCategory] = useState([]); // Estado de Bebidas
+  const [drinkKey, setDrinkKey] = useState(''); // Estado de Bebidas
 
   const [title, setTitle] = useState('');
   const [searchbar, setSearchbar] = useState(false);
@@ -38,6 +45,14 @@ const RecipesProvider = ({ children }) => {
     setSearchbar,
     setUserEmail,
     setUserPassword,
+    foodsCategory,
+    setFoodsCategory,
+    foodKey,
+    setFoodKey,
+    drinksCategory,
+    setDrinksCategory,
+    drinkKey,
+    setDrinkKey,
   };
 
   useEffect(() => {
