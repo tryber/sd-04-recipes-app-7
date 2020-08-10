@@ -1,7 +1,6 @@
 import React from 'react';
 import Ingredients from '../components/Ingredients';
 
-
 const TestChamada = {
   meals: [
     {
