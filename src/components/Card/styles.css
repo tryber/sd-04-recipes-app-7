@@ -1,9 +1,9 @@
 .recipes-container {
   display: flex;
   flex-wrap: wrap;
-  height: 185vh;
+  height: 200vh;
   justify-content: space-around;
-  margin: 5px 0 170px;
+  margin: 5px 0 200px;
 }
 
 .card-body {
@@ -12,6 +12,7 @@
   box-shadow: 0 5px 7px gray;
   display: flex;
   flex-direction: column;
+  height: 31vh;
   margin: 1.2rem 0;
   overflow: hidden;
   width: 43%;
