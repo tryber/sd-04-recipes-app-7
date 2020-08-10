@@ -1,12 +1,47 @@
-import React /* Component */ from 'react';
-import BottomBar from '../components/BottomBar/BottomBar';
-import Header from '../components/Header/Header';
+import React, { useContext, useState } from 'react';
+import { RecipesContext } from '../context';
 
-const MainPageFoods = () => (
-  <div>
-    <Header title="Comidas" visible />
-    <BottomBar />
-  </div>
-);
+import BottomBar from '../components/BottomBar/BottomBar';
+import Header from '../components/Header';
+import LoadCards from '../components/LoadCards';
+import Button from '../components/Button';
+
+const MainPageFoods = () => {
+  const { filterFoods, foodRecipes } = useContext(RecipesContext);
+  const [foodsCategory, setFoodsCategory] = useState([]);
+  const [foodKey, setFoodKey] = useState('');
+  return (
+    <div>
+      <Header title="Comidas" visible />
+      <div className="category-filter-container">
+        <button
+          type="button"
+          data-testid="All-category-filter"
+          className="category-filter"
+          onClick={() => setFoodsCategory([])}
+        >
+          All
+        </button>
+        {filterFoods.length !== 0 &&
+          filterFoods.map(
+            ({ strCategory }, index) =>
+              index < 5 && (
+                <Button
+                  key={strCategory}
+                  strCategory={strCategory}
+                  idKey={foodKey}
+                  setIdKey={setFoodKey}
+                  category={foodsCategory}
+                  setCategory={setFoodsCategory}
+                  flag="meals"
+                />
+              ),
+          )}
+      </div>
+      <LoadCards flag="foods" category={foodsCategory} recipes={foodRecipes} />
+      <BottomBar />
+    </div>
+  );
+};
 
 export default MainPageFoods;
