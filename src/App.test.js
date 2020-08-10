@@ -1,9 +1,13 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
+import { renderWithContext } from './tests/test-serveces/renderWithContext';
+// import { render } from '@testing-library/react';
 
-test('Farewell, front-end', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/TRYBE/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+  describe('Login', () => {
+    test('should be rendered', () => {
+      const { getByText } = renderWithContext(<App />, '/');
+      expect(getByText('Login')).toBeInTheDocument();
+    });
+  });
 });
