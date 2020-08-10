@@ -1,15 +1,16 @@
 import React from 'react';
+import Ingredients from '../components/Ingredients';
 
 
 const TestChamada = {
   meals: [
-    /*  {
+    {
       'idMeal':'52882',
       'strMeal':'Three Fish Pie',
       'strDrinkAlternate':null,
       'strCategory':'Seafood',
       'strArea':'British',
-      'strInstructions':
+      "strInstructions":"Preheat the oven to 200C\/400F\/Gas 6 (180C fan).\r\nPut the potatoes into a saucepan of cold salted water. Bring up to the boil and simmer until completely tender. Drain well and then mash with the butter and milk. Add pepper and taste to check the seasoning. Add salt and more pepper if necessary.\r\nFor the fish filling, melt the butter in a saucepan, add the leeks and stir over the heat. Cover with a lid and simmer gently for 10 minutes, or until soft. Measure the flour into a small bowl. Add the wine and whisk together until smooth.\r\nAdd the milk to the leeks, bring to the boil and then add the wine mixture. Stir briskly until thickened. Season and add the parsley and fish. Stir over the heat for two minutes, then spoon into an ovenproof casserole. Scatter over the eggs. Allow to cool until firm.\r\nSpoon the mashed potatoes over the fish mixture and mark with a fork. Sprinkle with cheese.\r\nBake for 30-40 minutes, or until lightly golden-brown on top and bubbling around the edges.",
       'strMealThumb':'https://www.themealdb.com/images/media/meals/spswqs1511558697.jpg',
       'strTags':'Fish,Seafood,Dairy,Pie',
       'strYoutube':'https://www.youtube.com/watch?v=Ds1Jb8H5Sg8',
@@ -55,16 +56,26 @@ const TestChamada = {
       'strMeasure20':'',
       'strSource':'https://www.bbc.co.uk/food/recipes/three_fish_pie_58875',
       'dateModified':null
-    }  */
+    }
   ],
+};
+
+const catchIngredients = (data) => {
+  let test = 'nada';
+  let test2 = 'idMeal';
+  test = data.filter((info) => Object.keys(info) === test2);
+  console.log(test);
 };
 
 const DetailsFoods = () => {
   const img = TestChamada.meals[0].strMealThumb;
   console.log(TestChamada.meals[0].strCategory);
+  catchIngredients(TestChamada.meals);
+
   return (
     <div>
       <img src={img} alt="Imagem" />
+      <Ingredients />
     </div>
   );
 };
