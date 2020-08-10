@@ -4,7 +4,7 @@ import { createMemoryHistory } from 'history';
 import { render } from '@testing-library/react';
 import Provider from '../../context';
 
-const renderWithContext = (children, route = "/") => {
+const renderWithContext = (children, route = '/') => {
   const initialEntries = [route];
   const history = createMemoryHistory({ initialEntries });
   return {
