@@ -6,7 +6,7 @@ function Login() {
   const [password, setPassword] = useState('');
 
 
-  const checkEmailPass = () => ( 
+  const checkEmailPass = () => (
     password.length > 6 && /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/.test(email)
     );
 
