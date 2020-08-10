@@ -1,23 +1,9 @@
 .recipes-container {
   display: flex;
   flex-wrap: wrap;
-  height: 100vh;
+  height: 185vh;
   justify-content: space-around;
-}
-
-.category-filter {
-  background-color: lightgrey;
-  border: 0;
-  font-size: 0.73rem;
-  margin: 0.2rem 0.3rem;
-  padding: 0.5rem;
-  width: 30%;
-}
-
-.category-filter:focus {
-  background-color: gray;
-  color: white;
-  outline: none;
+  margin: 5px 0 170px;
 }
 
 .card-body {
@@ -35,6 +21,14 @@
   width: 100%;
 }
 
-.card-body span {
-  padding: 3px;
+.card-body .card-desc {
+  color: rgb(34, 33, 33);
+  font-weight: 700;
+  margin-left: 10px;
+  padding: 13px;
+  text-decoration: none;
+}
+
+.link-details {
+  text-decoration: none;
 }
