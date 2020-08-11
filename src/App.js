@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from './context';
 import * as pages from './pages';
-import './App.css';
 
 const App = () => (
   <Router>

@@ -3,13 +3,13 @@ import React from 'react';
 import shareIcon from '../../images/shareIcon.svg';
 import './styles.css';
 
-const DoneRecipesCard = ({ recipe: { name, image, doneDate, tags }, index }) => {
+const DoneRecipesCard = ({ recipe: { area, category, name, image, doneDate, tags }, index }) => {
   return (
     <div className="done-recipes-container">
       <img data-testid={`${index}-horizontal-image`} src={image} alt={name} />
       <div className="recipes-info">
         <div className="share-container">
-          <span data-testid={`${index}-horizontal-top-text`}></span>
+          <span data-testid={`${index}-horizontal-top-text`}>{`${area} - ${category}`}</span>
           <img data-testid={`${index}-horizontal-share-btn`} src={shareIcon} alt="Share Recipe" />
         </div>
         <h2 data-testid={`${index}-horizontal-name`} className="recipe-title">

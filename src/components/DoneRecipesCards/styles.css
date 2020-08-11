@@ -1,12 +1,37 @@
 .done-recipes-container {
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 5px 7px gray;
   display: flex;
+  font-size: 1rem;
   margin: 30px auto 10px;
   overflow: hidden;
   width: 90%;
 }
 
 .done-recipes-container img {
-  width: 50%;
+  width: 45%;
+}
+
+.recipes-info {
+  padding: 5px;
+  width: 55%;
+}
+
+.share-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.share-container span {
+  color: #a9a9a9;
+}
+
+.share-container img {
+  height: 22px;
+  width: 22px;
+}
+
+.recipe-title {
+  font-weight: 400;
+  margin: 2px 0 8px;
 }
