@@ -4,12 +4,19 @@ import { RecipesContext } from '../context';
 
 const checkEmail = (email) => /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/.test(email);
 const checkPass = (password) => password.length > 6;
-// const defaultData = { email: '', pass: '' };
+
+const inProgressRecipes = {
+  cocktails: {},
+  meals: {},
+};
 
 const setToLocalStorage = (email) => {
   localStorage.setItem('mealsToken', 1);
   localStorage.setItem('cocktailsToken', 1);
   localStorage.setItem('user', JSON.stringify({ email }));
+  localStorage.setItem('doneRecipes', JSON.stringify([]));
+  localStorage.setItem('favoriteRecipes', JSON.stringify([]));
+  localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipes));
 };
 
 const Login = () => {
