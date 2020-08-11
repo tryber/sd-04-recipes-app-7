@@ -60,6 +60,9 @@ Input.propTypes = {
   typeSearch: PropTypes.string.isRequired,
   setTypeSearch: PropTypes.func.isRequired,
   verify: PropTypes.func.isRequired,
+  setFoodsCategory: PropTypes.func.isRequired,
+  setDrinksCategory: PropTypes.func.isRequired,
+  history: PropTypes.string.isRequired,
 };
 
 export default Input;
