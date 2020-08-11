@@ -66,3 +66,9 @@ export const getCocktailByFirstLetter = async (firstLetter) => {
   const cocktails = await fetch(URL);
   return cocktails.json();
 };
+
+export const randomFoodId = async () => {
+  const URL = 'https://www.themealdb.com/api/json/v1/1/random.php';
+  const id = await fetch(URL);
+  return id.json();
+};
