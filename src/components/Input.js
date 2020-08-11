@@ -1,13 +1,6 @@
 import React from 'react';
 
-export default function Input({
-  searchTerm,
-  setSearchTerm,
-  typeSearch,
-  setTypeSearch,
-  verify,
-  setFoodsCategory,
-}) {
+const Input = ({ searchTerm, setSearchTerm, typeSearch, setTypeSearch, verify }) => {
   return (
     <div>
       <input
@@ -23,7 +16,6 @@ export default function Input({
         id="ingredient"
         type="radio"
         name="filter"
-        checked
         onChange={(e) => setTypeSearch(e.target.id)}
       />
       <label htmlFor="ingredient">Ingrediente</label>
@@ -46,48 +38,12 @@ export default function Input({
       <button
         data-testid="exec-search-btn"
         type="button"
-        onClick={() => verify(searchTerm, typeSearch, setFoodsCategory)}
+        onClick={() => verify(searchTerm, typeSearch)}
       >
         Buscar
       </button>
-      {/* <input
-        data-testid="search-input"
-        placeholder="Buscar Receita"
-        id="searchBar"
-        type="text"
-        onChange={attributes.setText}
-      />
-      <input
-        data-testid="ingredient-search-radio"
-        id="ingredient"
-        type="radio"
-        name="filter"
-        onChange={attributes.radioOption}
-      />
-      <label htmlFor="ingredient">Ingrediente</label>
-      <input
-        data-testid="name-search-radio"
-        id="name"
-        type="radio"
-        name="filter"
-        onChange={attributes.radioOption}
-      />
-      <label htmlFor="name">Nome</label>
-      <input
-        data-testid="first-letter-search-radio"
-        id="firstLetter"
-        type="radio"
-        name="filter"
-        onChange={attributes.radioOption}
-      />
-      <label htmlFor="firstLetter">Primeira letra</label>
-      <button
-        data-testid="exec-search-btn"
-        type="button"
-        onClick={attributes.onClick}
-      >
-        Buscar
-      </button> */}
     </div>
   );
 }
+
+export default Input;
