@@ -3,21 +3,18 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 const mountList = (ingredients, measures) => (
-    <div className="list-container">
-      {ingredients.map((item, index) => (
-        <p
-          key={`${item} ${measures[index]}`}
-          className="ingredients-item"
-        >
-          {`- ${item} - ${measures[index]}`}
-        </p>
-      ))}
-    </div>
-  );
+  <div className="list-container">
+    {ingredients.map((item, index) => (
+      <p key={`${item} ${measures[index]}`} className="ingredients-item">
+        {`- ${item} - ${measures[index]}`}
+      </p>
+    ))}
+  </div>
+);
 
 const Ingredients = ({ list, ingredients, measures }) => {
   if (!list) return mountList(ingredients, measures);
-  return <p />
+  return <p />;
 };
 
 Ingredients.propTypes = {
