@@ -63,9 +63,9 @@ const catchMaterials = (data, key) => {
   const details = [];
   let counter = 1;
   Object.keys(data[0]).forEach((info) => {
-    let comparation = `${key}${counter}`;
+    const comparation = `${key}${counter}`;
     if (info === comparation && data[0][info] !== '') {
-      counter = counter + 1;
+      counter += 1;
       details.push(data[0][info]);
     }
   });

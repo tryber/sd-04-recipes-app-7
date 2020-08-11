@@ -31,7 +31,7 @@ DetailsHeader.propTypes = {
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  favorite: PropTypes.object.isRequired,
+  favorite: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default DetailsHeader;
