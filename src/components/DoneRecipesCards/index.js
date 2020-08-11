@@ -15,7 +15,7 @@ const DoneRecipesCard = ({ recipe: { area, category, name, image, doneDate, tags
         <h2 data-testid={`${index}-horizontal-name`} className="recipe-title">
           {name}
         </h2>
-        <span data-testid={`${index}-horizontal-done-date`} className="data-made">
+        <span data-testid={`${index}-horizontal-done-date`} className="date-made">
           Feita em: {doneDate}
         </span>
         <div className="tags">
