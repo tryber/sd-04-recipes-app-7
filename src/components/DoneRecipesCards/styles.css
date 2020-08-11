@@ -8,8 +8,12 @@
   width: 330px;
 }
 
-.done-recipes-container img {
+.link-img-recipe {
   height: 143px;
+}
+
+.done-recipes-container img {
+  height: 100%;
   width: 165px;
 }
 
@@ -34,11 +38,14 @@
 }
 
 .recipe-title {
+  color: black;
+  display: block;
   font-size: 21px;
   font-style: normal;
   font-weight: normal;
   line-height: 25px;
   margin: 2px 0 8px;
+  text-decoration: none;
 }
 
 .date-made {

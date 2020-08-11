@@ -19,14 +19,25 @@ const setToLocalStorage = (email) => {
     JSON.stringify([
       {
         id: 5555,
-        type: 'meals',
+        type: 'comida',
         area: 'Indian',
         category: 'Chicken',
         alcoholicOrNot: '',
         name: 'Chicken Handi',
         image: 'https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg',
         doneDate: '11/09/2020',
-        tags: 'ChickenMeat,Spicy',
+        tags: ['ChickenMeat', 'Spicy'],
+      },
+      {
+        id: 1111,
+        type: 'bebida',
+        area: '',
+        category: 'Ordinary Drink',
+        alcoholicOrNot: 'Alcoholic',
+        name: 'Long vodka',
+        image: 'https://www.thecocktaildb.com/images/media/drink/9179i01503565212.jpg',
+        doneDate: '10/09/2020',
+        tags: [],
       },
     ]),
   );
