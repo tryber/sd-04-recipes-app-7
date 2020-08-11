@@ -7,20 +7,29 @@ import {
   getCocktailByFirstLetter,
 } from '../services';
 
+const mealsConclusion = (resultArray, setCategory, history) => {
+  if (resultArray && resultArray.length === 1) {
+    return history.push(`/comidas/${resultArray[0].idMeal}`);
+  } else if (!resultArray || resultArray.length === 0) {
+    alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+  } else setCategory([...resultArray]);
+};
+
+const drinksConclusion = (resultArray, setCategory, history) => {
+  if (resultArray && resultArray.length === 1) {
+    return history.push(`/bebidas/${resultArray[0].idDrink}`);
+  } else if (!resultArray || resultArray.length === 0) {
+    alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
+  } else setCategory([...resultArray]);
+};
+
 const verifyLength = (resultArray, flag, setCategory, history) => {
   if (flag === 'meals') {
-    if (resultArray && resultArray.length === 1) {
-      return history.push(`/comidas/${resultArray[0].idMeal}`);
-    } else if (!resultArray || resultArray.length === 0) {
-      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
-    } else setCategory([...resultArray]);
+    mealsConclusion(resultArray, setCategory, history);
   } else {
-    if (resultArray && resultArray.length === 1) {
-      return history.push(`/bebidas/${resultArray[0].idDrink}`);
-    } else if (!resultArray || resultArray.length === 0) {
-      alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
-    } else setCategory([...resultArray]);
+    drinksConclusion(resultArray, setCategory, history);
   }
+  return null;
 };
 
 export const verifyTextMeals = (text, radioValue, setFoodsCategory, history) => {
