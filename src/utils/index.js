@@ -13,6 +13,7 @@ const mealsConclusion = (resultArray, setCategory, history) => {
   } else if (!resultArray || resultArray.length === 0) {
     alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
   } else setCategory([...resultArray]);
+  return null;
 };
 
 const drinksConclusion = (resultArray, setCategory, history) => {
@@ -21,6 +22,7 @@ const drinksConclusion = (resultArray, setCategory, history) => {
   } else if (!resultArray || resultArray.length === 0) {
     alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
   } else setCategory([...resultArray]);
+  return null;
 };
 
 const verifyLength = (resultArray, flag, setCategory, history) => {
