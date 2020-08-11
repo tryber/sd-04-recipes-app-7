@@ -1,7 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ searchTerm, setSearchTerm, typeSearch, setTypeSearch, verify }) => (
+const Input = ({
+  searchTerm,
+  setSearchTerm,
+  typeSearch,
+  setTypeSearch,
+  verify,
+  setFoodsCategory,
+  setDrinksCategory,
+  history,
+}) => (
   <div>
     <input
       data-testid="search-input"
@@ -38,7 +47,7 @@ const Input = ({ searchTerm, setSearchTerm, typeSearch, setTypeSearch, verify })
     <button
       data-testid="exec-search-btn"
       type="button"
-      onClick={() => verify(searchTerm, typeSearch)}
+      onClick={() => verify(searchTerm, typeSearch, setFoodsCategory, setDrinksCategory, history)}
     >
       Buscar
     </button>

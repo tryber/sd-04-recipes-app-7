@@ -10,9 +10,9 @@ import {
 const verifyLength = (resultArray, flag, setCategory, history) => {
   switch (flag) {
     case 'meals': {
-      if (resultArray && resultArray.length === 1)
+      if (resultArray && resultArray.length === 1) {
         return history.push(`/comidas/${resultArray[0].idMeal}`);
-      else if (!resultArray || resultArray.length === 0) {
+      } else if (!resultArray || resultArray.length === 0) {
         alert('Sinto muito, não encontramos nenhuma receita para esses filtros.');
       } else setCategory([...resultArray]);
       break;
@@ -51,8 +51,9 @@ export const verifyTextCocktails = (text, radioValue, setDrinksCategory, history
     getCocktailByNameAPI(text).then((resp) =>
       verifyLength(resp.drinks, 'drinks', setDrinksCategory, history),
     );
-  } else
+  } else {
     getCocktailByFirstLetter(text).then((resp) =>
       verifyLength(resp.drinks, 'drinks', setDrinksCategory, history),
     );
+  }
 };
