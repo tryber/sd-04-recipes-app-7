@@ -15,8 +15,6 @@ const MainPageDrinks = () => {
     drinkKey,
     setDrinkKey,
   } = useContext(RecipesContext);
-  console.log('drinksRecipes: ', drinkRecipes);
-  console.log('drinksCategory: ', drinksCategory);
   return (
     <div>
       <Header title="Bebidas" visible />

@@ -13,7 +13,6 @@ const RecipesProvider = ({ children }) => {
   // Sessão referente a comidas
   const [filterFoods, setFilterFoods] = useState([]); // filtros.
   const [foodRecipes, setFoodRecipes] = useState([]); // cards.
-  
   const [foodsCategory, setFoodsCategory] = useState([]); // Estado de Comidas
   const [foodKey, setFoodKey] = useState(''); // Estado de Comidas
 

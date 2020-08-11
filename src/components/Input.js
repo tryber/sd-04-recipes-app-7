@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Input = ({ searchTerm, setSearchTerm, typeSearch, setTypeSearch, verify }) => {
   return (
@@ -44,6 +45,14 @@ const Input = ({ searchTerm, setSearchTerm, typeSearch, setTypeSearch, verify })
       </button>
     </div>
   );
-}
+};
+
+Input.propTypes = {
+  searchTerm: PropTypes.string.isRequired,
+  setSearchTerm: PropTypes.func.isRequired,
+  typeSearch: PropTypes.string.isRequired,
+  setTypeSearch: PropTypes.func.isRequired,
+  verify: PropTypes.func.isRequired,
+};
 
 export default Input;
