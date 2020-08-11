@@ -14,7 +14,22 @@ const setToLocalStorage = (email) => {
   localStorage.setItem('mealsToken', 1);
   localStorage.setItem('cocktailsToken', 1);
   localStorage.setItem('user', JSON.stringify({ email }));
-  localStorage.setItem('doneRecipes', JSON.stringify([]));
+  localStorage.setItem(
+    'doneRecipes',
+    JSON.stringify([
+      {
+        id: 5555,
+        type: 'meals',
+        area: 'Indian',
+        category: 'Chicken',
+        alcoholicOrNot: '',
+        name: 'Chicken Handi',
+        image: 'https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg',
+        doneDate: '11/09/2020',
+        tags: 'ChickenMeat,Spicy',
+      },
+    ]),
+  );
   localStorage.setItem('favoriteRecipes', JSON.stringify([]));
   localStorage.setItem('inProgressRecipes', JSON.stringify(inProgressRecipes));
 };

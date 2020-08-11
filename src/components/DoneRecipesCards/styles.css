@@ -1,0 +1,12 @@
+.done-recipes-container {
+  border-radius: 10px;
+  box-shadow: 0 5px 7px gray;
+  display: flex;
+  margin: 30px auto 10px;
+  overflow: hidden;
+  width: 90%;
+}
+
+.done-recipes-container img {
+  width: 50%;
+}
