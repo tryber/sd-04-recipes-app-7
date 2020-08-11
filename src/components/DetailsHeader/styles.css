@@ -1,0 +1,28 @@
+.image-recipe {
+  margin-left: 0;
+  max-height: 40vh;
+  width: 100vw;
+}
+
+.titles-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.imgs-container {
+  margin-top: 1em;
+}
+
+img {
+  margin: 0 10px;
+}
+
+h3 {
+  margin-bottom: 0;
+}
+
+.p-class {
+  color: rgb(110, 110, 110);
+  margin-top: 0;
+}
