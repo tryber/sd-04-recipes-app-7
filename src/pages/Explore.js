@@ -1,7 +1,7 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import BottomBar from '../components/BottomBar/BottomBar';
 import Header from '../components/Header';
-import { useHistory } from 'react-router-dom';
 
 const Explore = () => {
   const history = useHistory();
