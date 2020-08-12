@@ -14,18 +14,22 @@ const RecipesProvider = ({ children }) => {
   const [filterFoods, setFilterFoods] = useState([]); // filtros.
   const [foodRecipes, setFoodRecipes] = useState([]); // cards.
   const [foodsCategory, setFoodsCategory] = useState([]); // Estado de Comidas
+  const [foodDetails, setFoodsDetails] = useState({});
   const [foodKey, setFoodKey] = useState(''); // Estado de Comidas
 
   // Sessão referente a bebidas
   const [filterDrinks, setFilterDrinks] = useState([]); // filtros.
   const [drinkRecipes, setDrinkRecipes] = useState([]); // cards.
   const [drinksCategory, setDrinksCategory] = useState([]); // Estado de Bebidas
+  const [drinksDetails, setDrinksDetails] = useState({});
   const [drinkKey, setDrinkKey] = useState(''); // Estado de Bebidas
 
   const [title, setTitle] = useState('');
   const [searchbar, setSearchbar] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
+
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const context = {
     filterFoods,
@@ -52,6 +56,12 @@ const RecipesProvider = ({ children }) => {
     setDrinksCategory,
     drinkKey,
     setDrinkKey,
+    isFavorite,
+    setIsFavorite,
+    foodDetails,
+    setFoodsDetails,
+    drinksDetails,
+    setDrinksDetails,
   };
 
   useEffect(() => {

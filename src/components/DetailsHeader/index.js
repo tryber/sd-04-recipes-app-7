@@ -4,6 +4,7 @@ import Heart from '../../images/whiteHeartIcon.svg';
 import Share from '../../images/shareIcon.svg';
 import { setLS } from '../HelpStorage';
 import './styles.css';
+import FavoriteButton from '../FavoriteButton';
 
 const setStorage = (favorite) => {
   setLS('favoriteRecipes', favorite);
@@ -18,9 +19,7 @@ const DetailsHeader = ({ img, name, category, favorite }) => (
         <button>
           <img src={Share} alt="Share Icon" />
         </button>
-        <button onClick={(() => setStorage(favorite))}>
-          <img src={Heart} alt="Heart Icon" />
-        </button>
+        <FavoriteButton />
       </div>
     </div>
     <p className="p-class">{category}</p>
