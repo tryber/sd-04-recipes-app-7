@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import Ingredients from '../components/Ingredients';
 import DetailsHeader from '../components/DetailsHeader';
 import Instructions from '../components/Instructions';
@@ -39,6 +40,11 @@ const objFavorite = (data) => {
   return favorite;
 };
 
+const handleButton = (boolean) => {
+  console.log('ok')
+  return !boolean;
+};
+
 const DetailsFoods = () => {
   const {
     foodId,
@@ -60,6 +66,7 @@ const DetailsFoods = () => {
     const ingredients = catchMaterials(foodId.meals, 'strIngredient');
     const measures = catchMaterials(foodId.meals, 'strMeasure');
     const fav = objFavorite(foodId.meals[0]);
+    let pageChange = false;
 
     return (
       <div>
@@ -72,7 +79,14 @@ const DetailsFoods = () => {
         <h3>Recomendadas</h3>
         <br />
         <br />
-        <button data-testid="start-recipe-btn" className="btn-init">Iniciar Receita</button>
+        {console.log(pageChange)}
+        <button
+          data-testid="start-recipe-btn"
+          className="btn-init"
+          onClick={() => pageChange = handleButton(pageChange)}
+        >
+          Iniciar Receita
+        </button>
       </div>
     );
   }

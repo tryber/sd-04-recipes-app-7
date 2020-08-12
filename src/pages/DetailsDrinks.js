@@ -49,6 +49,7 @@ const DetailsDrinks = () => {
   let img = '';
   let name = '';
   let category = '';
+
   if (drinkId.length === 0 || drinkId.drinks[0].idDrink !== url[2]) {
     getCocktailById(url[2]).then((resp) => setDrinkId(resp));
   }
