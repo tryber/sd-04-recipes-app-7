@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -32,5 +33,10 @@ const RecipesButtons = ({ allRecipes, setRecipesFilter }) => (
     </button>
   </div>
 );
+
+RecipesButtons.propType = {
+  allRecipes: PropTypes.shape([]).isRequired,
+  setRecipesFilter: PropTypes.func.isRequired,
+};
 
 export default RecipesButtons;
