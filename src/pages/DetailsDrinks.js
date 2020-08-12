@@ -7,9 +7,9 @@ import { RecipesContext } from '../context';
 import './CSS/Details.css';
 
 const takeURL = () => {
-  const url = window.location.pathname;
-  const arrayUrl = url.split('/');
-  return arrayUrl;
+  const path = window.location.pathname;
+  const arrayPath = path.split('/');
+  return arrayPath;
 };
 
 const catchMaterials = (data, key) => {
@@ -49,7 +49,7 @@ const DetailsDrinks = () => {
   let img = '';
   let name = '';
   let category = '';
-  if (drinkId.length === 0 || drinkId.drinks[0].idDrink !== url[2] ) {
+  if (drinkId.length === 0 || drinkId.drinks[0].idDrink !== url[2]) {
     getCocktailById(url[2]).then((resp) => setDrinkId(resp));
   }
 

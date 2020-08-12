@@ -9,7 +9,7 @@ const setStorage = (favorite) => {
   setLS('favoriteRecipes', favorite);
 };
 
-const DetailsHeader = ({ img, name, category, favorite}) => (
+const DetailsHeader = ({ img, name, category, favorite }) => (
   <div>
     <img data-testid="recipe-photo" className="image-recipe" src={img} alt="Recipe" />
     <div className="titles-container">
