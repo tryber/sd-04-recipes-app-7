@@ -49,7 +49,7 @@ const DoneRecipesCard = ({
 
 DoneRecipesCard.propTypes = {
   index: PropTypes.number.isRequired,
-  recipe: PropTypes.object.isRequired,
+  recipe: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default DoneRecipesCard;
