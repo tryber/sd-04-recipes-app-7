@@ -28,7 +28,7 @@
 }
 
 .share-container span {
-  color: #a9a9a9;
+  color: darkgray;
   font-size: 15px;
 }
 
@@ -42,7 +42,7 @@
   display: block;
   font-size: 21px;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 25px;
   margin: 2px 0 8px;
   text-decoration: none;
