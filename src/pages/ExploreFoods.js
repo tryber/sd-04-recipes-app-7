@@ -8,8 +8,8 @@ const ExploreFoods = () => {
   const history = useHistory();
   const [id, setId] = useState('');
   const alternative = `/comidas/${id}`;
-  const surpriseMe = (history) => {
-    history.push(alternative);
+  const surpriseMe = (value) => {
+    value.push(alternative);
   };
 
   useEffect(() => {

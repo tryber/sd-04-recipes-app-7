@@ -5,6 +5,7 @@ import Header from '../components/Header';
 const IngredientsFoods = () => (
   <div>
     <Header title="Explorar Ingredientes" />
+    <span>oi</span>
     <BottomBar />
   </div>
 );
