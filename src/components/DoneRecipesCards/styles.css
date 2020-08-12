@@ -27,9 +27,24 @@
   justify-content: space-between;
 }
 
-.share-container span {
+.share-container > span {
   color: darkgray;
   font-size: 15px;
+}
+
+.share-button-container {
+  overflow: visible;
+  position: relative;
+}
+
+.pop-up-clipboard {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  position: absolute;
+  left: -280px;
+  text-shadow: 2px 2px 3px black;
+  top: 60px;
 }
 
 .share-button {
