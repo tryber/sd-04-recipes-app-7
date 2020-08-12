@@ -5,8 +5,6 @@ import {
   getDrinkFiltersAPI,
   getMealByNameAPI,
   getCocktailByNameAPI,
-  getMealById,
-  getCocktailById,
 } from '../services';
 
 const RecipesContext = createContext();
@@ -24,7 +22,7 @@ const RecipesProvider = ({ children }) => {
   const [drinkRecipes, setDrinkRecipes] = useState([]); // cards.
   const [drinksCategory, setDrinksCategory] = useState([]); // Estado de Bebidas
   const [drinkKey, setDrinkKey] = useState(''); // Estado de Bebidas
-  const [drinkId, setDrinkId] = useState('');
+  const [drinkId, setDrinkId] = useState([]);
 
   const [title, setTitle] = useState('');
   const [searchbar, setSearchbar] = useState(false);
