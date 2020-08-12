@@ -58,7 +58,7 @@ DoneRecipesCard.propTypes = {
     image: PropTypes.string.isRequired,
     doneDate: PropTypes.string.isRequired,
     tags: PropTypes.array.isRequired,
-  }),
+  }).isRequired,
 };
 
 export default DoneRecipesCard;
