@@ -1,7 +1,9 @@
 .btn-init {
   background-color: rgb(108, 227, 79);
   border: none;
+  bottom: 0;
   margin-left: 3vw;
   padding: 0.5em;
+  position: fixed;
   width: 95vw;
 }

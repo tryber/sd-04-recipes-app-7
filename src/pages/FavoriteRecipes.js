@@ -3,7 +3,7 @@ import Header from '../components/Header';
 
 const FavoriteRecipes = () => (
   <div>
-    <Header title="Receitas Favoritas" />
+    <Header title="Receitas Favoritas" visible={false} />
   </div>
 );
 

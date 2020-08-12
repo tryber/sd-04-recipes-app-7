@@ -5,7 +5,11 @@ import './styles.css';
 const mountList = (ingredients, measures) => (
   <div className="list-container">
     {ingredients.map((item, index) => (
-      <p key={`${item} ${measures[index]}`} className="ingredients-item">
+      <p
+        data-testid={`${index}-ingredient-name-and-measure`}
+        key={`${item} ${measures[index]}`}
+        className="ingredients-item"
+      >
         {`- ${item} - ${measures[index]}`}
       </p>
     ))}

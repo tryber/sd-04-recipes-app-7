@@ -51,7 +51,6 @@ const DetailsFoods = () => {
   let category = '';
   if (foodId.length === 0 || foodId.meals[0].idMeal !== url[2]) {
     getMealById(url[2]).then((resp) => setFoodId(resp));
-    console.log('good');
   }
 
   if (foodId.length !== 0) {
@@ -71,7 +70,9 @@ const DetailsFoods = () => {
         <Instructions text={foodId.meals[0].strInstructions} />
         <h3>Video</h3>
         <h3>Recomendadas</h3>
-        <button className="btn-init">Iniciar Receita</button>
+        <br />
+        <br />
+        <button data-testid="start-recipe-btn" className="btn-init">Iniciar Receita</button>
       </div>
     );
   }

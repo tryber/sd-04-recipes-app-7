@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 const Instructions = ({ text }) => (
-  <div className="instructions-container">
+  <div data-testid="instructions" className="instructions-container">
     {text}
   </div>
 );

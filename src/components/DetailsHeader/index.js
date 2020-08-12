@@ -9,11 +9,11 @@ const setStorage = (favorite) => {
   setLS('favoriteRecipes', favorite);
 };
 
-const DetailsHeader = ({ img, name, category, favorite }) => (
+const DetailsHeader = ({ img, name, category, favorite}) => (
   <div>
-    <img className="image-recipe" src={img} alt="Recipe" />
+    <img data-testid="recipe-photo" className="image-recipe" src={img} alt="Recipe" />
     <div className="titles-container">
-      <h3>{name}</h3>
+      <h3 data-testid="recipe-title">{name}</h3>
       <div className="imgs-container">
         <button>
           <img src={Share} alt="Share Icon" />
@@ -23,7 +23,7 @@ const DetailsHeader = ({ img, name, category, favorite }) => (
         </button>
       </div>
     </div>
-    <p className="p-class">{category}</p>
+    <p data-testid="recipe-category" className="p-class">{category}</p>
   </div>
 );
 

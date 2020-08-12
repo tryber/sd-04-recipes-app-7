@@ -9,7 +9,7 @@ const Profile = () => {
 
   return (
     <div>
-      <Header title="Perfil" />
+      <Header title="Perfil" visible={false} />
 
       <p data-testid="profile-email">{email}</p>
 
