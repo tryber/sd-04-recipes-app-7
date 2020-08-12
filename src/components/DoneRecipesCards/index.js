@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import shareIcon from '../../images/shareIcon.svg';
+import ShareButton from '../ShareButton';
+
 import './styles.css';
 
 const DoneRecipesCard = ({
@@ -18,7 +19,7 @@ const DoneRecipesCard = ({
         <span data-testid={`${index}-horizontal-top-text`}>
           {type === 'comida' ? `${area} - ${category}` : `${alcoholicOrNot}`}
         </span>
-        <img data-testid={`${index}-horizontal-share-btn`} src={shareIcon} alt="Share Recipe" />
+        <ShareButton testid={`${index}-horizontal-share-btn`} path={`/${type}s/${id}`} />
       </div>
       <Link
         to={`/${type}s/${id}`}
