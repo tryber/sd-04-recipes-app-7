@@ -10,7 +10,7 @@ const togglePopUp = (setPopUpVisible) => {
 
 const ShareButton = ({ testid, path }) => {
   const [popUpVisible, setPopUpVisible] = useState(false);
-  const wayTo = `${window.location.host}${path}`;
+  const wayTo = `${window.location.origin}${path}`;
   return (
     <div className="share-button-container">
       {popUpVisible && <span className="pop-up-clipboard">Link copiado!</span>}
