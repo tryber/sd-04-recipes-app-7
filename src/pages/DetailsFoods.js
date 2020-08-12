@@ -40,9 +40,9 @@ const objFavorite = (data) => {
   return favorite;
 };
 
-const handleButton = (boolean) => {
-  console.log('ok')
-  return !boolean;
+const handleButton = (history) => {
+  console.log('oi');
+  return history.push(`${window.location.pathname}/in-progress`);
 };
 
 const DetailsFoods = () => {
@@ -55,6 +55,7 @@ const DetailsFoods = () => {
   let img = '';
   let name = '';
   let category = '';
+  const history = useHistory();
   if (foodId.length === 0 || foodId.meals[0].idMeal !== url[2]) {
     getMealById(url[2]).then((resp) => setFoodId(resp));
   }
@@ -66,7 +67,6 @@ const DetailsFoods = () => {
     const ingredients = catchMaterials(foodId.meals, 'strIngredient');
     const measures = catchMaterials(foodId.meals, 'strMeasure');
     const fav = objFavorite(foodId.meals[0]);
-    let pageChange = false;
 
     return (
       <div>
@@ -79,11 +79,10 @@ const DetailsFoods = () => {
         <h3>Recomendadas</h3>
         <br />
         <br />
-        {console.log(pageChange)}
         <button
           data-testid="start-recipe-btn"
           className="btn-init"
-          onClick={() => pageChange = handleButton(pageChange)}
+          onClick={() => handleButton(history)}
         >
           Iniciar Receita
         </button>
