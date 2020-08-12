@@ -1,5 +1,5 @@
 .image-recipe {
-  margin-left: 0;
+  margin: 0;
   max-height: 40vh;
   width: 100vw;
 }
@@ -20,9 +20,11 @@ img {
 
 h3 {
   margin-bottom: 0;
+  padding-left: 3vw;
 }
 
 .p-class {
   color: rgb(110, 110, 110);
   margin-top: 0;
+  padding-left: 3vw;
 }
