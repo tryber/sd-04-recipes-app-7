@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import DoneRecipesCard from '../components/DoneRecipesCards';
+import DoneRecipesCard from '../components/DoneRecipesCard';
 import RecipesButtons from '../components/RecipesButtons';
 
 const MadeRecipes = () => {
-  const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
+  const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes')) || [];
   const [recipesFilter, setRecipesFilter] = useState([]);
   return (
     <div>
@@ -15,6 +15,7 @@ const MadeRecipes = () => {
           <DoneRecipesCard key={recipe.id} recipe={recipe} index={index} />
         ))}
       {recipesFilter.length === 0 &&
+        doneRecipes.length !== 0 &&
         doneRecipes.map((recipe, index) => (
           <DoneRecipesCard key={recipe.id} recipe={recipe} index={index} />
         ))}

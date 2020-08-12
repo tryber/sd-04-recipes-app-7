@@ -49,17 +49,7 @@ const DoneRecipesCard = ({
 
 DoneRecipesCard.propTypes = {
   index: PropTypes.number.isRequired,
-  recipe: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    type: PropTypes.string.isRequired,
-    area: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
-    alcoholicOrNot: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    doneDate: PropTypes.string.isRequired,
-    tags: PropTypes.array.isRequired,
-  }).isRequired,
+  recipe: PropTypes.object.isRequired,
 };
 
 export default DoneRecipesCard;
