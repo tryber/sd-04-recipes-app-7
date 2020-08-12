@@ -33,7 +33,7 @@
 }
 
 .share-button-container {
-  overflow: visible;
+  height: 22px;
   position: relative;
 }
 
