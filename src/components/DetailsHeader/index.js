@@ -16,10 +16,10 @@ const DetailsHeader = ({ img, name, category, favorite }) => (
       <h3 data-testid="recipe-title">{name}</h3>
       <div className="imgs-container">
         <button>
-          <img src={Share} alt="Share Icon" />
+          <img data-testid="favorite-btn" src={Share} alt="Share Icon" />
         </button>
         <button onClick={(() => setStorage(favorite))}>
-          <img src={Heart} alt="Heart Icon" />
+          <img data-testid="share-btn" src={Heart} alt="Heart Icon" />
         </button>
       </div>
     </div>
