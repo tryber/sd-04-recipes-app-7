@@ -32,9 +32,22 @@
   font-size: 15px;
 }
 
-.share-container img {
+.share-button {
+  background: transparent;
+  border: none;
   height: 22px;
+  padding: 0;
   width: 22px;
+}
+
+.share-button:focus {
+  background-color: #ccc;
+  border-radius: 2px;
+  outline: none;
+}
+
+.share-container img {
+  width: 100%;
 }
 
 .recipe-title {

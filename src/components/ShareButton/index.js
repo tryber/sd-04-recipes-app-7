@@ -7,7 +7,7 @@ const ShareButton = ({ testid, path }) => {
   const wayTo = `${window.location.host}${path}`;
   return (
     <div>
-      <button onClick={() => copyToClipboard(wayTo)}
+      <button className="share-button" onClick={() => copyToClipboard(wayTo)}
       >
         <img src={shareIcon} alt="share-icon" data-testid={testid} />
       </button>
