@@ -34,7 +34,7 @@ const RecipesButtons = ({ allRecipes, setRecipesFilter }) => (
   </div>
 );
 
-RecipesButtons.propType = {
+RecipesButtons.propTypes = {
   allRecipes: PropTypes.arrayOf(PropTypes.object).isRequired,
   setRecipesFilter: PropTypes.func.isRequired,
 };
