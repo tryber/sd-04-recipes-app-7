@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from '../components/Carousel';
 
 const TestChamada = {
   meals: [
@@ -63,7 +64,8 @@ const DetailsFoods = () => {
   console.log(TestChamada.meals[0].strCategory);
   return (
     <div>
-      <img src={img} alt="Imagem" />
+      <img src={img} alt="Imagem" style={{ width: '100%' }} />
+      <Carousel />
     </div>
   );
 };
