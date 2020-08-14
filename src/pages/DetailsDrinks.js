@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { getCocktailById, getMealByNameAPI } from '../services';
+import { RecipesContext } from '../context';
 import Ingredients from '../components/Ingredients';
 import DetailsHeader from '../components/DetailsHeader';
 import Instructions from '../components/Instructions';
-import { getCocktailById } from '../services/index';
-import { RecipesContext } from '../context';
+import Carousel from '../components/Carousel';
+
 import './CSS/Details.css';
 
 const takeURL = () => {
@@ -40,10 +42,12 @@ const objFavorite = (data) => {
 };
 
 const DetailsDrinks = () => {
-  const {
-    drinkId,
-    setDrinkId,
-  } = useContext(RecipesContext);
+  const { drinkId, setDrinkId } = useContext(RecipesContext);
+  const [recommendedFoods, setRecommendedFoods] = useState([]);
+
+  useEffect(() => {
+    getMealByNameAPI().then((resp) => setRecommendedFoods([...resp.meals]));
+  }, []);
 
   const url = takeURL();
   let img = '';
@@ -71,9 +75,12 @@ const DetailsDrinks = () => {
         <Instructions text={drinkId.drinks[0].strInstructions} />
         <h3>Video</h3>
         <h3>Recomendadas</h3>
+        <Carousel recommendeds={recommendedFoods} flag="comida" />
         <br />
         <br />
-        <button data-testid="start-recipe-btn" className="btn-init">Iniciar Receita</button>
+        <button data-testid="start-recipe-btn" className="btn-init">
+          Iniciar Receita
+        </button>
       </div>
     );
   }
