@@ -66,3 +66,15 @@ export const getCocktailByFirstLetter = async (firstLetter) => {
   const cocktails = await fetch(URL);
   return cocktails.json();
 };
+
+export const getMealById = async (Id) => {
+  const URL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${Id}`;
+  const meals = await fetch(URL);
+  return meals.json();
+};
+
+export const getCocktailById = async (Id) => {
+  const URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${Id}`;
+  const cocktails = await fetch(URL);
+  return cocktails.json();
+};
