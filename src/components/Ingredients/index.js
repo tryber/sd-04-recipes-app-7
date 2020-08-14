@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-const mountList = (ingredients, measures) => (
+const mountNotList = (ingredients, measures) => (
   <div className="list-container">
     {ingredients.map((item, index) => (
       <p
@@ -16,9 +16,15 @@ const mountList = (ingredients, measures) => (
   </div>
 );
 
+const mountList = (ingredients, measures) => {
+  return (
+    <div />
+  );
+};
+
 const Ingredients = ({ list, ingredients, measures }) => {
-  if (!list) return mountList(ingredients, measures);
-  return <p />;
+  if (!list) return mountNotList(ingredients, measures);
+  {mountList(ingredients, measures)};
 };
 
 Ingredients.propTypes = {
