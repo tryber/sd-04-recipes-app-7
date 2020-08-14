@@ -24,7 +24,6 @@ const catchMaterials = (data, key) => {
       details.push(data[0][info]);
     }
   });
-  //  console.log(details);
   return details;
 };
 
@@ -74,6 +73,7 @@ const DetailsDrinks = () => {
         <h3>Instructions</h3>
         <Instructions text={drinkId.drinks[0].strInstructions} />
         <h3>Video</h3>
+        <video src=""></video>
         <h3>Recomendadas</h3>
         <Carousel recommendeds={recommendedFoods} flag="comida" />
         <br />

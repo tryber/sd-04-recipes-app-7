@@ -24,7 +24,6 @@ const catchMaterials = (data, key) => {
       details.push(data[0][info]);
     }
   });
-  //  console.log(details);
   return details;
 };
 
@@ -79,6 +78,10 @@ const DetailsFoods = () => {
         <h3>Instructions</h3>
         <Instructions text={foodId.meals[0].strInstructions} />
         <h3>Video</h3>
+        {console.log(foodId.meals[0].strYoutube)}
+        <video data-testid="video" controls>
+          {/* <source src={foodId.meals[0].strYoutube} type="video/mp4" /> */}
+        </video>
         <h3>Recomendadas</h3>
         <Carousel recommendeds={recommendedDrinks} flag="bebida" />
         <br />
