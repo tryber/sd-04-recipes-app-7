@@ -3,7 +3,7 @@ import React from 'react';
 import Card from '../Card';
 
 const renderCard = (id, flag, index, url, name) => (
-  <Card id={id} flag={flag} index={index} url={url} name={name} />
+  <Card key={id} id={id} flag={flag} index={index} url={url} name={name} />
 );
 
 // Opções específicas de comidas

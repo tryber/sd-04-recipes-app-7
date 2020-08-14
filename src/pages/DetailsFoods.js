@@ -40,10 +40,7 @@ const objFavorite = (data) => {
   return favorite;
 };
 
-const handleButton = (history) => {
-  console.log('oi');
-  return history.push(`${window.location.pathname}/in-progress`);
-};
+const handleButton = (history) => history.push(`${window.location.pathname}/in-progress`);
 
 const DetailsFoods = () => {
   const { foodId, setFoodId } = useContext(RecipesContext);
@@ -78,14 +75,11 @@ const DetailsFoods = () => {
         <h3>Instructions</h3>
         <Instructions text={foodId.meals[0].strInstructions} />
         <h3>Video</h3>
-        {console.log(foodId.meals[0].strYoutube)}
-        <video data-testid="video" controls>
+        <div data-testid="video">
           {/* <source src={foodId.meals[0].strYoutube} type="video/mp4" /> */}
-        </video>
+        </div>
         <h3>Recomendadas</h3>
-        <Carousel recommendeds={recommendedDrinks} flag="bebida" />
-        <br />
-        <br />
+        <Carousel recommendeds={recommendedDrinks} flag="bebidas" />
         <button
           data-testid="start-recipe-btn"
           className="btn-init"

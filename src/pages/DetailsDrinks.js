@@ -44,9 +44,7 @@ const DetailsDrinks = () => {
   const { drinkId, setDrinkId } = useContext(RecipesContext);
   const [recommendedFoods, setRecommendedFoods] = useState([]);
 
-  useEffect(() => {
-    getMealByNameAPI().then((resp) => setRecommendedFoods([...resp.meals]));
-  }, []);
+  useEffect(() => getMealByNameAPI().then((resp) => setRecommendedFoods([...resp.meals])), []);
 
   const url = takeURL();
   let img = '';
@@ -73,11 +71,8 @@ const DetailsDrinks = () => {
         <h3>Instructions</h3>
         <Instructions text={drinkId.drinks[0].strInstructions} />
         <h3>Video</h3>
-        <video src=""></video>
         <h3>Recomendadas</h3>
-        <Carousel recommendeds={recommendedFoods} flag="comida" />
-        <br />
-        <br />
+        <Carousel recommendeds={recommendedFoods} flag="comidas" />
         <button data-testid="start-recipe-btn" className="btn-init">
           Iniciar Receita
         </button>

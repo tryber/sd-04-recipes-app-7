@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -6,8 +7,8 @@ import CarouselCard from './CarouselCard';
 
 import './styles.css';
 
-const cardForFoods = (recommendeds, flag) => {
-  return recommendeds.map((recipe, index) =>
+const cardForFoods = (recommendeds, flag) =>
+  recommendeds.map((recipe, index) =>
     (index < 6 ? (
       <CarouselCard
         key={recipe.idMeal}
@@ -19,10 +20,9 @@ const cardForFoods = (recommendeds, flag) => {
       />
     ) : null),
   );
-};
 
-const cardForDrinks = (recommendeds, flag) => {
-  return recommendeds.map((recipe, index) =>
+const cardForDrinks = (recommendeds, flag) =>
+  recommendeds.map((recipe, index) =>
     (index < 6 ? (
       <CarouselCard
         key={recipe.idDrink}
@@ -34,7 +34,6 @@ const cardForDrinks = (recommendeds, flag) => {
       />
     ) : null),
   );
-};
 
 const Carousel = ({ recommendeds, flag }) => {
   const settings = {
@@ -48,10 +47,15 @@ const Carousel = ({ recommendeds, flag }) => {
   return (
     <div className="carousel">
       <Slider {...settings}>
-        {flag === 'comida' ? cardForFoods(recommendeds, flag) : cardForDrinks(recommendeds, flag)}
+        {flag === 'comidas' ? cardForFoods(recommendeds, flag) : cardForDrinks(recommendeds, flag)}
       </Slider>
     </div>
   );
+};
+
+Carousel.propTypes = {
+  flag: PropTypes.string.isRequired,
+  recommendeds: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Carousel;

@@ -12,7 +12,7 @@
 }
 
 .carousel-link-details img {
-  border-radius: 6px 6px 0px 0px;
+  border-radius: 6px 0;
   height: 138px;
   width: 161px;
 }
