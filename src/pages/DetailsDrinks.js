@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { getCocktailById, getMealByNameAPI } from '../services';
+import { RecipesContext } from '../context';
 import Ingredients from '../components/Ingredients';
 import DetailsHeader from '../components/DetailsHeader';
 import Instructions from '../components/Instructions';
-import { getCocktailById } from '../services/index';
-import { RecipesContext } from '../context';
+import Carousel from '../components/Carousel';
+
 import './CSS/Details.css';
 
 const takeURL = () => {
@@ -23,7 +25,6 @@ const catchMaterials = (data, key) => {
       details.push(data[0][info]);
     }
   });
-  //  console.log(details);
   return details;
 };
 
@@ -40,16 +41,13 @@ const objFavorite = (data) => {
   return favorite;
 };
 
-const handleButton = (history) => {
-  console.log('oi');
-  return history.push(`${window.location.pathname}/in-progress`);
-};
+const handleButton = (history) => history.push(`${window.location.pathname}/in-progress`);
 
 const DetailsDrinks = () => {
-  const {
-    drinkId,
-    setDrinkId,
-  } = useContext(RecipesContext);
+  const { drinkId, setDrinkId } = useContext(RecipesContext);
+  const [recommendedFoods, setRecommendedFoods] = useState([]);
+
+  useEffect(() => getMealByNameAPI().then((resp) => setRecommendedFoods([...resp.meals])), []);
 
   const url = takeURL();
   let img = '';
@@ -75,10 +73,8 @@ const DetailsDrinks = () => {
         <Ingredients list={false} ingredients={ingredients} measures={measures} />
         <h3>Instructions</h3>
         <Instructions text={drinkId.drinks[0].strInstructions} />
-        <h3>Video</h3>
         <h3>Recomendadas</h3>
-        <br />
-        <br />
+        <Carousel recommendeds={recommendedFoods} flag="comidas" />
         <button
           data-testid="start-recipe-btn"
           className="btn-init"

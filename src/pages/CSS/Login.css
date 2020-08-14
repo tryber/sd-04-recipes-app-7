@@ -1,0 +1,48 @@
+.login-title {
+  font-size: 39px;
+  left: 128px;
+  position: absolute;
+  top: 79px;
+}
+
+input {
+  border: 1px solid black;
+  font-size: 29px;
+  text-indent: 8px;
+}
+
+input::placeholder {
+  color: black;
+}
+
+.login-input {
+  height: 58px;
+  left: 31px;
+  position: absolute;
+  top: 155px;
+  width: 293px;
+}
+
+.login-pass {
+  height: 58px;
+  left: 30px;
+  position: absolute;
+  top: 243px;
+  width: 293px;
+}
+
+.login-button {
+  background: #6ce34f;
+  border: none;
+  font-size: 29px;
+  height: 76px;
+  left: 11px;
+  position: absolute;
+  top: 389px;
+  width: 339px;
+}
+
+.login-button:focus {
+  background: #297716;
+  color: white;
+}
