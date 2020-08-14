@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { getCocktailById, getMealByNameAPI } from '../services';
 import { RecipesContext } from '../context';
 import Ingredients from '../components/Ingredients';
@@ -40,6 +41,8 @@ const objFavorite = (data) => {
   return favorite;
 };
 
+const handleButton = (history) => history.push(`${window.location.pathname}/in-progress`);
+
 const DetailsDrinks = () => {
   const { drinkId, setDrinkId } = useContext(RecipesContext);
   const [recommendedFoods, setRecommendedFoods] = useState([]);
@@ -50,7 +53,7 @@ const DetailsDrinks = () => {
   let img = '';
   let name = '';
   let category = '';
-
+  const history = useHistory();
   if (drinkId.length === 0 || drinkId.drinks[0].idDrink !== url[2]) {
     getCocktailById(url[2]).then((resp) => setDrinkId(resp));
   }
@@ -73,7 +76,11 @@ const DetailsDrinks = () => {
         <h3>Video</h3>
         <h3>Recomendadas</h3>
         <Carousel recommendeds={recommendedFoods} flag="comidas" />
-        <button data-testid="start-recipe-btn" className="btn-init">
+        <button
+          data-testid="start-recipe-btn"
+          className="btn-init"
+          onClick={() => handleButton(history)}
+        >
           Iniciar Receita
         </button>
       </div>
