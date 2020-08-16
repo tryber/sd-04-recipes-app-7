@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Heart from '../../images/whiteHeartIcon.svg';
-import Share from '../../images/shareIcon.svg';
 import { setLS } from '../HelpStorage';
 import './styles.css';
 import ShareButton from '../ShareButton';
