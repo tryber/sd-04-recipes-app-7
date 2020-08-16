@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
-import ShareButon from '../../images/shareIcon.svg';
-import FavoriteButon from '../../images/blackHeart.svg';
+import ShareButon from '../images/shareIcon.svg';
+import FavoriteButon from '../images/blackHeartIcon.svg';
  
 
 const createCards = (params, setUpdateUnfavorite) =>
@@ -73,7 +73,7 @@ const createCards = (params, setUpdateUnfavorite) =>
   
     return (
       <div>
-        <Header />
+        <Header title="Receitas Favoritas" />
         {/* Recipes buttons */}
         {favorites && favorites.length >= 1
           ? mountFavoriteList(filterRecipes, favorites, setUpdateUnfavorite)
