@@ -11,19 +11,19 @@ const setStorage = (favorite) => {
 
 const DetailsHeader = ({ img, name, category, favorite }) => (
   <div>
-    <img className="image-recipe" src={img} alt="Recipe" />
+    <img data-testid="recipe-photo" className="image-recipe" src={img} alt="Recipe" />
     <div className="titles-container">
-      <h3>{name}</h3>
+      <h3 data-testid="recipe-title">{name}</h3>
       <div className="imgs-container">
         <button>
-          <img src={Share} alt="Share Icon" />
+          <img data-testid="favorite-btn" src={Share} alt="Share Icon" />
         </button>
         <button onClick={(() => setStorage(favorite))}>
-          <img src={Heart} alt="Heart Icon" />
+          <img data-testid="share-btn" src={Heart} alt="Heart Icon" />
         </button>
       </div>
     </div>
-    <p className="p-class">{category}</p>
+    <p data-testid="recipe-category" className="p-class">{category}</p>
   </div>
 );
 
