@@ -10,7 +10,7 @@ const auxMeals = (strCategory, idKey, setIdKey, category, setCategory) => {
     getMealsByCategoryAPI(strCategory).then((resp) => setCategory([...resp.meals]));
   } else {
     getMealsByCategoryAPI(strCategory).then((resp) =>
-      (category.length ? setCategory([]) : setCategory([...resp.meals])),
+      category.length ? setCategory([]) : setCategory([...resp.meals]),
     );
   }
 };
@@ -21,7 +21,7 @@ const auxCockTails = (strCategory, idKey, setIdKey, category, setCategory) => {
     getCocktailByCategoryAPI(strCategory).then((resp) => setCategory([...resp.drinks]));
   } else {
     getCocktailByCategoryAPI(strCategory).then((resp) =>
-      (category.length ? setCategory([]) : setCategory([...resp.drinks])),
+      category.length ? setCategory([]) : setCategory([...resp.drinks]),
     );
   }
 };
@@ -42,16 +42,7 @@ const cockTails = (strCategory, idKey, setIdKey, category, setCategory) => (
     type="button"
     data-testid={`${strCategory}-category-filter`}
     className="category-filter"
-    onClick={() => auxCockTails(strCategory, idKey, setIdKey, category, setCategory)
-      // if (idKey !== strCategory) {
-      //   setIdKey(strCategory);
-      //   getCocktailByCategoryAPI(strCategory).then((resp) => setCategory([...resp.drinks]));
-      // } else {
-      //   getCocktailByCategoryAPI(strCategory).then((resp) =>
-      //     (category.length ? setCategory([]) : setCategory([...resp.drinks])),
-      //   );
-      // }
-    }
+    onClick={() => auxCockTails(strCategory, idKey, setIdKey, category, setCategory)}
   >
     {strCategory}
   </button>
