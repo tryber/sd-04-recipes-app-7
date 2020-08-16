@@ -13,13 +13,19 @@ const Profile = () => {
     <div>
       <Header title="Perfil" visible={false} />
 
-      <p data-testid="profile-email" className="profile-email">{email}</p>
+      <p data-testid="profile-email" className="profile-email">
+        {email}
+      </p>
 
       <Link to="/receitas-favoritas" className="profile-link">
-        <button type="button" data-testid="profile-favorite-btn" className="profile-button">Receitas Favoritas</button>
+        <button type="button" data-testid="profile-favorite-btn" className="profile-button">
+          Receitas Favoritas
+        </button>
       </Link>
       <Link to="/receitas-feitas" className="profile-link">
-        <button data-testid="profile-done-btn" className="profile-button">Receitas Feitas</button>
+        <button data-testid="profile-done-btn" className="profile-button">
+          Receitas Feitas
+        </button>
       </Link>
       <Link to="/" className="profile-link">
         <button
