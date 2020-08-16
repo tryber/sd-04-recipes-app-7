@@ -63,7 +63,8 @@ const createCards = (params, setUpdateUnfavorite) =>
   
     const getFavoritesAndSet = () => {
       const favoriteList = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
-      setFavorites([...favoriteList]);
+      console.log(favoriteList);
+      setFavorites(...favoriteList);
       setUpdateUnfavorite(false);
     };
   
@@ -73,7 +74,7 @@ const createCards = (params, setUpdateUnfavorite) =>
   
     return (
       <div>
-        <Header title="Receitas Favoritas" />
+        <Header title="Receitas Favoritas" visible={false} />
         {/* Recipes buttons */}
         {favorites && favorites.length >= 1
           ? mountFavoriteList(filterRecipes, favorites, setUpdateUnfavorite)
