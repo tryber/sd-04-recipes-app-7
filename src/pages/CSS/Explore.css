@@ -1,0 +1,16 @@
+.explorer-button {
+  background: white;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: block;
+  font-size: 32px;
+  height: 82px;
+  margin: 30px auto;
+  width: 327px;
+}
+
+.explorer-button:focus {
+  background: rgb(231, 229, 229);
+  outline: none;
+}
