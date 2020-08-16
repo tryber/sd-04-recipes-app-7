@@ -78,7 +78,7 @@ export const getCocktailById = async (Id) => {
   const URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${Id}`;
   const cocktails = await fetch(URL);
   return cocktails.json();
-}
+};
 
 export const randomFoodId = async () => {
   const URL = 'https://www.themealdb.com/api/json/v1/1/random.php';
