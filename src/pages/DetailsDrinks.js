@@ -12,6 +12,8 @@ import './CSS/Details.css';
 const takeURL = () => {
   const path = window.location.pathname;
   const arrayPath = path.split('/');
+  const urlIsString = isNaN(Number(arrayPath[2]));
+  if (urlIsString) console.log("String");
   return arrayPath;
 };
 
@@ -70,7 +72,7 @@ const DetailsDrinks = () => {
       <div>
         <DetailsHeader img={img} name={name} category={category} favorite={fav} />
         <h3>Ingredients</h3>
-        <Ingredients list={false} ingredients={ingredients} measures={measures} />
+        <Ingredients list="false" ingredients={ingredients} measures={measures} />
         <h3>Instructions</h3>
         <Instructions text={drinkId.drinks[0].strInstructions} />
         <h3>Recomendadas</h3>

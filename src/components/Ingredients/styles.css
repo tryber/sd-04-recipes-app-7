@@ -5,6 +5,16 @@
   padding: 0.5em;
 }
 
+.item-list {
+  align-items: center;
+  display: flex;
+}
+
 .ingredients-item {
   line-height: 0.2em;
+}
+
+.ingredients-item-checked {
+  line-height: 0.2em;
+  text-decoration: line-through;
 }
