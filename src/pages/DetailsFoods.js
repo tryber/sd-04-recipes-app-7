@@ -75,9 +75,9 @@ const DetailsFoods = () => {
         <h3>Instructions</h3>
         <Instructions text={foodId.meals[0].strInstructions} />
         <h3>Video</h3>
-        <div data-testid="video">
-          {/* <source src={foodId.meals[0].strYoutube} type="video/mp4" /> */}
-        </div>
+        <video data-testid="video" controls>
+          <source src={foodId.meals[0].strYoutube} type="video/mp4" />
+        </video>
         <h3>Recomendadas</h3>
         <Carousel recommendeds={recommendedDrinks} flag="bebidas" />
         <button
