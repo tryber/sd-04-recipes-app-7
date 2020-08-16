@@ -12,7 +12,7 @@ const Header = ({ title, visible }) => {
 
   return (
     <div >
-      <header className="main-container">
+      <header className="main-container" id="header">
         <div className="profile-container">
           <Link to="/perfil">
             <img src={profileIcon} alt="profil Icon" data-testid="profile-top-btn" />
