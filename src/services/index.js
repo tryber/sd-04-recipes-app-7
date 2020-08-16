@@ -1,7 +1,8 @@
 // Pega as comidas.
 export const getMealByNameAPI = async (name = null) => {
   const urlWithParam = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`;
-  const urlWithoutParam = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+  const urlWithoutParam =
+    'https://www.themealdb.com/api/json/v1/1/search.php?s=';
   const URL = name ? urlWithParam : urlWithoutParam;
   const meals = await fetch(URL);
   return meals.json();
@@ -10,7 +11,8 @@ export const getMealByNameAPI = async (name = null) => {
 // Pega as bebidas.
 export const getCocktailByNameAPI = async (name = null) => {
   const urlWithParam = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`;
-  const urlWithoutParam = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
+  const urlWithoutParam =
+    'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
   const URL = name ? urlWithParam : urlWithoutParam;
   const cocktails = await fetch(URL);
   return cocktails.json();
@@ -77,4 +79,22 @@ export const randomDrinkId = async () => {
   const URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
   const id = await fetch(URL);
   return id.json();
+};
+
+export const ingredientsListF = async () => {
+  const URL = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list';
+  const ingredients = await fetch(URL);
+  return ingredients.json();
+};
+
+export const ingredientsListD = async () => {
+  const URL = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list';
+  const ingredients = await fetch(URL);
+  return ingredients.json();
+};
+
+export const mealsAreas = async () => {
+  const URL = 'https://www.themealdb.com/api/json/v1/1/list.php?a=list';
+  const areas = await fetch(URL);
+  return areas.json();
 };

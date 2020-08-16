@@ -60,7 +60,6 @@ const TestChamada = {
 
 const DetailsFoods = () => {
   const img = TestChamada.meals[0].strMealThumb;
-  console.log(TestChamada.meals[0].strCategory);
   return (
     <div>
       <img src={img} alt="Imagem" />
