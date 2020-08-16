@@ -21,6 +21,7 @@ export const getMealByIngredient = async (ingrediente) => {
   const meals = await fetch(URL);
   return meals.json();
 };
+
 // Filtra comidas por categoria.
 export const getMealsByCategoryAPI = async (name) => {
   const URL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`;
@@ -77,4 +78,16 @@ export const getCocktailById = async (Id) => {
   const URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${Id}`;
   const cocktails = await fetch(URL);
   return cocktails.json();
+}
+
+export const randomFoodId = async () => {
+  const URL = 'https://www.themealdb.com/api/json/v1/1/random.php';
+  const id = await fetch(URL);
+  return id.json();
+};
+
+export const randomDrinkId = async () => {
+  const URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+  const id = await fetch(URL);
+  return id.json();
 };
