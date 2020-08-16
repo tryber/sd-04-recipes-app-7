@@ -1,14 +1,15 @@
 .category-filter {
   background-color: lightgrey;
   border: 0;
-  font-size: 0.73rem;
-  margin: 0.2rem 0.3rem;
+  font-size: 0.65rem;
   padding: 0.5rem;
-  width: 30%;
+  margin: 0.3rem 0.4rem;
+  width: 105px;
 }
 
 .category-filter:focus {
   background-color: gray;
   color: white;
   outline: none;
+  transform: scale(1.2);
 }
