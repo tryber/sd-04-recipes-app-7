@@ -62,7 +62,7 @@ Input.propTypes = {
   verify: PropTypes.func.isRequired,
   setFoodsCategory: PropTypes.func.isRequired,
   setDrinksCategory: PropTypes.func.isRequired,
-  history: PropTypes.any.isRequired,
+  history: PropTypes.shape(PropTypes.object).isRequired,
 };
 
 export default Input;
