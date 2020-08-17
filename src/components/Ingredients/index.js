@@ -29,7 +29,7 @@ const changeChecked = (e, type) => {
   changeClassName(e, type);
   if (type === 'box' && e.checked) {
     e.checked = false;
-    return 1; 
+    return 1;
   }
   e.checked = true;
   return 0;
@@ -46,7 +46,8 @@ const mountList = (ingredients, measures) => (
           const diV = document.querySelectorAll('.item-list');
           changeChecked(diV[index].childNodes[0], 'box');
           changeChecked(diV[index].childNodes[1], 'text');
-        }}>
+        }}
+      >
         <input
           type="checkbox"
           key={`checkBox ${item} `}
