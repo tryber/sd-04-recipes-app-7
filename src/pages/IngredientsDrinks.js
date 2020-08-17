@@ -12,8 +12,7 @@ const IngredientsDrinks = () => {
   return (
     <div>
       <Header title="Explorar Ingredientes" />
-      {teste.map((ings, index) => {
-        if (index < 12)
+      {teste.slice(1, 12).map((ings, index) => {
           return (
             <button
               data-testid={`${index}-ingredient-card`}

@@ -16,16 +16,14 @@ const IngredientsFoods = () => {
   return (
     <div>
       <Header title="Explorar Ingredientes" />
-      {teste.map((ings, index) => {
-        if (index < 12)
+      {teste.slice(1, 12).map((ings, index) => {
           return (
             <button
               data-testid={`${index}-ingredient-card`}
               key={ings.strIngredient}
               onClick={() => {
                 getMealByIngredient(ings.strIngredient).then((data) => setIngred(data.meals));
-                setFoodsCategory([ingred])
-                (window.location = `/comidas/${ings.strIngredient}`)
+                setFoodsCategory([ingred])(window.location = `/comidas/${ings.strIngredient}`);
               }
               }
             >

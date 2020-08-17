@@ -35,7 +35,7 @@ const ExploreFoodsOrigin = () => {
               e.target.value,
               foodRecipes,
               setFoodRecipes,
-              setFoodsCategory
+              setFoodsCategory,
             )
           }
         >

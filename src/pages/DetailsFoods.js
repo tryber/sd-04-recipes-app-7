@@ -62,7 +62,7 @@ const DetailsFoods = () => {
   const img = TestChamada.meals[0].strMealThumb;
   return (
     <div>
-      <img src={img} alt="Imagem" width='200px' />
+      <img src={img} alt="Imagem"/>
     </div>
   );
 };
