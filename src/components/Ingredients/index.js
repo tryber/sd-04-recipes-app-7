@@ -17,8 +17,9 @@ const mountNotList = (ingredients, measures) => (
 );
 
 const changeClassName = (e, type) => {
-  if(type === 'text' && e.className === 'ingredients-item') {
-    return e.className = 'ingredients-item-checked';
+  if (type === 'text' && e.className === 'ingredients-item') {
+    e.className = 'ingredients-item-checked';
+    return 1;
   }
   e.className = 'ingredients-item';
   return 0;
@@ -27,7 +28,8 @@ const changeClassName = (e, type) => {
 const changeChecked = (e, type) => {
   changeClassName(e, type);
   if (type === 'box' && e.checked) {
-    return e.checked = false;
+    e.checked = false;
+    return 1; 
   }
   e.checked = true;
   return 0;
@@ -44,13 +46,13 @@ const mountList = (ingredients, measures) => (
           const diV = document.querySelectorAll('.item-list');
           changeChecked(diV[index].childNodes[0], 'box');
           changeChecked(diV[index].childNodes[1], 'text');
-      }}>
+        }}>
         <input
           type="checkbox"
           key={`checkBox ${item} `}
           onChange={() => {
             const diV = document.querySelectorAll('.item-list');
-            changeChecked(diV[index].childNodes[0], 'box')
+            changeChecked(diV[index].childNodes[0], 'box');
           }}
         />
         <p

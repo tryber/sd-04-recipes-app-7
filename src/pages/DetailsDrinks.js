@@ -50,7 +50,7 @@ const DetailsDrinks = () => {
   const [recommendedFoods, setRecommendedFoods] = useState([]);
 
   useEffect(() => {
-    getMealByNameAPI().then((resp) => setRecommendedFoods([...resp.meals]))
+    getMealByNameAPI().then((resp) => setRecommendedFoods([...resp.meals]));
   }, []);
 
   const url = takeURL();

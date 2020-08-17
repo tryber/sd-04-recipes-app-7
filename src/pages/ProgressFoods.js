@@ -6,13 +6,13 @@ import DetailsHeader from '../components/DetailsHeader';
 import Instructions from '../components/Instructions';
 import './CSS/Details.css';
 
-const takeURL = () => {
+const takeURl = () => {
   const url = window.location.pathname;
   const arrayUrl = url.split('/');
   return arrayUrl;
 };
 
-const catchMaterials = (data, key) => {
+const catchMaterialS = (data, key) => {
   const details = [];
   let counter = 1;
   Object.keys(data[0]).forEach((info) => {
@@ -25,7 +25,7 @@ const catchMaterials = (data, key) => {
   return details;
 };
 
-const objFavorite = (data) => {
+const objFavoritE = (data) => {
   const favorite = {
     id: data.idMeal,
     type: 'comida',
@@ -42,7 +42,7 @@ const handleButton = () => null;
 
 const ProgressFoods = () => {
   const { foodId, setFoodId } = useContext(RecipesContext);
-  const url = takeURL();
+  const url = takeURl();
   let img = '';
   let name = '';
   let category = '';
@@ -54,9 +54,9 @@ const ProgressFoods = () => {
     img = foodId.meals[0].strMealThumb;
     name = foodId.meals[0].strMeal;
     category = foodId.meals[0].strCategory;
-    const ingredients = catchMaterials(foodId.meals, 'strIngredient');
-    const measures = catchMaterials(foodId.meals, 'strMeasure');
-    const fav = objFavorite(foodId.meals[0]);
+    const ingredients = catchMaterialS(foodId.meals, 'strIngredient');
+    const measures = catchMaterialS(foodId.meals, 'strMeasure');
+    const fav = objFavoritE(foodId.meals[0]);
 
     return (
       <div>
