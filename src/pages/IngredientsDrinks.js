@@ -13,6 +13,7 @@ const IngredientsDrinks = () => {
     <div>
       <Header title="Explorar Ingredientes" />
       {teste.slice(1, 12).map((ings, index) => {
+        const n = null;
         <button
           data-testid={`${index}-ingredient-card`}
           key={ings.strIngredient1}
@@ -25,7 +26,7 @@ const IngredientsDrinks = () => {
           />
           <span data-testid={`${index}-card-name`}>{ings.strIngredient1}</span>
         </button>;
-        return null;
+        return n;
       })}
       <BottomBar />
     </div>
