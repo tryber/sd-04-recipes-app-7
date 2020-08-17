@@ -15,7 +15,7 @@ const Input = ({
   setDrinksCategory,
   history,
 }) => (
-  <div>
+  <div className="searchBar-container">
     <input
       className="searchBar-input"
       data-testid="search-input"

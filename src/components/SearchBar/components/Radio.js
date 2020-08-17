@@ -14,7 +14,9 @@ const Radio = ({ testid, id, search, label }) => {
         onChange={(e) => search(e.target.id)}
       />
       <span className="checkmark"></span>
-      <label htmlFor={id} className="searchBar-label">{label}</label>
+      <label htmlFor={id} className="searchBar-label">
+        {label}
+      </label>
     </>
   );
 };
