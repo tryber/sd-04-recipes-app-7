@@ -36,6 +36,7 @@ const IngredientsFoods = () => {
           />
           <span data-testid={`${index}-card-name`}>{ings.strIngredient}</span>
         </button>;
+        return null;
       })}
       <BottomBar />
     </div>
