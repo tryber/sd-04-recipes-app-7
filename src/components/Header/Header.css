@@ -2,19 +2,42 @@
   background-color: rgb(196, 196, 196);
   display: flex;
   justify-content: space-between;
+  height: 58px;
   width: 100%;
 }
 
 .profile-container {
-  margin-top: 0.67em;
+  /* margin-top: 0.67em; */
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 7px;
+  top: 12px;
 }
 
 .title-container {
-  display: flex;
-  justify-content: center;
-  margin: 0.45em 0 0;
+  font-size: 15px;
+  height: 35px;
+  left: 50%;
+  position: relative;
+  text-align: center;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  width: 119px;
 }
 
 .glass-container {
-  margin-top: 0.67em;
+  height: 30px;
+  left: 317px;
+  position: absolute;
+  top: 12px;
+  width: 30px;
+}
+
+.glass-container input {
+  border: none;
+}
+
+.glass-container input:focus {
+  outline: none;
 }
