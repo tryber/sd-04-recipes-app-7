@@ -10,7 +10,7 @@ const auxMeals = (strCategory, idKey, setIdKey, category, setCategory) => {
     getMealsByCategoryAPI(strCategory).then((resp) => setCategory([...resp.meals]));
   } else {
     getMealsByCategoryAPI(strCategory).then((resp) =>
-      category.length ? setCategory([]) : setCategory([...resp.meals]),
+      (category.length ? setCategory([]) : setCategory([...resp.meals])),
     );
   }
 };
@@ -21,7 +21,7 @@ const auxCockTails = (strCategory, idKey, setIdKey, category, setCategory) => {
     getCocktailByCategoryAPI(strCategory).then((resp) => setCategory([...resp.drinks]));
   } else {
     getCocktailByCategoryAPI(strCategory).then((resp) =>
-      category.length ? setCategory([]) : setCategory([...resp.drinks]),
+      (category.length ? setCategory([]) : setCategory([...resp.drinks])),
     );
   }
 };

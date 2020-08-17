@@ -1,18 +1,17 @@
 .main-container {
   background-color: rgb(196, 196, 196);
   display: flex;
-  justify-content: space-between;
   height: 58px;
+  justify-content: space-between;
   width: 100%;
 }
 
 .profile-container {
-  /* margin-top: 0.67em; */
-  position: absolute;
-  width: 30px;
   height: 30px;
   left: 7px;
+  position: absolute;
   top: 12px;
+  width: 30px;
 }
 
 .title-container {
@@ -36,8 +35,4 @@
 
 .glass-container input {
   border: none;
-}
-
-.glass-container input:focus {
-  outline: none;
 }

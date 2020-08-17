@@ -44,7 +44,7 @@ const Input = ({
       label="Primeira letra"
     />
     <button
-    className="searchBar-button"
+      className="searchBar-button"
       data-testid="exec-search-btn"
       type="button"
       onClick={() => verify(searchTerm, typeSearch, setFoodsCategory, setDrinksCategory, history)}
@@ -62,7 +62,7 @@ Input.propTypes = {
   verify: PropTypes.func.isRequired,
   setFoodsCategory: PropTypes.func.isRequired,
   setDrinksCategory: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
+  history: PropTypes.any.isRequired,
 };
 
 export default Input;

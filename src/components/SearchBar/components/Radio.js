@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import './styles.css';
 
 const Radio = ({ testid, id, search, label }) => {
   return (
-    <>
+    <Fragment>
       <input
         className="searchBar-radio"
         data-testid={testid}
@@ -17,7 +17,7 @@ const Radio = ({ testid, id, search, label }) => {
       <label htmlFor={id} className="searchBar-label">
         {label}
       </label>
-    </>
+    </Fragment>
   );
 };
 
