@@ -1,37 +1,27 @@
 .main-container {
+  align-items: center;
   background-color: rgb(196, 196, 196);
   display: flex;
   height: 58px;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
 }
 
 .profile-container {
-  height: 30px;
+  /* height: 30px;
   left: 7px;
   position: absolute;
   top: 12px;
-  width: 30px;
+  width: 30px; */
 }
 
 .title-container {
-  font-size: 15px;
-  height: 35px;
-  left: 50%;
-  position: relative;
   text-align: center;
-  top: 20%;
-  transform: translate(-50%, -50%);
-  width: 119px;
+  width: 70%;
 }
 
-.glass-container {
-  height: 30px;
-  left: 317px;
-  position: absolute;
-  top: 12px;
-  width: 30px;
-}
+/* .glass-container {
+} */
 
 .glass-container input {
   border: none;
