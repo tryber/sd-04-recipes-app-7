@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Radio from './Radio';
+
+import './styles.css';
+
 const Input = ({
   searchTerm,
   setSearchTerm,
@@ -13,6 +17,7 @@ const Input = ({
 }) => (
   <div>
     <input
+      className="searchBar-input"
       data-testid="search-input"
       placeholder="Buscar Receita"
       id="searchBar"
@@ -20,30 +25,24 @@ const Input = ({
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
     />
-    <input
-      data-testid="ingredient-search-radio"
+    <Radio
+      testid="ingredient-search-radio"
       id="ingredient"
-      type="radio"
-      name="filter"
-      onChange={(e) => setTypeSearch(e.target.id)}
+      search={setTypeSearch}
+      label="Ingrediente"
     />
-    <label htmlFor="ingredient">Ingrediente</label>
-    <input
-      data-testid="name-search-radio"
+    <Radio
+      testid="name-search-radio"
       id="name"
-      type="radio"
-      name="filter"
-      onChange={(e) => setTypeSearch(e.target.id)}
+      search={setTypeSearch}
+      label="Nome"
     />
-    <label htmlFor="name">Nome</label>
-    <input
-      data-testid="first-letter-search-radio"
+    <Radio
+      testid="first-letter-search-radio"
       id="firstLetter"
-      type="radio"
-      name="filter"
-      onChange={(e) => setTypeSearch(e.target.id)}
+      search={setTypeSearch}
+      label="Primeira letra"
     />
-    <label htmlFor="firstLetter">Primeira letra</label>
     <button
       data-testid="exec-search-btn"
       type="button"
@@ -62,7 +61,7 @@ Input.propTypes = {
   verify: PropTypes.func.isRequired,
   setFoodsCategory: PropTypes.func.isRequired,
   setDrinksCategory: PropTypes.func.isRequired,
-  history: PropTypes.string.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default Input;
