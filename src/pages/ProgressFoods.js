@@ -38,48 +38,46 @@ const objFavorite = (data) => {
   return favorite;
 };
 
-const handleButton = () => {
-  return null;
-}
+const handleButton = () => null;
 
 const ProgressFoods = () => {
-    const { foodId, setFoodId } = useContext(RecipesContext);
-    const url = takeURL();
-    let img = '';
-    let name = '';
-    let category = '';
-    if (foodId.length === 0 || foodId.meals[0].idMeal !== url[2]) {
-      getMealById(url[2]).then((resp) => setFoodId(resp));
-    }
-  
-    if (foodId.length !== 0) {
-      img = foodId.meals[0].strMealThumb;
-      name = foodId.meals[0].strMeal;
-      category = foodId.meals[0].strCategory;
-      const ingredients = catchMaterials(foodId.meals, 'strIngredient');
-      const measures = catchMaterials(foodId.meals, 'strMeasure');
-      const fav = objFavorite(foodId.meals[0]);
-  
-      return (
-        <div>
-          <DetailsHeader img={img} name={name} category={category} favorite={fav} />
-          <h3>Ingredients</h3>
-          <Ingredients list="true" ingredients={ingredients} measures={measures} />
-          <h3>Instructions</h3>
-          <Instructions text={foodId.meals[0].strInstructions} />
-          <br />
-          <br />
-          <button
-            data-testid="finish-recipe-btn"
-            className="btn-init"
-            onClick={() => handleButton()}
-          >
-            Finalizar Receita
-          </button>
-        </div>
-      );
-    }
-    return <div />;  
-  };
+  const { foodId, setFoodId } = useContext(RecipesContext);
+  const url = takeURL();
+  let img = '';
+  let name = '';
+  let category = '';
+  if (foodId.length === 0 || foodId.meals[0].idMeal !== url[2]) {
+    getMealById(url[2]).then((resp) => setFoodId(resp));
+  }
+
+  if (foodId.length !== 0) {
+    img = foodId.meals[0].strMealThumb;
+    name = foodId.meals[0].strMeal;
+    category = foodId.meals[0].strCategory;
+    const ingredients = catchMaterials(foodId.meals, 'strIngredient');
+    const measures = catchMaterials(foodId.meals, 'strMeasure');
+    const fav = objFavorite(foodId.meals[0]);
+
+    return (
+      <div>
+        <DetailsHeader img={img} name={name} category={category} favorite={fav} />
+        <h3>Ingredients</h3>
+        <Ingredients list="true" ingredients={ingredients} measures={measures} />
+        <h3>Instructions</h3>
+        <Instructions text={foodId.meals[0].strInstructions} />
+        <br />
+        <br />
+        <button
+          data-testid="finish-recipe-btn"
+          className="btn-init"
+          onClick={() => handleButton()}
+        >
+          Finalizar Receita
+        </button>
+      </div>
+    );
+  }
+  return <div />;
+};
 
 export default ProgressFoods;

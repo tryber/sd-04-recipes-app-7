@@ -13,7 +13,7 @@ const takeURL = () => {
   const path = window.location.pathname;
   const arrayPath = path.split('/');
   const urlIsString = isNaN(Number(arrayPath[2]));
-  if (urlIsString) console.log("String");
+  if (urlIsString) console.log('String');
   return arrayPath;
 };
 
@@ -49,7 +49,9 @@ const DetailsDrinks = () => {
   const { drinkId, setDrinkId } = useContext(RecipesContext);
   const [recommendedFoods, setRecommendedFoods] = useState([]);
 
-  useEffect(() => getMealByNameAPI().then((resp) => setRecommendedFoods([...resp.meals])), []);
+  useEffect(() => {
+    getMealByNameAPI().then((resp) => setRecommendedFoods([...resp.meals]))
+  }, []);
 
   const url = takeURL();
   let img = '';

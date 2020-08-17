@@ -17,17 +17,20 @@ const mountNotList = (ingredients, measures) => (
 );
 
 const changeClassName = (e, type) => {
-  if(type === 'text' && e.className === "ingredients-item" ) {
-    return e.className = "ingredients-item-checked";
-  } else if (type === 'text' && e.className !== "ingredients-item" ) {
-    return e.className = "ingredients-item";
-  } else if (type === 'box' && e.checked) {
-    return e.checked = false;
-  } else if (type === 'box') {
-    return e.checked = true;
-  } else if (type === 'noChangeBox') {
-    return e.checked = true;
+  if(type === 'text' && e.className === 'ingredients-item') {
+    return e.className = 'ingredients-item-checked';
   }
+  e.className = 'ingredients-item';
+  return 0;
+};
+
+const changeChecked = (e, type) => {
+  changeClassName(e, type);
+  if (type === 'box' && e.checked) {
+    return e.checked = false;
+  }
+  e.checked = true;
+  return 0;
 };
 
 const mountList = (ingredients, measures) => (
@@ -35,19 +38,19 @@ const mountList = (ingredients, measures) => (
     {ingredients.map((item, index) => (
       <div
         data-testid={`${index}-ingredient-step`}
-        key={`pai ${index}`}
+        key={`pai ${item}`}
         className="item-list"
         onClick={() => {
           const diV = document.querySelectorAll('.item-list');
-          changeClassName(diV[index].childNodes[0], 'box')
-          changeClassName(diV[index].childNodes[1], 'text');
+          changeChecked(diV[index].childNodes[0], 'box');
+          changeChecked(diV[index].childNodes[1], 'text');
       }}>
         <input
-          type='checkbox'
-          key={`checkBox ${index} `}
+          type="checkbox"
+          key={`checkBox ${item} `}
           onChange={() => {
             const diV = document.querySelectorAll('.item-list');
-            changeClassName(diV[index].childNodes[0], 'box')
+            changeChecked(diV[index].childNodes[0], 'box')
           }}
         />
         <p

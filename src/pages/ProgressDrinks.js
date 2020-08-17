@@ -6,13 +6,13 @@ import DetailsHeader from '../components/DetailsHeader';
 import Instructions from '../components/Instructions';
 import './CSS/Details.css';
 
-const takeURL = () => {
-  const path = window.location.pathname;
-  const arrayPath = path.split('/');
-  return arrayPath;
+const takeUrl = () => {
+  const pathUrl = window.location.pathname;
+  const arrayPathUrl = pathUrl.split('/');
+  return arrayPathUrl;
 };
 
-const catchMaterials = (data, key) => {
+const catchMaterial = (data, key) => {
   const details = [];
   let counter = 1;
   Object.keys(data[0]).forEach((info) => {
@@ -25,7 +25,7 @@ const catchMaterials = (data, key) => {
   return details;
 };
 
-const objFavorite = (data) => {
+const objFavorit = (data) => {
   const favorite = {
     id: data.idMeal,
     type: 'bebida',
@@ -38,13 +38,11 @@ const objFavorite = (data) => {
   return favorite;
 };
 
-const handleButton = () => {
-  return null;
-}
+const handleButton = () => null;
 
 const ProgressDrinks = () => {
   const { drinkId, setDrinkId } = useContext(RecipesContext);
-  const url = takeURL();
+  const url = takeUrl();
   let img = '';
   let name = '';
   let category = '';
@@ -56,15 +54,15 @@ const ProgressDrinks = () => {
     img = drinkId.drinks[0].strDrinkThumb;
     name = drinkId.drinks[0].strDrink;
     category = drinkId.drinks[0].strAlcoholic;
-    const ingredients = catchMaterials(drinkId.drinks, 'strIngredient');
-    const measures = catchMaterials(drinkId.drinks, 'strMeasure');
-    const fav = objFavorite(drinkId.drinks[0]);
+    const ingredients = catchMaterial(drinkId.drinks, 'strIngredient');
+    const measures = catchMaterial(drinkId.drinks, 'strMeasure');
+    const fav = objFavorit(drinkId.drinks[0]);
 
     return (
       <div>
         <DetailsHeader img={img} name={name} category={category} favorite={fav} />
         <h3>Ingredients</h3>
-        <Ingredients list={false} ingredients={ingredients} measures={measures} />
+        <Ingredients list="true" ingredients={ingredients} measures={measures} />
         <h3>Instructions</h3>
         <Instructions text={drinkId.drinks[0].strInstructions} />
         <br />
