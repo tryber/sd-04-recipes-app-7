@@ -98,3 +98,9 @@ export const mealsAreas = async () => {
   const areas = await fetch(URL);
   return areas.json();
 };
+
+export const mealsByAreas = async (area) => {
+  const URL = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`;
+  const mealByArea = await fetch(URL);
+  return mealByArea.json();
+};
