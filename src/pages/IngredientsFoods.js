@@ -17,27 +17,25 @@ const IngredientsFoods = () => {
     <div>
       <Header title="Explorar Ingredientes" />
       {teste.slice(1, 12).map((ings, index) => {
-        return (
-          <button
-            data-testid={`${index}-ingredient-card`}
-            key={ings.strIngredient}
-            onClick={() => {
-              getMealByIngredient(ings.strIngredient).then((data) =>
-                setIngred(data.meals)
-              );
-              setFoodsCategory([ingred])(
-                (window.location = `/comidas/${ings.strIngredient}`)
-              );
-            }}
-          >
-            <img
-              data-testid={`${index}-card-img`}
-              src={`https://www.themealdb.com/images/ingredients/${ings.strIngredient}-Small.png`}
-              alt={ings.strIngredient}
-            />
-            <span data-testid={`${index}-card-name`}>{ings.strIngredient}</span>
-          </button>
-        );
+        <button
+          data-testid={`${index}-ingredient-card`}
+          key={ings.strIngredient}
+          onClick={() => {
+            getMealByIngredient(ings.strIngredient).then((data) =>
+              setIngred(data.meals),
+            );
+            setFoodsCategory([ingred])(
+              (window.location = `/comidas/${ings.strIngredient}`),
+            );
+          }}
+        >
+          <img
+            data-testid={`${index}-card-img`}
+            src={`https://www.themealdb.com/images/ingredients/${ings.strIngredient}-Small.png`}
+            alt={ings.strIngredient}
+          />
+          <span data-testid={`${index}-card-name`}>{ings.strIngredient}</span>
+        </button>;
       })}
       <BottomBar />
     </div>
