@@ -13,25 +13,24 @@ const IngredientsDrinks = () => {
     <div>
       <Header title="Explorar Ingredientes" />
       {teste.slice(1, 12).map((ings, index) => {
-          return (
-            <button
-              data-testid={`${index}-ingredient-card`}
-              key={ings.strIngredient1}
-              onClick={() =>
-                (window.location = `/bebidas/${ings.strIngredient1}`)
-              }
-            >
-              <img
-                data-testid={`${index}-card-img`}
-                src={`https://www.thecocktaildb.com/images/ingredients/${ings.strIngredient1}-Small.png`}
-                alt={ings.strIngredient1}
-              />
-              <span data-testid={`${index}-card-name`}>
-                {ings.strIngredient1}
-              </span>
-            </button>
-          );
-        return null;
+        return (
+          <button
+            data-testid={`${index}-ingredient-card`}
+            key={ings.strIngredient1}
+            onClick={() =>
+              (window.location = `/bebidas/${ings.strIngredient1}`)
+            }
+          >
+            <img
+              data-testid={`${index}-card-img`}
+              src={`https://www.thecocktaildb.com/images/ingredients/${ings.strIngredient1}-Small.png`}
+              alt={ings.strIngredient1}
+            />
+            <span data-testid={`${index}-card-name`}>
+              {ings.strIngredient1}
+            </span>
+          </button>
+        );
       })}
       <BottomBar />
     </div>
