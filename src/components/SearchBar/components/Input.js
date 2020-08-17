@@ -44,6 +44,7 @@ const Input = ({
       label="Primeira letra"
     />
     <button
+    className="searchBar-button"
       data-testid="exec-search-btn"
       type="button"
       onClick={() => verify(searchTerm, typeSearch, setFoodsCategory, setDrinksCategory, history)}

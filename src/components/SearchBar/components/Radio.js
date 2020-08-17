@@ -6,13 +6,15 @@ const Radio = ({ testid, id, search, label }) => {
   return (
     <>
       <input
+        className="searchBar-radio"
         data-testid={testid}
         id={id}
         type="radio"
         name="filter"
         onChange={(e) => search(e.target.id)}
       />
-      <label htmlFor={id}>{label}</label>
+      <span className="checkmark"></span>
+      <label htmlFor={id} className="searchBar-label">{label}</label>
     </>
   );
 };
