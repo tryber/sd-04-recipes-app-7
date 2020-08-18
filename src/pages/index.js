@@ -14,3 +14,4 @@ export { default as ProgressFoods } from './ProgressFoods';
 export { default as Profile } from './Profile';
 export { default as FavoriteRecipes } from './FavoriteRecipes';
 export { default as MadeRecipes } from './MadeRecipes';
+export { default as NotFound } from './NotFound';
