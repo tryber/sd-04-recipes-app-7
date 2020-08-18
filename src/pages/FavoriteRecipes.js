@@ -64,7 +64,7 @@ const createCards = (params, setUpdateUnfavorite) =>
     const getFavoritesAndSet = () => {
       const favoriteList = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
       console.log(favoriteList);
-      setFavorites(...favoriteList);
+      setFavorites([favoriteList]);
       setUpdateUnfavorite(false);
     };
   
