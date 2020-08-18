@@ -7,7 +7,14 @@
 
 .item-list {
   align-items: center;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
   display: flex;
+  outline:none;
+  overflow: hidden;
+  width: 100%;
 }
 
 .ingredients-item {
