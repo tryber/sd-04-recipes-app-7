@@ -68,7 +68,7 @@ const ProgressDrinks = () => {
         <br />
         <br />
         <button
-          data-testid="start-recipe-btn"
+          data-testid="finish-recipe-btn"
           className="btn-init"
           onClick={() => handleButton()}
         >

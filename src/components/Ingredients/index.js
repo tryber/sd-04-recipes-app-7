@@ -38,7 +38,7 @@ const changeChecked = (e, type) => {
 const mountList = (ingredients, measures) => (
   <div className="list-container">
     {ingredients.map((item, index) => (
-      <div
+      <label
         data-testid={`${index}-ingredient-step`}
         key={`pai ${item}`}
         className="item-list"
@@ -62,7 +62,7 @@ const mountList = (ingredients, measures) => (
         >
           {`- ${item} - ${measures[index]}`}
         </p>
-      </div>
+      </label>
     ))}
   </div>
 );
