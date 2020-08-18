@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import ShareButon from '../images/shareIcon.svg';
 import FavoriteButon from '../images/blackHeartIcon.svg';
  
-
 const createCards = (params, setUpdateUnfavorite) =>
   params.map(
     ({ id, type, area, category, alcoholicOrNot, name, image }, index) => {
@@ -45,42 +44,42 @@ const createCards = (params, setUpdateUnfavorite) =>
     },
   );
 
-  const mountFavoriteList = (filter, favorites, setUpdateUnfavorite) => {
-    let mountParams = [];
-    if (favorites.length === 0) return <p>Sem receitas favoritas...</p>;
-    if (filter === 'comida') {
-      mountParams = favorites.filter((favorite) => favorite.type === 'bebida');
-      return createCards(mountParams, setUpdateUnfavorite);
-    }
-    mountParams = favorites;
+const mountFavoriteList = (filter, favorites, setUpdateUnfavorite) => {
+  let mountParams = [];
+  if (favorites.length === 0) return <p>Sem receitas favoritas...</p>;
+  if (filter === 'comida') {
+    mountParams = favorites.filter((favorite) => favorite.type === 'bebida');
     return createCards(mountParams, setUpdateUnfavorite);
-  };
-
-  function FavoriteRecipes() {
-    const [updateUnfavorite, setUpdateUnfavorite] = useState(false);
-    const [filterRecipes, setFilterRecipes] = useState('all');
-    const [favorites, setFavorites] = useState([]);
-  
-    const getFavoritesAndSet = () => {
-      const favoriteList = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
-      console.log(favoriteList);
-      setFavorites([favoriteList]);
-      setUpdateUnfavorite(false);
-    };
-  
-    useEffect(() => {
-      getFavoritesAndSet();
-    }, [updateUnfavorite]);
-  
-    return (
-      <div>
-        <Header title="Receitas Favoritas" visible={false} />
-        {/* Recipes buttons */}
-        {favorites && favorites.length >= 1
-          ? mountFavoriteList(filterRecipes, favorites, setUpdateUnfavorite)
-          : null}
-      </div>
-    );
   }
+  mountParams = favorites;
+  return createCards(mountParams, setUpdateUnfavorite);
+};
+
+function FavoriteRecipes() {
+  const [updateUnfavorite, setUpdateUnfavorite] = useState(false);
+  const [filterRecipes, setFilterRecipes] = useState('all');
+  const [favorites, setFavorites] = useState([]);
+
+  const getFavoritesAndSet = () => {
+    const favoriteList = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
+    console.log(favoriteList);
+    setFavorites([favoriteList]);
+    setUpdateUnfavorite(false);
+  };
   
-  export default FavoriteRecipes;
+  useEffect(() => {
+    getFavoritesAndSet();
+  }, [updateUnfavorite]);
+  
+  return (
+    <div>
+      <Header title="Receitas Favoritas" visible={false} />
+      {/* Recipes buttons */}
+      {favorites && favorites.length >= 1
+        ? mountFavoriteList(filterRecipes, favorites, setUpdateUnfavorite)
+        : null}
+    </div>
+  );
+}
+  
+export default FavoriteRecipes;
