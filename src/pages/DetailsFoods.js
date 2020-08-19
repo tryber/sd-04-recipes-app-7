@@ -71,7 +71,7 @@ const DetailsFoods = () => {
       <div>
         <DetailsHeader img={img} name={name} category={category} favorite={fav} />
         <h3>Ingredients</h3>
-        <Ingredients list={false} ingredients={ingredients} measures={measures} />
+        <Ingredients list="false" ingredients={ingredients} measures={measures} />
         <h3>Instructions</h3>
         <Instructions text={foodId.meals[0].strInstructions} />
         <h3>Video</h3>
