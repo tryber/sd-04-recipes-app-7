@@ -2,6 +2,10 @@ import React from 'react';
 
 import Card from '../Card';
 
+const renderCard = (id, flag, index, url, name) => (
+  <Card key={id} id={id} flag={flag} index={index} url={url} name={name} />
+);
+
 // Opções específicas de comidas
 const foodsCharge = (category, recipes) => {
   if (!category.length) {
@@ -9,16 +13,7 @@ const foodsCharge = (category, recipes) => {
       <div className="recipes-container">
         {recipes.map(
           ({ strMealThumb, strMeal, idMeal }, index) =>
-            index < 12 && (
-              <Card
-                id={idMeal}
-                flag="comidas"
-                key={strMeal}
-                index={index}
-                url={strMealThumb}
-                name={strMeal}
-              />
-            ),
+            index < 12 && renderCard(idMeal, 'comidas', index, strMealThumb, strMeal),
         )}
       </div>
     );
@@ -28,16 +23,7 @@ const foodsCharge = (category, recipes) => {
       <div className="recipes-container">
         {category.map(
           ({ strMealThumb, strMeal, idMeal }, index) =>
-            index < 12 && (
-              <Card
-                id={idMeal}
-                flag="comidas"
-                key={strMeal}
-                index={index}
-                url={strMealThumb}
-                name={strMeal}
-              />
-            ),
+            index < 12 && renderCard(idMeal, 'comidas', index, strMealThumb, strMeal),
         )}
       </div>
     )
@@ -51,16 +37,7 @@ const drinksCharge = (category, recipes) => {
       <div className="recipes-container">
         {recipes.map(
           ({ strDrinkThumb, strDrink, idDrink }, index) =>
-            index < 12 && (
-              <Card
-                id={idDrink}
-                flag="bebidas"
-                key={strDrink}
-                index={index}
-                url={strDrinkThumb}
-                name={strDrink}
-              />
-            ),
+            index < 12 && renderCard(idDrink, 'bebidas', index, strDrinkThumb, strDrink),
         )}
       </div>
     );
@@ -70,16 +47,7 @@ const drinksCharge = (category, recipes) => {
       <div className="recipes-container">
         {category.map(
           ({ strDrinkThumb, strDrink, idDrink }, index) =>
-            index < 12 && (
-              <Card
-                id={idDrink}
-                flag="bebidas"
-                key={strDrink}
-                index={index}
-                url={strDrinkThumb}
-                name={strDrink}
-              />
-            ),
+            index < 12 && renderCard(idDrink, 'bebidas', index, strDrinkThumb, strDrink),
         )}
       </div>
     )

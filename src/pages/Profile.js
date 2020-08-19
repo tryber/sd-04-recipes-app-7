@@ -3,25 +3,34 @@ import { Link } from 'react-router-dom';
 import BottomBar from '../components/BottomBar/BottomBar';
 import Header from '../components/Header';
 
+import './CSS/Profile.css';
+
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem('user'));
   const email = user ? user.email : 'teste@teste.com';
 
   return (
     <div>
-      <Header title="Perfil" />
+      <Header title="Perfil" visible={false} />
 
-      <p data-testid="profile-email">{email}</p>
+      <p data-testid="profile-email" className="profile-email">
+        {email}
+      </p>
 
-      <Link to="/receitas-favoritas">
-        <button type="button" data-testid="profile-favorite-btn">Receitas Favoritas</button>
+      <Link to="/receitas-favoritas" className="profile-link">
+        <button type="button" data-testid="profile-favorite-btn" className="profile-button">
+          Receitas Favoritas
+        </button>
       </Link>
-      <Link to="/receitas-feitas">
-        <button data-testid="profile-done-btn">Receitas Feitas</button>
+      <Link to="/receitas-feitas" className="profile-link">
+        <button data-testid="profile-done-btn" className="profile-button">
+          Receitas Feitas
+        </button>
       </Link>
-      <Link to="/">
+      <Link to="/" className="profile-link">
         <button
           data-testid="profile-logout-btn"
+          className="profile-button"
           onClick={() => window.localStorage.clear()}
         >
           Sair

@@ -1,0 +1,10 @@
+.list-container {
+  background-color: rgb(229, 229, 229);
+  margin: auto;
+  max-width: 90vw;
+  padding: 0.5em;
+}
+
+.ingredients-item {
+  line-height: 0.2em;
+}

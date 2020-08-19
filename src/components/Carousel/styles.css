@@ -1,0 +1,10 @@
+.carousel {
+  margin: 0 auto;
+  padding: 2px;
+  width: 95%;
+}
+
+.slick-track {
+  background-color: white;
+  height: 195px;
+}
