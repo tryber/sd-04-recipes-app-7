@@ -7,7 +7,7 @@ import ShareButton from '../ShareButton';
 import './styles.css';
 
 const DoneRecipesCard = ({
-  recipe: { id, type, area, category, alcoholicOrNot, name, image, doneDate, tags, favShow },
+  recipe: { id, type, area, category, alcoholicOrNot, name, image, doneDate, tags },
   index,
 }) => (
   <div className="done-recipes-container">
@@ -43,23 +43,13 @@ const DoneRecipesCard = ({
             </span>
           ))}
       </div>
-      {<button data-testid={`${index}-horizontal-favorite-btn`}></button>}
     </div>
   </div>
 );
 
-DoneRecipesCard.defaulProps = {
-  doneDate: '',
-  tags: [],
-  favShow: false,
-};
-
 DoneRecipesCard.propTypes = {
   index: PropTypes.number.isRequired,
   recipe: PropTypes.objectOf(PropTypes.any).isRequired,
-  doneDate: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.string),
-  favShow: PropTypes.bool,
 };
 
 export default DoneRecipesCard;
