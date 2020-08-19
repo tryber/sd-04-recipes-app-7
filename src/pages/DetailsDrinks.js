@@ -32,13 +32,13 @@ const catchMaterials = (data, key) => {
 
 const objFavorite = (data) => {
   const favorite = {
-    id: data.idMeal,
+    id: data.idDrink,
     type: 'bebida',
     area: data.strArea,
     category: data.strCategory,
     alcoholicOrNot: data.strAlcoholic,
-    name: data.strMeal,
-    image: data.strMealThumb,
+    name: data.strDrink,
+    image: data.strDrinkThumb,
   };
   return favorite;
 };
