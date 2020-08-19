@@ -42,16 +42,7 @@ const cockTails = (strCategory, idKey, setIdKey, category, setCategory) => (
     type="button"
     data-testid={`${strCategory}-category-filter`}
     className="category-filter"
-    onClick={() => auxCockTails(strCategory, idKey, setIdKey, category, setCategory)
-      // if (idKey !== strCategory) {
-      //   setIdKey(strCategory);
-      //   getCocktailByCategoryAPI(strCategory).then((resp) => setCategory([...resp.drinks]));
-      // } else {
-      //   getCocktailByCategoryAPI(strCategory).then((resp) =>
-      //     (category.length ? setCategory([]) : setCategory([...resp.drinks])),
-      //   );
-      // }
-    }
+    onClick={() => auxCockTails(strCategory, idKey, setIdKey, category, setCategory)}
   >
     {strCategory}
   </button>

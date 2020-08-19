@@ -1,0 +1,27 @@
+.carousel-card-body {
+  border-radius: 6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  height: 180px;
+  margin: 0 auto;
+  width: 161px;
+}
+
+.carousel-link-details {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-link-details img {
+  border-radius: 6px 0;
+  height: 138px;
+  width: 161px;
+}
+
+.carousel-card-desc {
+  bottom: -30px;
+  color: black;
+  font-size: 18px;
+  left: 10px;
+  position: absolute;
+  width: 100%;
+}

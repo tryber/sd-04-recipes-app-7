@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from './context';
 import * as pages from './pages';
-import './App.css';
 
 const App = () => (
   <Router>
@@ -24,6 +23,7 @@ const App = () => (
         <Route path="/perfil" component={pages.Profile} />
         <Route path="/receitas-feitas" component={pages.MadeRecipes} />
         <Route path="/receitas-favoritas" component={pages.FavoriteRecipes} />
+        <Route path="*" component={pages.NotFound} />
       </Switch>
     </Provider>
   </Router>

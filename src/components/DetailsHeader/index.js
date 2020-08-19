@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Heart from '../../images/whiteHeartIcon.svg';
-import Share from '../../images/shareIcon.svg';
 import { setLS } from '../HelpStorage';
 import './styles.css';
+import ShareButton from '../ShareButton';
 
 const setStorage = (favorite) => {
   setLS('favoriteRecipes', favorite);
@@ -15,11 +15,9 @@ const DetailsHeader = ({ img, name, category, favorite }) => (
     <div className="titles-container">
       <h3 data-testid="recipe-title">{name}</h3>
       <div className="imgs-container">
-        <button>
-          <img data-testid="favorite-btn" src={Share} alt="Share Icon" />
-        </button>
+        <ShareButton testid="share-btn" path={window.location.pathname} />
         <button onClick={(() => setStorage(favorite))}>
-          <img data-testid="share-btn" src={Heart} alt="Heart Icon" />
+          <img data-testid="favorite-btn" src={Heart} alt="Heart Icon" />
         </button>
       </div>
     </div>
