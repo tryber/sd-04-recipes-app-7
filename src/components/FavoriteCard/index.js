@@ -12,11 +12,11 @@ const FavoriteCard = ({
   index,
 }) => (
   <div className="done-recipes-container">
-    <Link to={`/${type}s/${id}`} className="link-img-recipe">
+    <Link to={`/${type}s/${id}`} className="lnk-img-recipe">
       <img data-testid={`${index}-horizontal-image`} src={image} alt={name} />
     </Link>
-    <div className="recipes-info">
-      <div className="share-container">
+    <div className="rcipes-info">
+      <div className="sare-container">
         <span data-testid={`${index}-horizontal-top-text`}>
           {type === 'comida' ? `${area} - ${category}` : `${alcoholicOrNot}`}
         </span>
@@ -25,7 +25,7 @@ const FavoriteCard = ({
       <Link
         to={`/${type}s/${id}`}
         data-testid={`${index}-horizontal-name`}
-        className="recipe-title"
+        className="rcipe-title"
       >
         {name}
       </Link>
