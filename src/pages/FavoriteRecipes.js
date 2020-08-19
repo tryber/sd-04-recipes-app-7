@@ -57,7 +57,7 @@ const mountFavoriteList = (filter, favorites, setUpdateUnfavorite) => {
 
 function FavoriteRecipes() {
   const [updateUnfavorite, setUpdateUnfavorite] = useState(false);
-  const [filterRecipes/*, setFilterRecipes*/] = useState('all');
+  const [filterRecipes] = useState('all');
   const [favorites, setFavorites] = useState([]);
 
   const getFavoritesAndSet = () => {
