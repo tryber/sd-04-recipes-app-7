@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import ShareButon from '../images/shareIcon.svg';
 import FavoriteButon from '../images/blackHeartIcon.svg';
+import RecipesButtons from '../components/RecipesButtons';
 
 const createCards = (params, setUpdateUnfavorite) =>
   params.map(
@@ -57,7 +58,7 @@ const mountFavoriteList = (filter, favorites, setUpdateUnfavorite) => {
 
 function FavoriteRecipes() {
   const [updateUnfavorite, setUpdateUnfavorite] = useState(false);
-  const [filterRecipes] = useState('all');
+  const [filterRecipes, setFilterRecipes] = useState('all');
   const [favorites, setFavorites] = useState([]);
 
   const getFavoritesAndSet = () => {
@@ -74,7 +75,7 @@ function FavoriteRecipes() {
   return (
     <div>
       <Header title="Receitas Favoritas" visible={false} />
-      {/* Recipes buttons */}
+      <RecipesButtons setFilterRecipes/>
       {favorites && favorites.length >= 1
         ? mountFavoriteList(filterRecipes, favorites, setUpdateUnfavorite)
         : null}
