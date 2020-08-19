@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import BottomBar from '../components/BottomBar/BottomBar';
 import Header from '../components/Header';
+import { ingredientsListD } from '../services';
 
-const IngredientsDrinks = () => (
-  <div>
-    <Header title="Explorar Ingredientes" visible={false} />
-    <BottomBar />
-  </div>
-);
+const IngredientsDrinks = () => {
+  const [teste, setTeste] = useState([]);
+
+  useEffect(() => {
+    ingredientsListD().then((data) => setTeste([...data.drinks]));
+  }, []);
+  return (
+    <div>
+      <Header title="Explorar Ingredientes" visible={false} />
+      {teste.slice(1, 12).map((ings, index) => (
+        <button
+          data-testid={`${index}-ingredient-card`}
+          key={ings.strIngredient1}
+          onClick={() => (window.location = `/bebidas/${ings.strIngredient1}`)}
+        >
+          <img
+            data-testid={`${index}-card-img`}
+            src={`https://www.thecocktaildb.com/images/ingredients/${ings.strIngredient1}-Small.png`}
+            alt={ings.strIngredient1}
+          />
+          <span data-testid={`${index}-card-name`}>{ings.strIngredient1}</span>
+        </button>
+      ))}
+      <BottomBar />
+    </div>
+  );
+};
 
 export default IngredientsDrinks;

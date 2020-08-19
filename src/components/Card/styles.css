@@ -1,35 +1,42 @@
 .recipes-container {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   height: 200vh;
   justify-content: space-around;
-  margin: 5px 0 200px;
+  margin: 5px 0 70px;
 }
 
 .card-body {
   align-items: center;
-  border-radius: 10px;
-  box-shadow: 0 5px 7px gray;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
-  height: 31vh;
-  margin: 1.2rem 0;
+  height: 172px;
   overflow: hidden;
-  width: 43%;
+  position: relative;
+  width: 161px;
 }
 
 .card-body img {
-  width: 100%;
+  height: 109px;
+  margin: 0;
+  width: 161px;
 }
 
 .card-body .card-desc {
+  background: white;
   color: rgb(34, 33, 33);
-  font-weight: 700;
-  margin-left: 10px;
-  padding: 13px;
-  text-decoration: none;
-}
+  font-size: 18px;
+  height: 22px;
+  left: 10px;
+  overflow: hidden;
+  position: absolute;
+  text-overflow: ellipsis;
+  top: 140px;
+  white-space: nowrap;
+  width: 110px;
 
-.link-details {
-  text-decoration: none;
 }

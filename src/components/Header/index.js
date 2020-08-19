@@ -18,8 +18,8 @@ const Header = ({ title, visible }) => {
             <img src={profileIcon} alt="profil Icon" data-testid="profile-top-btn" />
           </Link>
         </div>
-        <div>
-          <h1 className="title-container" data-testid="page-title">{title}</h1>
+        <div className="title-container">
+          <h1 data-testid="page-title">{title}</h1>
         </div>
         {visible ? (
           <div className="glass-container">

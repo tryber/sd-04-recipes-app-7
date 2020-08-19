@@ -1,16 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { RecipesContext } from '../context';
-// import {
-//   getMealByIngredient,
-//   getMealByNameAPI,
-//   getMealByFirstLetter,
-//   getCocktailByIngredient,
-//   getCocktailByNameAPI,
-//   getCocktailByFirstLetter,
-// } from '../services';
-import { verifyTextMeals, verifyTextCocktails } from '../utils';
-import Input from './Input';
+import { RecipesContext } from '../../context';
+import { verifyTextMeals, verifyTextCocktails } from '../../utils';
+import Input from './components/Input';
 
 const allowSearch = (text, radioValue) => !(radioValue === 'firstLetter' && text.length > 1);
 
