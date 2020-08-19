@@ -16,7 +16,7 @@ const FavoriteCard = ({
       <img data-testid={`${index}-horizontal-image`} src={image} alt={name} />
     </Link>
     <div className="recipes-info">
-      <div className="share-container">
+      <div className="share-containr">
         <span data-testid={`${index}-horizontal-top-text`}>
           {type === 'comida' ? `${area} - ${category}` : `${alcoholicOrNot}`}
         </span>
