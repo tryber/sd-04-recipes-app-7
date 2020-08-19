@@ -1,31 +1,28 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { RecipesContext } from '../context';
 import BottomBar from '../components/BottomBar/BottomBar';
 import Header from '../components/Header';
 import { ingredientsListF, getMealByIngredient } from '../services';
 
 const IngredientsFoods = () => {
-  const [teste, setTeste] = useState([]);
-  const [ingred, setIngred] = useState([]);
+  const [foodNames, setFoodNames] = useState([]);
   const { setFoodsCategory } = useContext(RecipesContext);
 
   useEffect(() => {
-    ingredientsListF().then((data) => setTeste([...data.meals]));
+    ingredientsListF().then((data) => setFoodNames([...data.meals]));
   }, []);
-
   return (
     <div>
       <Header title="Explorar Ingredientes" visible={false} />
-      {teste.slice(1, 12).map((ings, index) => (
-        <button
+      {foodNames.slice(0, 12).map((ings, index) => (
+        <Link
+          to="/comidas"
           data-testid={`${index}-ingredient-card`}
           key={ings.strIngredient}
           onClick={() => {
             getMealByIngredient(ings.strIngredient).then((data) =>
-              setIngred(data.meals),
-            );
-            setFoodsCategory([ingred])(
-              (window.location = `/comidas/${ings.strIngredient}`),
+              setFoodsCategory(data.meals),
             );
           }}
         >
@@ -35,7 +32,7 @@ const IngredientsFoods = () => {
             alt={ings.strIngredient}
           />
           <span data-testid={`${index}-card-name`}>{ings.strIngredient}</span>
-        </button>
+        </Link>
       ))}
       <BottomBar />
     </div>
