@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { RecipesContext } from '../context';
 import { getMealById } from '../services';
+import { useHistory } from 'react-router-dom';
 import Ingredients from '../components/Ingredients';
 import DetailsHeader from '../components/DetailsHeader';
 import Instructions from '../components/Instructions';
@@ -38,7 +39,7 @@ const objFavoritE = (data) => {
   return favorite;
 };
 
-const handleButton = () => null;
+const handleButton = (history) => history.push(`/receitas-feitas`);
 
 const ProgressFoods = () => {
   const { foodId, setFoodId } = useContext(RecipesContext);
@@ -46,6 +47,7 @@ const ProgressFoods = () => {
   let img = '';
   let name = '';
   let category = '';
+  const history = useHistory();
   if (foodId.length === 0 || foodId.meals[0].idMeal !== url[2]) {
     getMealById(url[2]).then((resp) => setFoodId(resp));
   }
@@ -70,7 +72,7 @@ const ProgressFoods = () => {
         <button
           data-testid="finish-recipe-btn"
           className="btn-init"
-          onClick={() => handleButton()}
+          onClick={() => handleButton(history)}
         >
           Finalizar Receita
         </button>
