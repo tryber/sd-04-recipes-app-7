@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { RecipesContext } from '../context';
 import { getMealById } from '../services';
-import { useHistory } from 'react-router-dom';
 import Ingredients from '../components/Ingredients';
 import DetailsHeader from '../components/DetailsHeader';
 import Instructions from '../components/Instructions';
@@ -39,7 +39,7 @@ const objFavoritE = (data) => {
   return favorite;
 };
 
-const handleButton = (history) => history.push(`/receitas-feitas`);
+const handleButton = (history) => history.push('/receitas-feitas');
 
 const ProgressFoods = () => {
   const { foodId, setFoodId } = useContext(RecipesContext);
