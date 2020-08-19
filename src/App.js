@@ -23,6 +23,7 @@ const App = () => (
         <Route path="/perfil" component={pages.Profile} />
         <Route path="/receitas-feitas" component={pages.MadeRecipes} />
         <Route path="/receitas-favoritas" component={pages.FavoriteRecipes} />
+        <Route path="*" component={pages.NotFound} />
       </Switch>
     </Provider>
   </Router>
