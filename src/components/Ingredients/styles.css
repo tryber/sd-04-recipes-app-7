@@ -5,6 +5,22 @@
   padding: 0.5em;
 }
 
+.item-list {
+  align-items: center;
+  background-color: rgba(0, 128, 0, 0);
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
 .ingredients-item {
   line-height: 0.2em;
+}
+
+.ingredients-item-checked {
+  line-height: 0.2em;
+  text-decoration: line-through;
 }

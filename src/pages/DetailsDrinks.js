@@ -12,6 +12,8 @@ import './CSS/Details.css';
 const takeURL = () => {
   const path = window.location.pathname;
   const arrayPath = path.split('/');
+  const urlIsString = isNaN(Number(arrayPath[2]));
+  if (urlIsString) console.log('String');
   return arrayPath;
 };
 
@@ -30,13 +32,13 @@ const catchMaterials = (data, key) => {
 
 const objFavorite = (data) => {
   const favorite = {
-    id: data.idMeal,
+    id: data.idDrink,
     type: 'bebida',
     area: data.strArea,
     category: data.strCategory,
     alcoholicOrNot: data.strAlcoholic,
-    name: data.strMeal,
-    image: data.strMealThumb,
+    name: data.strDrink,
+    image: data.strDrinkThumb,
   };
   return favorite;
 };
@@ -47,7 +49,9 @@ const DetailsDrinks = () => {
   const { drinkId, setDrinkId } = useContext(RecipesContext);
   const [recommendedFoods, setRecommendedFoods] = useState([]);
 
-  useEffect(() => getMealByNameAPI().then((resp) => setRecommendedFoods([...resp.meals])), []);
+  useEffect(() => {
+    getMealByNameAPI().then((resp) => setRecommendedFoods([...resp.meals]));
+  }, []);
 
   const url = takeURL();
   let img = '';
@@ -70,10 +74,9 @@ const DetailsDrinks = () => {
       <div>
         <DetailsHeader img={img} name={name} category={category} favorite={fav} />
         <h3>Ingredients</h3>
-        <Ingredients list={false} ingredients={ingredients} measures={measures} />
+        <Ingredients list="false" ingredients={ingredients} measures={measures} />
         <h3>Instructions</h3>
         <Instructions text={drinkId.drinks[0].strInstructions} />
-        <h3>Video</h3>
         <h3>Recomendadas</h3>
         <Carousel recommendeds={recommendedFoods} flag="comidas" />
         <button
