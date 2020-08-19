@@ -58,13 +58,13 @@ const mountFavoriteList = (filter, favorites, setUpdateUnfavorite) => {
 
 function FavoriteRecipes() {
   const [updateUnfavorite, setUpdateUnfavorite] = useState(false);
-  const [filterRecipes, setFilterRecipes] = useState('all');
+  const [filterRecipes ] = useState('all');
   const [favorites, setFavorites] = useState([]);
 
   const getFavoritesAndSet = () => {
     const favoriteList = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
     console.log(favoriteList);
-    setFavorites([favoriteList]);
+    setFavorites([...favoriteList]);
     setUpdateUnfavorite(false);
   };
 
@@ -75,7 +75,7 @@ function FavoriteRecipes() {
   return (
     <div>
       <Header title="Receitas Favoritas" visible={false} />
-      <RecipesButtons setFilterRecipes/>
+      <RecipesButtons />
       {favorites && favorites.length >= 1
         ? mountFavoriteList(filterRecipes, favorites, setUpdateUnfavorite)
         : null}
