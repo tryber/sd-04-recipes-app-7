@@ -8,7 +8,7 @@ import ShareButton from '../ShareButton';
 import '../DoneRecipesCard/styles.css';
 
 const FavoriteCard = ({
-  recipe: { id, type, area, category, alcoholicOrNot, name, image, },
+  recipe: { id, type, area, category, alcoholicOrNot, name, image },
   index,
 }) => (
   <div className="dne-recipes-container">
