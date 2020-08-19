@@ -22,7 +22,7 @@ const IngredientsDrinks = () => {
           key={ings.strIngredient1}
           onClick={() => {
             getCocktailByIngredient(ings.strIngredient1).then((data) =>
-              setDrinksCategory(data.drinks)
+              setDrinksCategory(data.drinks),
             );
           }}
         >
