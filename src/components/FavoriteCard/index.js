@@ -8,11 +8,11 @@ import ShareButton from '../ShareButton';
 import '../DoneRecipesCard/styles.css';
 
 const FavoriteCard = ({
-  recipe: { id, type, area, category, alcoholicOrNot, name, image, doneDate, tags },
+  recipe: { id, type, area, category, alcoholicOrNot, name, image, },
   index,
 }) => (
-  <div className="done-recipes-container">
-    <Link to={`/${type}s/${id}`} className="link-img-recipe">
+  <div className="dne-recipes-container">
+    <Link to={`/${type}s/${id}`} className="lnk-img-recipe">
       <img data-testid={`${index}-horizontal-image`} src={image} alt={name} />
     </Link>
     <div className="recipes-info">
@@ -25,7 +25,7 @@ const FavoriteCard = ({
       <Link
         to={`/${type}s/${id}`}
         data-testid={`${index}-horizontal-name`}
-        className="recipe-title"
+        className="recpe-title"
       >
         {name}
       </Link>

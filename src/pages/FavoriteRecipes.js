@@ -12,8 +12,8 @@ function FavoriteRecipes() {
   return (
     <div>
       <Header title="Receitas Favoritas" visible={false} />
-      <RecipesButtons allRecipes={favoriteList} setRecipesFilter={setFilterRecipes}  />
-      {filterRecipes.length !==0 &&
+      <RecipesButtons allRecipes={favoriteList} setRecipesFilter={setFilterRecipes} />
+      {filterRecipes.length !== 0 &&
         filterRecipes.map((recipe, index) => (
           <FavoriteCard key={recipe.id} recipe={recipe} index={index} />
         ))}
