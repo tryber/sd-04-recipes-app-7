@@ -5,6 +5,8 @@ import BottomBar from '../components/BottomBar/BottomBar';
 import Header from '../components/Header';
 import { ingredientsListF, getMealByIngredient } from '../services';
 
+import './CSS/ExploreByIngredient.css';
+
 const IngredientsFoods = () => {
   const [foodNames, setFoodNames] = useState([]);
   const { setFoodsCategory } = useContext(RecipesContext);
@@ -18,6 +20,7 @@ const IngredientsFoods = () => {
       {foodNames.slice(0, 12).map((ings, index) => (
         <Link
           to="/comidas"
+          className="ingredient-card"
           data-testid={`${index}-ingredient-card`}
           key={ings.strIngredient}
           onClick={() => {
@@ -27,11 +30,12 @@ const IngredientsFoods = () => {
           }}
         >
           <img
+            className="ingredient-img"
             data-testid={`${index}-card-img`}
             src={`https://www.themealdb.com/images/ingredients/${ings.strIngredient}-Small.png`}
             alt={ings.strIngredient}
           />
-          <span data-testid={`${index}-card-name`}>{ings.strIngredient}</span>
+          <span data-testid={`${index}-card-name`} className="ingredient-desc">{ings.strIngredient}</span>
         </Link>
       ))}
       <BottomBar />

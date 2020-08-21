@@ -1,0 +1,31 @@
+.ingredient-card {
+  border-radius: 6px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  height: 172px;
+  justify-content: center;
+  margin: 10px 9px;
+  position: relative;
+  width: 161px;
+}
+
+.ingredient-img {
+  height: 109px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 109px;
+  transform: translate(-50%, -50%);
+}
+
+.ingredient-desc {
+  color: rgb(58, 57, 57);
+  font-size: 18px;
+  height: 21px;
+  left: 0%;
+  position: absolute;
+  top: 70%;
+  width: 100%;
+  word-wrap: break-word;
+}
+
