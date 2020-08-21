@@ -1,3 +1,8 @@
+.explorer-by-button:nth-child(1),
+.explorer-by-button:nth-child(2) {
+  margin-top: 30px;
+}
+
 .explorer-by-button {
   background: white;
   border: none;
@@ -6,7 +11,7 @@
   font-size: 24px;
   height: 82px;
   left: 15px;
-  margin: 18px 9px;
+  margin: 12px 9px;
   top: 81px;
   width: 161px;
 }
